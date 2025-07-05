@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://db1nlg1wnmxkm"]
+
+[ext_resource type="Texture2D" uid="uid://mu5vdx33nndv" path="res://Recursos/delfin48.png" id="1_ki1y3"]
+[ext_resource type="Script" uid="uid://njf6dbqd0ddn" path="res://Escenas/Movimiento/Desliz/player.gd" id="2_6cf0e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcwev"]
+atlas = ExtResource("1_ki1y3")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwuh5"]
+atlas = ExtResource("1_ki1y3")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utimc"]
+atlas = ExtResource("1_ki1y3")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nd6v3"]
+atlas = ExtResource("1_ki1y3")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0hpd4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcwev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwuh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utimc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nd6v3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="main" type="Node2D"]
+
+[node name="player" type="AnimatedSprite2D" parent="."]
+position = Vector2(160, 84)
+sprite_frames = SubResource("SpriteFrames_0hpd4")
+autoplay = "default"
+frame = 3
+frame_progress = 0.754743
+script = ExtResource("2_6cf0e")
+velocity = 15.0
+MAX_ACCEL = 5.0
+releace_time = 0.55

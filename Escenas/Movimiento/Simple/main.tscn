@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://dtki6ywokbp6j"]
+
+[ext_resource type="Texture2D" uid="uid://di6q1gtsyuwye" path="res://Recursos/capibara.png" id="1_ft35e"]
+[ext_resource type="Texture2D" uid="uid://cedmfi2qfnmn0" path="res://Recursos/patito.png" id="1_o5l3m"]
+[ext_resource type="Script" uid="uid://d1m3fo06f5gqn" path="res://Escenas/Movimiento/Simple/player.gd" id="2_o5l3m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcit5"]
+atlas = ExtResource("1_ft35e")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wqdi"]
+atlas = ExtResource("1_ft35e")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1j50"]
+atlas = ExtResource("1_ft35e")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbytq"]
+atlas = ExtResource("1_ft35e")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ft35e"]
+atlas = ExtResource("1_o5l3m")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3bwd"]
+atlas = ExtResource("1_o5l3m")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frres"]
+atlas = ExtResource("1_o5l3m")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7reau"]
+atlas = ExtResource("1_o5l3m")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ft35e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcit5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wqdi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1j50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbytq")
+}],
+"loop": true,
+"name": &"capi",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ft35e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3bwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frres")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7reau")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="main" type="Node2D"]
+
+[node name="player" type="AnimatedSprite2D" parent="."]
+position = Vector2(94, 42)
+sprite_frames = SubResource("SpriteFrames_ft35e")
+animation = &"capi"
+autoplay = "capi"
+frame_progress = 0.118752
+script = ExtResource("2_o5l3m")
+velocity = 80.0
