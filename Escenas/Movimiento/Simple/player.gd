@@ -32,10 +32,3 @@ func _process(delta: float) -> void:
 	else:
 		play("idle")
 	pass
-
-func screen_limit() -> void:
-	var margin = 10.0
-	var viewport_size = get_viewport_rect().size
-	position.x = clamp(position.x, margin, viewport_size.x - margin)
-	position.y = clamp(position.y, margin, viewport_size.y - margin)
-	pass

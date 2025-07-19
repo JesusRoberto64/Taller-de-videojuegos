@@ -1,10 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://dtki6ywokbp6j"]
+[gd_scene load_steps=27 format=4 uid="uid://dtki6ywokbp6j"]
 
 [ext_resource type="Texture2D" uid="uid://b2f6knsflsabs" path="res://Recursos/capibara Idle.png" id="1_b3bwd"]
 [ext_resource type="Texture2D" uid="uid://di6q1gtsyuwye" path="res://Recursos/capibara.png" id="1_ft35e"]
-[ext_resource type="Script" uid="uid://d1m3fo06f5gqn" path="res://Escenas/Movimiento/Simple/player.gd" id="2_o5l3m"]
-[ext_resource type="Texture2D" uid="uid://dms88ki0iyqit" path="res://Recursos/fondo_01.png" id="4_b3bwd"]
+[ext_resource type="Script" uid="uid://bv6eqf7v2q87y" path="res://Escenas/Movimiento/Simple/player_characterbody.gd" id="1_jcit5"]
 [ext_resource type="Texture2D" uid="uid://xum2uxnhgtse" path="res://Recursos/shadow.png" id="4_frres"]
+[ext_resource type="Texture2D" uid="uid://6sppvdg6lg0e" path="res://Recursos/fondo_02.png" id="5_7reau"]
+[ext_resource type="Texture2D" uid="uid://ca3w7sc8qkqe1" path="res://Recursos/tiles_00.png" id="6_7reau"]
+[ext_resource type="Texture2D" uid="uid://bmqya8hv8wcg2" path="res://Recursos/tiles_shadow_00.png" id="7_jcit5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_frres"]
 atlas = ExtResource("1_b3bwd")
@@ -88,26 +90,64 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wqdi"]
+size = Vector2(28, 25)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jcit5"]
+texture = ExtResource("6_7reau")
+texture_region_size = Vector2i(37, 21)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.4167, -3.5, 18.5, -3.5, 18.5, 3.5, 3.08333, 3.5, 3.08333, 1.75, -15.4167, 1.75)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7reau"]
+texture = ExtResource("6_7reau")
+margins = Vector2i(13, 0)
+texture_region_size = Vector2i(24, 21)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9, -2.5, 12, -2.5, 12, 4.5, -9, 4.5)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5wqdi"]
+texture = ExtResource("6_7reau")
+margins = Vector2i(22, 0)
+texture_region_size = Vector2i(39, 21)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16.4444, -2.33333, 19.8214, -2.25, 19.8214, 4.5, -16.4444, 4.66667)
+
+[sub_resource type="TileSet" id="TileSet_5wqdi"]
+tile_size = Vector2i(37, 21)
+physics_layer_0/collision_layer = 1
+sources/3 = SubResource("TileSetAtlasSource_jcit5")
+sources/4 = SubResource("TileSetAtlasSource_7reau")
+sources/5 = SubResource("TileSetAtlasSource_5wqdi")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f1j50"]
+texture = ExtResource("7_jcit5")
+texture_region_size = Vector2i(37, 21)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.4167, -3.5, 18.5, -3.5, 18.5, 3.5, 3.08333, 3.5, 3.08333, 1.75, -15.4167, 1.75)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mbytq"]
+texture = ExtResource("7_jcit5")
+margins = Vector2i(13, 0)
+texture_region_size = Vector2i(24, 21)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9, -2.5, 12, -2.5, 12, 4.5, -9, 4.5)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bfygd"]
+texture = ExtResource("7_jcit5")
+margins = Vector2i(22, 0)
+texture_region_size = Vector2i(39, 21)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16.4444, -2.33333, 19.8214, -2.25, 19.8214, 4.5, -16.4444, 4.66667)
+
+[sub_resource type="TileSet" id="TileSet_d3k73"]
+tile_size = Vector2i(37, 21)
+physics_layer_0/collision_layer = 1
+sources/3 = SubResource("TileSetAtlasSource_f1j50")
+sources/4 = SubResource("TileSetAtlasSource_mbytq")
+sources/5 = SubResource("TileSetAtlasSource_bfygd")
+
 [node name="main" type="Node2D"]
-
-[node name="player" type="AnimatedSprite2D" parent="."]
-position = Vector2(97, 42)
-sprite_frames = SubResource("SpriteFrames_ft35e")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.447003
-flip_h = true
-script = ExtResource("2_o5l3m")
-velocity = 80.0
-
-[node name="Shadow" type="Sprite2D" parent="player"]
-z_index = -1
-position = Vector2(5, 1)
-scale = Vector2(0.84375, 1)
-texture = ExtResource("4_frres")
-offset = Vector2(-4, 0)
-
-[node name="Camera2D" type="Camera2D" parent="player"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -116,6 +156,46 @@ motion_mirroring = Vector2(640, 360)
 
 [node name="Fondo" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 scale = Vector2(2, 2)
-texture = ExtResource("4_b3bwd")
+texture = ExtResource("5_7reau")
 centered = false
 metadata/_edit_lock_ = true
+
+[node name="Y-sort" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" type="CharacterBody2D" parent="Y-sort"]
+script = ExtResource("1_jcit5")
+
+[node name="player" type="AnimatedSprite2D" parent="Y-sort/Player"]
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_ft35e")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.447003
+flip_h = true
+
+[node name="Shadow" type="Sprite2D" parent="Y-sort/Player/player"]
+z_index = -1
+position = Vector2(5, 1)
+scale = Vector2(0.84375, 1)
+texture = ExtResource("4_frres")
+offset = Vector2(-4, 0)
+
+[node name="Camera2D" type="Camera2D" parent="Y-sort/Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Y-sort/Player"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_5wqdi")
+
+[node name="Platforms" type="TileMapLayer" parent="Y-sort"]
+y_sort_enabled = true
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAAFAAMAAwAAAAAAAAACAAcAAwAAAAAAAAAGAAUAAwAAAAAAAAAFAAgAAwAAAAAAAAAGAAoABAABAAAAAAADAAMABAABAAAAAAADAAsABAABAAAAAAAKAAcABQABAAAAAAAFAAEABQABAAAAAAABAAkABQABAAAAAAA=")
+tile_set = SubResource("TileSet_5wqdi")
+
+[node name="shadows" type="TileMapLayer" parent="Y-sort"]
+z_index = -1
+y_sort_enabled = true
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAAFAAMAAwAAAAAAAAACAAcAAwAAAAAAAAAGAAUAAwAAAAAAAAAFAAgAAwAAAAAAAAAGAAoABAABAAAAAAADAAMABAABAAAAAAADAAsABAABAAAAAAAKAAcABQABAAAAAAAFAAEABQABAAAAAAABAAkABQABAAAAAAA=")
+tile_set = SubResource("TileSet_d3k73")
