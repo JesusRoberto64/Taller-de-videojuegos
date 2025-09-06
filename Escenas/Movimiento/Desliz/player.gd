@@ -29,6 +29,7 @@ func _process(delta: float) -> void:
 	velocity = accel
 	move_and_slide()
 	screen_limit()
+	
 	pass
 
 func screen_limit() -> void:

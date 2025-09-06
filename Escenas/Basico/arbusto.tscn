@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://penn6c6lob82"]
+
+[ext_resource type="Texture2D" uid="uid://jk55a8txd5tv" path="res://Recursos/arbusto.png" id="1_w3il7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w3il7"]
+size = Vector2(25, 21)
+
+[node name="Arbusto" type="Sprite2D"]
+texture = ExtResource("1_w3il7")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_w3il7")

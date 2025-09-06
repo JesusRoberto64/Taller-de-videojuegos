@@ -131,3 +131,5 @@ scale = Vector2(2, 2)
 texture = ExtResource("4_qya0g")
 centered = false
 metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://dtki6ywokbp6j"]
+[gd_scene load_steps=28 format=4 uid="uid://dtki6ywokbp6j"]
 
 [ext_resource type="Texture2D" uid="uid://b2f6knsflsabs" path="res://Recursos/capibara Idle.png" id="1_b3bwd"]
 [ext_resource type="Texture2D" uid="uid://di6q1gtsyuwye" path="res://Recursos/capibara.png" id="1_ft35e"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://6sppvdg6lg0e" path="res://Recursos/fondo_02.png" id="5_7reau"]
 [ext_resource type="Texture2D" uid="uid://ca3w7sc8qkqe1" path="res://Recursos/tiles_00.png" id="6_7reau"]
 [ext_resource type="Texture2D" uid="uid://bmqya8hv8wcg2" path="res://Recursos/tiles_shadow_00.png" id="7_jcit5"]
+[ext_resource type="PackedScene" uid="uid://penn6c6lob82" path="res://Escenas/Basico/arbusto.tscn" id="8_5wqdi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_frres"]
 atlas = ExtResource("1_b3bwd")
@@ -165,6 +166,7 @@ y_sort_enabled = true
 
 [node name="Player" type="CharacterBody2D" parent="Y-sort"]
 script = ExtResource("1_jcit5")
+speed = 138.17
 
 [node name="player" type="AnimatedSprite2D" parent="Y-sort/Player"]
 y_sort_enabled = true
@@ -199,3 +201,6 @@ y_sort_enabled = true
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAFAAMAAwAAAAAAAAACAAcAAwAAAAAAAAAGAAUAAwAAAAAAAAAFAAgAAwAAAAAAAAAGAAoABAABAAAAAAADAAMABAABAAAAAAADAAsABAABAAAAAAAKAAcABQABAAAAAAAFAAEABQABAAAAAAABAAkABQABAAAAAAA=")
 tile_set = SubResource("TileSet_d3k73")
+
+[node name="Arbusto" parent="Y-sort" instance=ExtResource("8_5wqdi")]
+position = Vector2(173, 45)
