@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=4 uid="uid://db1nlg1wnmxkm"]
+[gd_scene load_steps=16 format=4 uid="uid://db1nlg1wnmxkm"]
 
 [ext_resource type="Texture2D" uid="uid://mu5vdx33nndv" path="res://Recursos/delfin48.png" id="1_ki1y3"]
 [ext_resource type="Script" uid="uid://njf6dbqd0ddn" path="res://Escenas/Movimiento/Desliz/player.gd" id="2_6cf0e"]
+[ext_resource type="Script" uid="uid://o6ikiuiej25c" path="res://Escenas/Movimiento/Simple/camera_offset.gd" id="3_poue4"]
 [ext_resource type="Texture2D" uid="uid://dabvrgqk8an7" path="res://Recursos/coral_title_01_X2.png" id="4_2xste"]
 [ext_resource type="Texture2D" uid="uid://vwqtfbe27nhu" path="res://Recursos/coral_title_02_X2.png" id="4_poue4"]
 [ext_resource type="Texture2D" uid="uid://cvwmeyf5ek5r7" path="res://Recursos/fondoDelfin_00.png" id="4_qya0g"]
@@ -112,8 +113,17 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_qya0g")
 
 [node name="Camera2D" type="Camera2D" parent="player"]
+process_callback = 0
 limit_top = 0
 limit_bottom = 860
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_left_margin = 0.4
+drag_top_margin = 0.4
+drag_right_margin = 0.4
+drag_bottom_margin = 0.4
+editor_draw_drag_margin = true
+script = ExtResource("3_poue4")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-2, 2)

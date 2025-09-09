@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://dtki6ywokbp6j"]
+[gd_scene load_steps=29 format=4 uid="uid://dtki6ywokbp6j"]
 
 [ext_resource type="Texture2D" uid="uid://b2f6knsflsabs" path="res://Recursos/capibara Idle.png" id="1_b3bwd"]
 [ext_resource type="Texture2D" uid="uid://di6q1gtsyuwye" path="res://Recursos/capibara.png" id="1_ft35e"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://xum2uxnhgtse" path="res://Recursos/shadow.png" id="4_frres"]
 [ext_resource type="Texture2D" uid="uid://6sppvdg6lg0e" path="res://Recursos/fondo_02.png" id="5_7reau"]
 [ext_resource type="Texture2D" uid="uid://ca3w7sc8qkqe1" path="res://Recursos/tiles_00.png" id="6_7reau"]
+[ext_resource type="Script" uid="uid://o6ikiuiej25c" path="res://Escenas/Movimiento/Simple/camera_offset.gd" id="6_f1j50"]
 [ext_resource type="Texture2D" uid="uid://bmqya8hv8wcg2" path="res://Recursos/tiles_shadow_00.png" id="7_jcit5"]
 [ext_resource type="PackedScene" uid="uid://penn6c6lob82" path="res://Escenas/Basico/arbusto.tscn" id="8_5wqdi"]
 
@@ -184,6 +185,17 @@ texture = ExtResource("4_frres")
 offset = Vector2(-4, 0)
 
 [node name="Camera2D" type="Camera2D" parent="Y-sort/Player"]
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 3.5
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.3
+drag_top_margin = 0.3
+drag_right_margin = 0.3
+drag_bottom_margin = 0.3
+editor_draw_drag_margin = true
+script = ExtResource("6_f1j50")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Y-sort/Player"]
 position = Vector2(0, 0.5)

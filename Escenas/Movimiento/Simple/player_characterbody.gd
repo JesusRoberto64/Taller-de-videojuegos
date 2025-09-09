@@ -3,8 +3,9 @@ extends CharacterBody2D
 @export_range(1.0, 300.0) var speed = 100.0
 @onready var sprite_anim = $player
 @onready var shadow = $player/Shadow
+@onready var cam = $Camera2D
 
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var mov = Vector2.ZERO
 	
 	# Botones para izquerda y derecha
@@ -32,4 +33,8 @@ func _process(_delta: float) -> void:
 		sprite_anim.play("walk")
 	else:
 		sprite_anim.play("idle")
+	
+	# Camara ajustar desface
+	cam.offset_adjust(mov)
+	
 	pass

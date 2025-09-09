@@ -1,13 +1,16 @@
 extends CharacterBody2D
 
 var accel = Vector2.ZERO
+
 @export_range(0.0, 250.0) var speed = 20.0
 @export var MAX_ACCEL = 7.0
 @export var releace_time = 0.25
 
-@onready var sprite_anim: AnimatedSprite2D = $sprite_anim
 
-func _process(delta: float) -> void:
+@onready var sprite_anim: AnimatedSprite2D = $sprite_anim
+@onready var cam = $Camera2D
+
+func _physics_process(delta: float) -> void:
 	var mov = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
 	if mov != Vector2.ZERO:
@@ -25,12 +28,13 @@ func _process(delta: float) -> void:
 		sprite_anim.speed_scale = 0.5;
 		pass
 	
-	#position += accel
+	
 	velocity = accel
 	move_and_slide()
 	screen_limit()
 	
-	pass
+	cam.offset_adjust(mov)
+	
 
 func screen_limit() -> void:
 	var margin = 10.0

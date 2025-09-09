@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-var speed = 100
+var speed = 100.0
 @onready var sprite_anim = $AnimatedSprite2D
 
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var mov = Vector2.ZERO
 	# Botones para izquierda y derecha
 	if Input.is_action_pressed("ui_right"):
@@ -20,6 +20,8 @@ func _process(_delta: float) -> void:
 	
 	velocity = mov * speed
 	move_and_slide()
+	
+	
 	if mov != Vector2.ZERO:
 		sprite_anim.play("walking")
 	else:
