@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpmstsjxfvd6q"]
+
+[ext_resource type="Texture2D" uid="uid://jk55a8txd5tv" path="res://Recursos/arbusto.png" id="1_komgv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3740o"]
+size = Vector2(25, 21)
+
+[node name="Saco" type="StaticBody2D"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="Arbusto" type="Sprite2D" parent="."]
+texture = ExtResource("1_komgv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_3740o")
