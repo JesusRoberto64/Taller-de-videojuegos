@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0l2wi6yx46np"
-path="res://.godot/imported/Sanson_00.png-17b8136b845f5a873a343863838c7dfb.ctex"
+uid="uid://bejafr6ixy63e"
+path="res://.godot/imported/golpe.png-994ce35794409b4c2151c740287b83f7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/Sanson_00.png"
-dest_files=["res://.godot/imported/Sanson_00.png-17b8136b845f5a873a343863838c7dfb.ctex"]
+source_file="res://Recursos/golpe.png"
+dest_files=["res://.godot/imported/golpe.png-994ce35794409b4c2151c740287b83f7.ctex"]
 
 [params]
 
