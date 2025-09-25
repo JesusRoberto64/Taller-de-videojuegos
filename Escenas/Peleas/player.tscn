@@ -1,27 +1,27 @@
-[gd_scene load_steps=25 format=3 uid="uid://bauegx3xiajpq"]
+[gd_scene load_steps=24 format=3 uid="uid://bauegx3xiajpq"]
 
 [ext_resource type="Script" uid="uid://cekp4hhxmbbay" path="res://Escenas/Peleas/player.gd" id="1_1avs2"]
 [ext_resource type="Texture2D" uid="uid://c0l2wi6yx46np" path="res://Recursos/Sanson_00.png" id="4_7w6ij"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1avs2"]
-atlas = ExtResource("4_7w6ij")
-region = Rect2(244, 122, 61, 61)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k8hwq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rh6g"]
 atlas = ExtResource("4_7w6ij")
 region = Rect2(183, 0, 61, 61)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7w6ij"]
-atlas = ExtResource("4_7w6ij")
-region = Rect2(122, 122, 61, 61)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_spg2c"]
 atlas = ExtResource("4_7w6ij")
 region = Rect2(183, 61, 61, 61)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7rh6g"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0h544"]
 atlas = ExtResource("4_7w6ij")
-region = Rect2(183, 0, 61, 61)
+region = Rect2(244, 0, 61, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1avs2"]
+atlas = ExtResource("4_7w6ij")
+region = Rect2(244, 122, 61, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7w6ij"]
+atlas = ExtResource("4_7w6ij")
+region = Rect2(122, 122, 61, 61)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6w8ll"]
 atlas = ExtResource("4_7w6ij")
@@ -30,10 +30,6 @@ region = Rect2(122, 122, 61, 61)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ljx4j"]
 atlas = ExtResource("4_7w6ij")
 region = Rect2(183, 122, 61, 61)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0h544"]
-atlas = ExtResource("4_7w6ij")
-region = Rect2(244, 0, 61, 61)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3phhw"]
 atlas = ExtResource("4_7w6ij")
@@ -75,16 +71,33 @@ region = Rect2(61, 122, 61, 61)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_7rh6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spg2c")
+}],
+"loop": false,
+"name": &"hit_end",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0h544")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1avs2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1avs2")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_1avs2")
 }],
 "loop": false,
 "name": &"hit_kick",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k8hwq")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7w6ij")
 }, {
@@ -93,23 +106,17 @@ animations = [{
 }],
 "loop": false,
 "name": &"hit_punch",
-"speed": 12.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_spg2c")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7rh6g")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_6w8ll")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7rh6g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_spg2c")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ljx4j")
@@ -121,6 +128,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0h544")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3phhw")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3phhw")
@@ -168,7 +178,7 @@ animations = [{
 size = Vector2(17, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1avs2"]
-size = Vector2(23, 11)
+size = Vector2(39, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fuplt"]
 size = Vector2(22, 20)
@@ -181,7 +191,7 @@ script = ExtResource("1_1avs2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7w6ij")
-animation = &"hit_punch_loop"
+animation = &"hit_punch"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -192,7 +202,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="PunchShape" type="CollisionShape2D" parent="Hitboxes"]
-position = Vector2(-19.5, -7.5)
+position = Vector2(-11.5, -7.5)
 shape = SubResource("RectangleShape2D_1avs2")
 disabled = true
 debug_color = Color(0.930994, 0.234165, 0.311919, 0.42)
@@ -208,9 +218,6 @@ position = Vector2(-16.5, -13)
 shape = SubResource("RectangleShape2D_b0w0n")
 disabled = true
 debug_color = Color(0.930994, 0.234165, 0.311919, 0.42)
-
-[node name="hitpos" type="Marker2D" parent="Hitboxes"]
-position = Vector2(-25, -2)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animation_finished"]
 [connection signal="body_entered" from="Hitboxes" to="." method="_on_punch_body_entered"]
