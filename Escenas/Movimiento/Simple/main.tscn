@@ -1,99 +1,13 @@
-[gd_scene load_steps=29 format=4 uid="uid://dtki6ywokbp6j"]
+[gd_scene load_steps=17 format=4 uid="uid://dtki6ywokbp6j"]
 
-[ext_resource type="Texture2D" uid="uid://b2f6knsflsabs" path="res://Recursos/capibara Idle.png" id="1_b3bwd"]
-[ext_resource type="Texture2D" uid="uid://di6q1gtsyuwye" path="res://Recursos/capibara.png" id="1_ft35e"]
-[ext_resource type="Script" uid="uid://bv6eqf7v2q87y" path="res://Escenas/Movimiento/Simple/player_characterbody.gd" id="1_jcit5"]
-[ext_resource type="Texture2D" uid="uid://xum2uxnhgtse" path="res://Recursos/shadow.png" id="4_frres"]
+[ext_resource type="Script" uid="uid://bxkc7q037mak0" path="res://Escenas/Movimiento/Simple/overlord.gd" id="1_bfygd"]
+[ext_resource type="PackedScene" uid="uid://bbhfmhp6wwp0g" path="res://Escenas/Movimiento/Simple/player.tscn" id="4_jcit5"]
 [ext_resource type="Texture2D" uid="uid://6sppvdg6lg0e" path="res://Recursos/fondo_02.png" id="5_7reau"]
 [ext_resource type="Texture2D" uid="uid://ca3w7sc8qkqe1" path="res://Recursos/tiles_00.png" id="6_7reau"]
-[ext_resource type="Script" uid="uid://o6ikiuiej25c" path="res://Escenas/Movimiento/Simple/camera_offset.gd" id="6_f1j50"]
 [ext_resource type="Texture2D" uid="uid://bmqya8hv8wcg2" path="res://Recursos/tiles_shadow_00.png" id="7_jcit5"]
 [ext_resource type="PackedScene" uid="uid://penn6c6lob82" path="res://Escenas/Basico/arbusto.tscn" id="8_5wqdi"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_frres"]
-atlas = ExtResource("1_b3bwd")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7reau"]
-atlas = ExtResource("1_b3bwd")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bfygd"]
-atlas = ExtResource("1_b3bwd")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d3k73"]
-atlas = ExtResource("1_b3bwd")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e1set"]
-atlas = ExtResource("1_b3bwd")
-region = Rect2(32, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jcit5"]
-atlas = ExtResource("1_ft35e")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5wqdi"]
-atlas = ExtResource("1_ft35e")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f1j50"]
-atlas = ExtResource("1_ft35e")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mbytq"]
-atlas = ExtResource("1_ft35e")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ft35e"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_frres")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_frres")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7reau")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bfygd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d3k73")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e1set")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_frres")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 2.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jcit5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5wqdi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f1j50")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mbytq")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wqdi"]
-size = Vector2(28, 25)
+[ext_resource type="Texture2D" uid="uid://b4pfnbrc5vr8c" path="res://Recursos/hoja.png" id="8_f1j50"]
+[ext_resource type="PackedScene" uid="uid://dbep4jhqn1efh" path="res://Escenas/Movimiento/Simple/hoja.tscn" id="10_mbytq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jcit5"]
 texture = ExtResource("6_7reau")
@@ -150,6 +64,7 @@ sources/4 = SubResource("TileSetAtlasSource_mbytq")
 sources/5 = SubResource("TileSetAtlasSource_bfygd")
 
 [node name="main" type="Node2D"]
+script = ExtResource("1_bfygd")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -162,57 +77,58 @@ texture = ExtResource("5_7reau")
 centered = false
 metadata/_edit_lock_ = true
 
-[node name="Y-sort" type="Node2D" parent="."]
+[node name="Hojas" type="Node2D" parent="."]
+
+[node name="hoja" parent="Hojas" instance=ExtResource("10_mbytq")]
+position = Vector2(98, -28)
+
+[node name="hoja2" parent="Hojas" instance=ExtResource("10_mbytq")]
+position = Vector2(166, -46)
+
+[node name="hoja3" parent="Hojas" instance=ExtResource("10_mbytq")]
+position = Vector2(231, -8)
+
+[node name="hoja4" parent="Hojas" instance=ExtResource("10_mbytq")]
+position = Vector2(320, 19)
+
+[node name="hoja5" parent="Hojas" instance=ExtResource("10_mbytq")]
+position = Vector2(325, 104)
+
+[node name="hoja6" parent="Hojas" instance=ExtResource("10_mbytq")]
+position = Vector2(322, 161)
+
+[node name="Ysort" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="Player" type="CharacterBody2D" parent="Y-sort"]
-script = ExtResource("1_jcit5")
-speed = 138.17
+[node name="Player" parent="Ysort" instance=ExtResource("4_jcit5")]
 
-[node name="player" type="AnimatedSprite2D" parent="Y-sort/Player"]
-y_sort_enabled = true
-sprite_frames = SubResource("SpriteFrames_ft35e")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.447003
-flip_h = true
-
-[node name="Shadow" type="Sprite2D" parent="Y-sort/Player/player"]
-z_index = -1
-position = Vector2(5, 1)
-scale = Vector2(0.84375, 1)
-texture = ExtResource("4_frres")
-offset = Vector2(-4, 0)
-
-[node name="Camera2D" type="Camera2D" parent="Y-sort/Player"]
-process_callback = 0
-position_smoothing_enabled = true
-position_smoothing_speed = 3.5
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_left_margin = 0.3
-drag_top_margin = 0.3
-drag_right_margin = 0.3
-drag_bottom_margin = 0.3
-editor_draw_drag_margin = true
-script = ExtResource("6_f1j50")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Y-sort/Player"]
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_5wqdi")
-
-[node name="Platforms" type="TileMapLayer" parent="Y-sort"]
+[node name="Platforms" type="TileMapLayer" parent="Ysort"]
 y_sort_enabled = true
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAFAAMAAwAAAAAAAAACAAcAAwAAAAAAAAAGAAUAAwAAAAAAAAAFAAgAAwAAAAAAAAAGAAoABAABAAAAAAADAAMABAABAAAAAAADAAsABAABAAAAAAAKAAcABQABAAAAAAAFAAEABQABAAAAAAABAAkABQABAAAAAAA=")
 tile_set = SubResource("TileSet_5wqdi")
 
-[node name="shadows" type="TileMapLayer" parent="Y-sort"]
+[node name="shadows" type="TileMapLayer" parent="Ysort"]
 z_index = -1
 y_sort_enabled = true
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAFAAMAAwAAAAAAAAACAAcAAwAAAAAAAAAGAAUAAwAAAAAAAAAFAAgAAwAAAAAAAAAGAAoABAABAAAAAAADAAMABAABAAAAAAADAAsABAABAAAAAAAKAAcABQABAAAAAAAFAAEABQABAAAAAAABAAkABQABAAAAAAA=")
 tile_set = SubResource("TileSet_d3k73")
 
-[node name="Arbusto" parent="Y-sort" instance=ExtResource("8_5wqdi")]
+[node name="Arbusto" parent="Ysort" instance=ExtResource("8_5wqdi")]
 position = Vector2(173, 45)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(15, 15)
+texture = ExtResource("8_f1j50")
+region_enabled = true
+region_rect = Rect2(3.00027, 0, 25.4458, 27.3616)
+
+[node name="Hojas_lab" type="Label" parent="CanvasLayer"]
+offset_left = 27.0
+offset_top = 4.0
+offset_right = 67.0
+offset_bottom = 27.0
+text = " X 0"

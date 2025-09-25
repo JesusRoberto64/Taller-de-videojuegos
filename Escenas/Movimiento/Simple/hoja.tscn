@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbep4jhqn1efh"]
+
+[ext_resource type="Texture2D" uid="uid://b4pfnbrc5vr8c" path="res://Recursos/hoja.png" id="1_5illb"]
+[ext_resource type="Script" uid="uid://bx3gsy6f5j0dr" path="res://Escenas/Movimiento/Simple/hoja.gd" id="1_e6jq0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6jq0"]
+atlas = ExtResource("1_5illb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yg5qe"]
+atlas = ExtResource("1_5illb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tdk0b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6jq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yg5qe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pphjk"]
+size = Vector2(14, 20)
+
+[node name="hoja" type="Area2D"]
+script = ExtResource("1_e6jq0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tdk0b")
+autoplay = "default"
+frame_progress = 0.316944
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -2)
+shape = SubResource("RectangleShape2D_pphjk")

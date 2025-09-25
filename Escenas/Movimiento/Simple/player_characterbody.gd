@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var sprite_anim = $player
 @onready var shadow = $player/Shadow
 @onready var cam = $Camera2D
+@onready var area = $Area2D
 
 func _physics_process(_delta: float) -> void:
 	var mov = Vector2.ZERO

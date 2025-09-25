@@ -1,0 +1,135 @@
+[gd_scene load_steps=17 format=3 uid="uid://bbhfmhp6wwp0g"]
+
+[ext_resource type="Script" uid="uid://bv6eqf7v2q87y" path="res://Escenas/Movimiento/Simple/player_characterbody.gd" id="1_fpqeu"]
+[ext_resource type="Texture2D" uid="uid://b2f6knsflsabs" path="res://Recursos/capibara Idle.png" id="2_50wne"]
+[ext_resource type="Texture2D" uid="uid://di6q1gtsyuwye" path="res://Recursos/capibara.png" id="3_fob05"]
+[ext_resource type="Texture2D" uid="uid://xum2uxnhgtse" path="res://Recursos/shadow.png" id="4_0s806"]
+[ext_resource type="Script" uid="uid://o6ikiuiej25c" path="res://Escenas/Movimiento/Simple/camera_offset.gd" id="5_2k7hm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frres"]
+atlas = ExtResource("2_50wne")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7reau"]
+atlas = ExtResource("2_50wne")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfygd"]
+atlas = ExtResource("2_50wne")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3k73"]
+atlas = ExtResource("2_50wne")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1set"]
+atlas = ExtResource("2_50wne")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcit5"]
+atlas = ExtResource("3_fob05")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wqdi"]
+atlas = ExtResource("3_fob05")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1j50"]
+atlas = ExtResource("3_fob05")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbytq"]
+atlas = ExtResource("3_fob05")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ft35e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frres")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frres")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7reau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfygd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3k73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1set")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frres")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcit5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wqdi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1j50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbytq")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wqdi"]
+size = Vector2(28, 25)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_fpqeu")
+speed = 138.17
+
+[node name="player" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+sprite_frames = SubResource("SpriteFrames_ft35e")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.447003
+flip_h = true
+
+[node name="Shadow" type="Sprite2D" parent="player"]
+z_index = -1
+position = Vector2(5, 1)
+scale = Vector2(0.84375, 1)
+texture = ExtResource("4_0s806")
+offset = Vector2(-4, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 3.5
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.3
+drag_top_margin = 0.3
+drag_right_margin = 0.3
+drag_bottom_margin = 0.3
+editor_draw_drag_margin = true
+script = ExtResource("5_2k7hm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_5wqdi")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_5wqdi")
+debug_color = Color(0.666495, 0.455439, 0.621881, 0.42)
