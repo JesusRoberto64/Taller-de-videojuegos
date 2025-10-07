@@ -2,11 +2,16 @@ extends AnimatableBody2D
 
 @onready var anim = $AnimationPlayer
 @onready var col_shape = $CollisionShape2D
+@onready var spr : Sprite2D = $Arbusto
 
-var hp : int = 8
+@export var maxHp : int = 8
+var hp = maxHp
+
 var mov = 0.0
 var radian = 0.0
 var max_radian = PI/6.0
+
+@onready var frames = spr.hframes * spr.vframes
 
 func _physics_process(delta: float) -> void:
 	if radian > 0.0:
@@ -19,8 +24,14 @@ func hit_anim(elevation = 'none', hit = 1) -> void:
 	if elevation != "none":
 		radian = max_radian
 	
-	hp -= hit
-	if hp <= 0:
+	hp = max(hp - hit, 0)
+	var hpPercent := float(hp) / float(maxHp)
+	var damageFrame := int((1.0 - hpPercent) * (frames - 1))
+	
+	if hp > 0:
+		spr.frame = min(damageFrame, frames - 2) # El 2 es para acabar en el penúltimo frame
+	else:
+		spr.frame = frames - 1 # El 1 es para tomar el último frame
 		destroyed()
 
 func destroyed() -> void:
@@ -29,13 +40,15 @@ func destroyed() -> void:
 
 func revive() -> void:
 	col_shape.call_deferred('set_disabled', false)
-	hp = 7
+	hp = maxHp
+	
 
 func start_timer() -> void:
 	$Timer.start()
 
 func _on_timer_timeout() -> void:
 	anim.play("revive")
+	spr.frame = 0
 
 func _on_animation_finished(_anim_name: StringName) -> void:
 	
