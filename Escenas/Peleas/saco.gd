@@ -41,7 +41,6 @@ func destroyed() -> void:
 func revive() -> void:
 	col_shape.call_deferred('set_disabled', false)
 	hp = maxHp
-	
 
 func start_timer() -> void:
 	$Timer.start()
@@ -49,7 +48,3 @@ func start_timer() -> void:
 func _on_timer_timeout() -> void:
 	anim.play("revive")
 	spr.frame = 0
-
-func _on_animation_finished(_anim_name: StringName) -> void:
-	
-	pass # Replace with function body.
