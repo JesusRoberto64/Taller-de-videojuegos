@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://buup3r6cv0guy"]
 
-[ext_resource type="Texture2D" uid="uid://dvktpvltgny3d" path="res://Recursos/arena.png" id="1_hymrc"]
+[ext_resource type="Texture2D" uid="uid://dvktpvltgny3d" path="res://Recursos/Sanson/arena.png" id="1_hymrc"]
 [ext_resource type="PackedScene" uid="uid://bauegx3xiajpq" path="res://Escenas/Peleas/player.tscn" id="1_q1bo8"]
 [ext_resource type="PackedScene" uid="uid://bpmstsjxfvd6q" path="res://Escenas/Peleas/saco.tscn" id="2_l5i6v"]
 

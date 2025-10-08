@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmqya8hv8wcg2"
-path="res://.godot/imported/tiles_shadow_00.png-8ac8ecb04956e455767b797a1a453c9a.ctex"
+uid="uid://c0agop3ox4k3w"
+path="res://.godot/imported/fondo_00.png-f61c4426e9ce7080349f65d6674be02f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/tiles_shadow_00.png"
-dest_files=["res://.godot/imported/tiles_shadow_00.png-8ac8ecb04956e455767b797a1a453c9a.ctex"]
+source_file="res://Recursos/Capibara/fondo_00.png"
+dest_files=["res://.godot/imported/fondo_00.png-f61c4426e9ce7080349f65d6674be02f.ctex"]
 
 [params]
 

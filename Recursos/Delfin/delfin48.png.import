@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb40buwumvvtx"
-path="res://.godot/imported/Sanson.png-4fa5901488172e65f4e5042ab3fa7e3e.ctex"
+uid="uid://mu5vdx33nndv"
+path="res://.godot/imported/delfin48.png-83df45a611f4506ffd49df4c204388a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/Sanson.png"
-dest_files=["res://.godot/imported/Sanson.png-4fa5901488172e65f4e5042ab3fa7e3e.ctex"]
+source_file="res://Recursos/Delfin/delfin48.png"
+dest_files=["res://.godot/imported/delfin48.png-83df45a611f4506ffd49df4c204388a5.ctex"]
 
 [params]
 

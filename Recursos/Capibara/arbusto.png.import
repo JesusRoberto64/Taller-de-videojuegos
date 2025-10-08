@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0agop3ox4k3w"
-path="res://.godot/imported/fondo_00.png-cb8385007fa8a95a8924ae8499d90cbd.ctex"
+uid="uid://jk55a8txd5tv"
+path="res://.godot/imported/arbusto.png-ac89b983b003332812a97cd3da57f079.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/fondo_00.png"
-dest_files=["res://.godot/imported/fondo_00.png-cb8385007fa8a95a8924ae8499d90cbd.ctex"]
+source_file="res://Recursos/Capibara/arbusto.png"
+dest_files=["res://.godot/imported/arbusto.png-ac89b983b003332812a97cd3da57f079.ctex"]
 
 [params]
 

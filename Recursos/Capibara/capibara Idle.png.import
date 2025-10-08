@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4pfnbrc5vr8c"
-path="res://.godot/imported/hoja.png-b82880c365dbdc2c09cf8dda7b0d981f.ctex"
+uid="uid://b2f6knsflsabs"
+path="res://.godot/imported/capibara Idle.png-be26c98c765cb58938b1e83b6bec23b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/hoja.png"
-dest_files=["res://.godot/imported/hoja.png-b82880c365dbdc2c09cf8dda7b0d981f.ctex"]
+source_file="res://Recursos/Capibara/capibara Idle.png"
+dest_files=["res://.godot/imported/capibara Idle.png-be26c98c765cb58938b1e83b6bec23b6.ctex"]
 
 [params]
 

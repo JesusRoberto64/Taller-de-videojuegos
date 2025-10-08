@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2f6knsflsabs"
-path="res://.godot/imported/capibara Idle.png-fc53818e59c1fa3d8786c3abf832ed7c.ctex"
+uid="uid://cvwmeyf5ek5r7"
+path="res://.godot/imported/fondoDelfin_00.png-d9ef24e22704a1b23c746cec5fc6af07.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/capibara Idle.png"
-dest_files=["res://.godot/imported/capibara Idle.png-fc53818e59c1fa3d8786c3abf832ed7c.ctex"]
+source_file="res://Recursos/Delfin/fondoDelfin_00.png"
+dest_files=["res://.godot/imported/fondoDelfin_00.png-d9ef24e22704a1b23c746cec5fc6af07.ctex"]
 
 [params]
 

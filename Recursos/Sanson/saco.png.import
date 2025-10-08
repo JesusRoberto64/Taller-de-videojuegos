@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cedmfi2qfnmn0"
-path="res://.godot/imported/patito.png-a3f9ba453f25b69e33ec098cb83eb7b3.ctex"
+uid="uid://dh4k3vu6apd5s"
+path="res://.godot/imported/saco.png-5f9740f3c74d4c09664565df2c0a439a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/patito.png"
-dest_files=["res://.godot/imported/patito.png-a3f9ba453f25b69e33ec098cb83eb7b3.ctex"]
+source_file="res://Recursos/Sanson/saco.png"
+dest_files=["res://.godot/imported/saco.png-5f9740f3c74d4c09664565df2c0a439a.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0l2wi6yx46np"
-path="res://.godot/imported/Sanson_00.png-17b8136b845f5a873a343863838c7dfb.ctex"
+uid="uid://dvktpvltgny3d"
+path="res://.godot/imported/arena.png-b62a483dfef903ebc7aeb3df7af6be5f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/Sanson_00.png"
-dest_files=["res://.godot/imported/Sanson_00.png-17b8136b845f5a873a343863838c7dfb.ctex"]
+source_file="res://Recursos/Sanson/arena.png"
+dest_files=["res://.godot/imported/arena.png-b62a483dfef903ebc7aeb3df7af6be5f.ctex"]
 
 [params]
 

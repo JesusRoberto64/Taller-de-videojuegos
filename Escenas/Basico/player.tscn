@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=3 uid="uid://bawq6kgmxe583"]
 
-[ext_resource type="Texture2D" uid="uid://b2f6knsflsabs" path="res://Recursos/capibara Idle.png" id="1_i8vih"]
+[ext_resource type="Texture2D" uid="uid://b2f6knsflsabs" path="res://Recursos/Capibara/capibara Idle.png" id="1_i8vih"]
 [ext_resource type="Script" uid="uid://gqc06qlx56cf" path="res://Logica/player.gd" id="1_qgqwx"]
-[ext_resource type="Texture2D" uid="uid://di6q1gtsyuwye" path="res://Recursos/capibara.png" id="2_qgqwx"]
+[ext_resource type="Texture2D" uid="uid://di6q1gtsyuwye" path="res://Recursos/Capibara/capibara.png" id="2_qgqwx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cgfde"]
 atlas = ExtResource("1_i8vih")

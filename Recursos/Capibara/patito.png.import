@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvktpvltgny3d"
-path="res://.godot/imported/arena.png-d63fa3c8ef68f62e4d5fa900566ec6c7.ctex"
+uid="uid://cedmfi2qfnmn0"
+path="res://.godot/imported/patito.png-39b1e1fe21119a81887e704f836c5f24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/arena.png"
-dest_files=["res://.godot/imported/arena.png-d63fa3c8ef68f62e4d5fa900566ec6c7.ctex"]
+source_file="res://Recursos/Capibara/patito.png"
+dest_files=["res://.godot/imported/patito.png-39b1e1fe21119a81887e704f836c5f24.ctex"]
 
 [params]
 

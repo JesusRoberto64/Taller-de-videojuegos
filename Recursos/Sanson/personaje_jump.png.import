@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4k4s0ajl4ryd"
-path="res://.godot/imported/coral_title_00.png-9ec58da9b50c25a7e2b50f9ebeabbdb2.ctex"
+uid="uid://d1kt3sdbugg7i"
+path="res://.godot/imported/personaje_jump.png-382cb48b14c5115f7c0893886b7b2889.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/coral_title_00.png"
-dest_files=["res://.godot/imported/coral_title_00.png-9ec58da9b50c25a7e2b50f9ebeabbdb2.ctex"]
+source_file="res://Recursos/Sanson/personaje_jump.png"
+dest_files=["res://.godot/imported/personaje_jump.png-382cb48b14c5115f7c0893886b7b2889.ctex"]
 
 [params]
 

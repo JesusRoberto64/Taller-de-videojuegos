@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jk55a8txd5tv"
-path="res://.godot/imported/arbusto.png-44b08ff3c16cce88db701d5a58681020.ctex"
+uid="uid://c0l2wi6yx46np"
+path="res://.godot/imported/Sanson_00.png-4fc31324a99e7370c326c698e0f083d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/arbusto.png"
-dest_files=["res://.godot/imported/arbusto.png-44b08ff3c16cce88db701d5a58681020.ctex"]
+source_file="res://Recursos/Sanson/Sanson_00.png"
+dest_files=["res://.godot/imported/Sanson_00.png-4fc31324a99e7370c326c698e0f083d0.ctex"]
 
 [params]
 

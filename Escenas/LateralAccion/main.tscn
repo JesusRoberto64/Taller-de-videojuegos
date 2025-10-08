@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=4 uid="uid://caemfu0fvpkuv"]
 
 [ext_resource type="PackedScene" uid="uid://bnopxfr86mqen" path="res://Escenas/LateralAccion/player_lateral.tscn" id="1_6bdir"]
-[ext_resource type="Texture2D" uid="uid://dabvrgqk8an7" path="res://Recursos/coral_title_01_X2.png" id="2_nq3mv"]
-[ext_resource type="Texture2D" uid="uid://vwqtfbe27nhu" path="res://Recursos/coral_title_02_X2.png" id="3_3jua0"]
-[ext_resource type="Texture2D" uid="uid://cvwmeyf5ek5r7" path="res://Recursos/fondoDelfin_00.png" id="4_3jua0"]
+[ext_resource type="Texture2D" uid="uid://dabvrgqk8an7" path="res://Recursos/Delfin/coral_title_01_X2.png" id="2_nq3mv"]
+[ext_resource type="Texture2D" uid="uid://vwqtfbe27nhu" path="res://Recursos/Delfin/coral_title_02_X2.png" id="3_3jua0"]
+[ext_resource type="Texture2D" uid="uid://cvwmeyf5ek5r7" path="res://Recursos/Delfin/fondoDelfin_00.png" id="4_3jua0"]
 [ext_resource type="PackedScene" uid="uid://bpmstsjxfvd6q" path="res://Escenas/Peleas/saco.tscn" id="5_q1ral"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jteb3"]
@@ -74,6 +74,7 @@ disabled = true
 position = Vector2(233, 82)
 
 [node name="Camera2D" type="Camera2D" parent="Player_Lateral"]
+limit_top = 0
 
 [node name="Saco" parent="." instance=ExtResource("5_q1ral")]
 position = Vector2(372, 157)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://penn6c6lob82"]
 
-[ext_resource type="Texture2D" uid="uid://jk55a8txd5tv" path="res://Recursos/arbusto.png" id="1_w3il7"]
+[ext_resource type="Texture2D" uid="uid://jk55a8txd5tv" path="res://Recursos/Capibara/arbusto.png" id="1_w3il7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w3il7"]
 size = Vector2(25, 21)

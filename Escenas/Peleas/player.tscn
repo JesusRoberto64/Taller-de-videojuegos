@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=3 uid="uid://bauegx3xiajpq"]
 
 [ext_resource type="Script" uid="uid://cekp4hhxmbbay" path="res://Escenas/Peleas/player.gd" id="1_1avs2"]
-[ext_resource type="Texture2D" uid="uid://c0l2wi6yx46np" path="res://Recursos/Sanson_00.png" id="4_7w6ij"]
+[ext_resource type="Texture2D" uid="uid://c0l2wi6yx46np" path="res://Recursos/Sanson/Sanson_00.png" id="4_7w6ij"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7rh6g"]
 atlas = ExtResource("4_7w6ij")

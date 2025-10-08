@@ -1,9 +1,9 @@
 [gd_scene load_steps=17 format=3 uid="uid://bbhfmhp6wwp0g"]
 
 [ext_resource type="Script" uid="uid://bv6eqf7v2q87y" path="res://Escenas/Movimiento/Simple/player_characterbody.gd" id="1_fpqeu"]
-[ext_resource type="Texture2D" uid="uid://b2f6knsflsabs" path="res://Recursos/capibara Idle.png" id="2_50wne"]
-[ext_resource type="Texture2D" uid="uid://di6q1gtsyuwye" path="res://Recursos/capibara.png" id="3_fob05"]
-[ext_resource type="Texture2D" uid="uid://xum2uxnhgtse" path="res://Recursos/shadow.png" id="4_0s806"]
+[ext_resource type="Texture2D" uid="uid://b2f6knsflsabs" path="res://Recursos/Capibara/capibara Idle.png" id="2_50wne"]
+[ext_resource type="Texture2D" uid="uid://di6q1gtsyuwye" path="res://Recursos/Capibara/capibara.png" id="3_fob05"]
+[ext_resource type="Texture2D" uid="uid://xum2uxnhgtse" path="res://Recursos/Capibara/shadow.png" id="4_0s806"]
 [ext_resource type="Script" uid="uid://o6ikiuiej25c" path="res://Escenas/Movimiento/Simple/camera_offset.gd" id="5_2k7hm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_frres"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtrjwemxd3nir"
-path="res://.godot/imported/Sanson_idle_00.png-908073a4c69f067ac91d6feb1eede73d.ctex"
+uid="uid://xfjryxiqmarj"
+path="res://.godot/imported/sanson_crunch.png-626221a44bb061a4d9e67cced40ddac0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/Sanson_idle_00.png"
-dest_files=["res://.godot/imported/Sanson_idle_00.png-908073a4c69f067ac91d6feb1eede73d.ctex"]
+source_file="res://Recursos/Sanson/sanson_crunch.png"
+dest_files=["res://.godot/imported/sanson_crunch.png-626221a44bb061a4d9e67cced40ddac0.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xum2uxnhgtse"
-path="res://.godot/imported/shadow.png-3479568f5fa18c57b4b2d22fa84d3a42.ctex"
+uid="uid://bb40buwumvvtx"
+path="res://.godot/imported/Sanson.png-de825d581d3d1989a4a371ae2e60a446.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/shadow.png"
-dest_files=["res://.godot/imported/shadow.png-3479568f5fa18c57b4b2d22fa84d3a42.ctex"]
+source_file="res://Recursos/Sanson/Sanson.png"
+dest_files=["res://.godot/imported/Sanson.png-de825d581d3d1989a4a371ae2e60a446.ctex"]
 
 [params]
 

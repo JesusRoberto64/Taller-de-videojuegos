@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dabvrgqk8an7"
-path="res://.godot/imported/coral_title_01_X2.png-869f41d5319e107f6a28751e5d2e444e.ctex"
+uid="uid://dtrjwemxd3nir"
+path="res://.godot/imported/Sanson_idle_00.png-b601dfdb41d9475acd98f7a881ef832b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/coral_title_01_X2.png"
-dest_files=["res://.godot/imported/coral_title_01_X2.png-869f41d5319e107f6a28751e5d2e444e.ctex"]
+source_file="res://Recursos/Sanson/Sanson_idle_00.png"
+dest_files=["res://.godot/imported/Sanson_idle_00.png-b601dfdb41d9475acd98f7a881ef832b.ctex"]
 
 [params]
 

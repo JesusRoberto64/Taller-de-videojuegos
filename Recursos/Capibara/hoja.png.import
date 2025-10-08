@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1kt3sdbugg7i"
-path="res://.godot/imported/personaje_jump.png-c8422efa5eff17955603ed74fbdfc1e4.ctex"
+uid="uid://b4pfnbrc5vr8c"
+path="res://.godot/imported/hoja.png-3f78906d06e8160bad0e6760648960b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/personaje_jump.png"
-dest_files=["res://.godot/imported/personaje_jump.png-c8422efa5eff17955603ed74fbdfc1e4.ctex"]
+source_file="res://Recursos/Capibara/hoja.png"
+dest_files=["res://.godot/imported/hoja.png-3f78906d06e8160bad0e6760648960b0.ctex"]
 
 [params]
 

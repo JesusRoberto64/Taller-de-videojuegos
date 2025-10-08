@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dh4k3vu6apd5s"
-path="res://.godot/imported/saco.png-351cb09594621629e4bcfce5a17754b6.ctex"
+uid="uid://dms88ki0iyqit"
+path="res://.godot/imported/fondo_01.png-3d497481be4d61de6325dd06ed76d73a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/saco.png"
-dest_files=["res://.godot/imported/saco.png-351cb09594621629e4bcfce5a17754b6.ctex"]
+source_file="res://Recursos/Capibara/fondo_01.png"
+dest_files=["res://.godot/imported/fondo_01.png-3d497481be4d61de6325dd06ed76d73a.ctex"]
 
 [params]
 

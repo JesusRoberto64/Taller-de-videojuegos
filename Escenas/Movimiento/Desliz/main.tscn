@@ -1,11 +1,11 @@
 [gd_scene load_steps=16 format=4 uid="uid://db1nlg1wnmxkm"]
 
-[ext_resource type="Texture2D" uid="uid://mu5vdx33nndv" path="res://Recursos/delfin48.png" id="1_ki1y3"]
+[ext_resource type="Texture2D" uid="uid://mu5vdx33nndv" path="res://Recursos/Delfin/delfin48.png" id="1_ki1y3"]
 [ext_resource type="Script" uid="uid://njf6dbqd0ddn" path="res://Escenas/Movimiento/Desliz/player.gd" id="2_6cf0e"]
 [ext_resource type="Script" uid="uid://o6ikiuiej25c" path="res://Escenas/Movimiento/Simple/camera_offset.gd" id="3_poue4"]
-[ext_resource type="Texture2D" uid="uid://dabvrgqk8an7" path="res://Recursos/coral_title_01_X2.png" id="4_2xste"]
-[ext_resource type="Texture2D" uid="uid://vwqtfbe27nhu" path="res://Recursos/coral_title_02_X2.png" id="4_poue4"]
-[ext_resource type="Texture2D" uid="uid://cvwmeyf5ek5r7" path="res://Recursos/fondoDelfin_00.png" id="4_qya0g"]
+[ext_resource type="Texture2D" uid="uid://dabvrgqk8an7" path="res://Recursos/Delfin/coral_title_01_X2.png" id="4_2xste"]
+[ext_resource type="Texture2D" uid="uid://vwqtfbe27nhu" path="res://Recursos/Delfin/coral_title_02_X2.png" id="4_poue4"]
+[ext_resource type="Texture2D" uid="uid://cvwmeyf5ek5r7" path="res://Recursos/Delfin/fondoDelfin_00.png" id="4_qya0g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bcwev"]
 atlas = ExtResource("1_ki1y3")

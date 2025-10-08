@@ -10,10 +10,14 @@ var anim_mov = Vector2.LEFT
 
 @onready var hitBoxes = $Hitboxes
 @onready var punchHitBox = $Hitboxes/puch
+@onready var kickHitBox = $Hitboxes/kick
 var is_attacking = false
 
 func _physics_process(_delta: float) -> void:
-	var mov = Input.get_axis('ui_left','ui_right')
+	var dir := Input.get_vector('ui_left', 'ui_right', 'ui_up','ui_down')
+	var mov : float = dir.x
+	
+	direction.y = dir.y
 	
 	if mov != 0.0:
 		direction.x = 1.0 if mov > 0.0 else -1.0
@@ -30,14 +34,12 @@ func _physics_process(_delta: float) -> void:
 	
 	var punch_pressed = Input.is_action_just_pressed("punch")
 	
-	if is_attacking and velocity.y == 0.0:
-		rapid_punch(punch_pressed)
-		mov = 0.0
+	if is_attacking:
+		mov = attack_actions(anim.get_animation(), punch_pressed, mov)
 	
 	if punch_pressed and not is_attacking:
 		is_attacking = true
-		anim.play("hit_punch")
-		punchHitBox.disabled = false
+		attack_animation()
 	
 	anim_mov = mov
 	velocity.x = mov * speed
@@ -49,8 +51,13 @@ func _process(_delta: float) -> void:
 	
 	var on_ground : bool = velocity.y == 0.0
 	var is_moving : bool = anim_mov != 0.0
+	var is_crunch : bool = true if direction.y == 1.0 else false
 	
-	if on_ground and not is_moving:
+	if on_ground and is_crunch:
+		anim.play("crunch")
+		if anim.frame > 0:
+			anim.set_frame_and_progress(1, 0.0)
+	elif on_ground and not is_moving:
 		anim.play("idle")
 	elif on_ground and is_moving:
 		anim.play('walk')
@@ -58,21 +65,41 @@ func _process(_delta: float) -> void:
 		anim.play("jump")
 	elif velocity.y > 0.0:
 		anim.play("falling")
-	
+
+func attack_animation()-> void:
+	if direction.y > 0.0:
+		anim.play("hit_kick")
+		kickHitBox.disabled = false
+	else:
+		anim.play("hit_punch")
+		punchHitBox.disabled = false
+
+func attack_actions(animation: String, punch_pressed: bool, mov: float) -> float:
+	match animation:
+		'hit_punch':
+			if velocity.y == 0.0:
+				punchHitBox.disabled = true
+				if punch_pressed:
+					anim.play("hit_punch")
+					anim.frame = 2
+					punchHitBox.disabled = false
+				return 0.0
+		'hit_kick':
+			if velocity.y == 0.0:
+				return 2.8 * direction.x
+	return mov
 
 func _on_animation_finished() -> void:
 	var prefix = anim.get_animation().get_slice("_", 0)
-	
 	if prefix == "hit":
 		punchHitBox.disabled = true
+		kickHitBox.disabled = true
 		is_attacking = false
-
-func rapid_punch(puch_pressed) -> void:
-	punchHitBox.disabled = true
-	if puch_pressed:
-		anim.play("hit_punch")
-		anim.frame = 2
-		punchHitBox.disabled = false
-
+	
+	# fuerza bruta para terminar en animación especifica
+	if anim.get_animation() == "hit_kick":
+		anim.play("crunch")
+		anim.set_frame_and_progress(1, 0.0)
+	
 func _on_hitboxes_body_entered(body: Node2D) -> void:
 	body.hit_anim()

@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bxkc7q037mak0" path="res://Escenas/Movimiento/Simple/overlord.gd" id="1_bfygd"]
 [ext_resource type="PackedScene" uid="uid://bbhfmhp6wwp0g" path="res://Escenas/Movimiento/Simple/player.tscn" id="4_jcit5"]
-[ext_resource type="Texture2D" uid="uid://6sppvdg6lg0e" path="res://Recursos/fondo_02.png" id="5_7reau"]
-[ext_resource type="Texture2D" uid="uid://ca3w7sc8qkqe1" path="res://Recursos/tiles_00.png" id="6_7reau"]
-[ext_resource type="Texture2D" uid="uid://bmqya8hv8wcg2" path="res://Recursos/tiles_shadow_00.png" id="7_jcit5"]
+[ext_resource type="Texture2D" uid="uid://6sppvdg6lg0e" path="res://Recursos/Capibara/fondo_02.png" id="5_7reau"]
+[ext_resource type="Texture2D" uid="uid://ca3w7sc8qkqe1" path="res://Recursos/Capibara/tiles_00.png" id="6_7reau"]
+[ext_resource type="Texture2D" uid="uid://bmqya8hv8wcg2" path="res://Recursos/Capibara/tiles_shadow_00.png" id="7_jcit5"]
 [ext_resource type="PackedScene" uid="uid://penn6c6lob82" path="res://Escenas/Basico/arbusto.tscn" id="8_5wqdi"]
-[ext_resource type="Texture2D" uid="uid://b4pfnbrc5vr8c" path="res://Recursos/hoja.png" id="8_f1j50"]
+[ext_resource type="Texture2D" uid="uid://b4pfnbrc5vr8c" path="res://Recursos/Capibara/hoja.png" id="8_f1j50"]
 [ext_resource type="PackedScene" uid="uid://dbep4jhqn1efh" path="res://Escenas/Movimiento/Simple/hoja.tscn" id="10_mbytq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jcit5"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bejafr6ixy63e"
-path="res://.godot/imported/golpe.png-994ce35794409b4c2151c740287b83f7.ctex"
+uid="uid://xum2uxnhgtse"
+path="res://.godot/imported/shadow.png-5847857e32dd7a2fa15058cf2ba09bda.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/golpe.png"
-dest_files=["res://.godot/imported/golpe.png-994ce35794409b4c2151c740287b83f7.ctex"]
+source_file="res://Recursos/Capibara/shadow.png"
+dest_files=["res://.godot/imported/shadow.png-5847857e32dd7a2fa15058cf2ba09bda.ctex"]
 
 [params]
 
