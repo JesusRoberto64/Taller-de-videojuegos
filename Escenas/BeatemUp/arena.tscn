@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://buup3r6cv0guy"]
 
 [ext_resource type="Texture2D" uid="uid://dvktpvltgny3d" path="res://Recursos/Sanson/arena.png" id="1_hymrc"]
-[ext_resource type="PackedScene" uid="uid://bauegx3xiajpq" path="res://Escenas/Peleas/player.tscn" id="1_q1bo8"]
-[ext_resource type="PackedScene" uid="uid://bpmstsjxfvd6q" path="res://Escenas/Peleas/saco.tscn" id="2_l5i6v"]
+[ext_resource type="PackedScene" uid="uid://bauegx3xiajpq" path="res://Escenas/BeatemUp/player.tscn" id="1_q1bo8"]
+[ext_resource type="PackedScene" uid="uid://bpmstsjxfvd6q" path="res://Escenas/BeatemUp/saco.tscn" id="2_l5i6v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l5i6v"]
 size = Vector2(320, 30)

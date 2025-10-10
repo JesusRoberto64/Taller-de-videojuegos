@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bpmstsjxfvd6q"]
 
-[ext_resource type="Script" uid="uid://dfunepjgr7s4p" path="res://Escenas/Peleas/saco.gd" id="1_3740o"]
+[ext_resource type="Script" uid="uid://dfunepjgr7s4p" path="res://Escenas/BeatemUp/saco.gd" id="1_3740o"]
 [ext_resource type="Texture2D" uid="uid://dh4k3vu6apd5s" path="res://Recursos/Sanson/saco.png" id="2_3740o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3740o"]
