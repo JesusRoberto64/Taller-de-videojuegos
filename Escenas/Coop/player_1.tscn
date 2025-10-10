@@ -182,6 +182,8 @@ debug_color = Color(0.77195, 0.39877, 0.519241, 0.42)
 
 [node name="ancher" type="Area2D" parent="."]
 rotation = 1.5708
+collision_layer = 2
+collision_mask = 2
 
 [node name="Polygon2D" type="Polygon2D" parent="ancher"]
 modulate = Color(1, 1, 1, 0.290196)
