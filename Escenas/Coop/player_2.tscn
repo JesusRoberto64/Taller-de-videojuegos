@@ -164,7 +164,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pycni"]
 size = Vector2(12, 19)
 
-[node name="Player_1" type="CharacterBody2D"]
+[node name="Player_2" type="CharacterBody2D"]
 script = ExtResource("1_ab5k8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -175,6 +175,8 @@ animation = &"walk_side"
 shape = SubResource("RectangleShape2D_pycni")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_pycni")
@@ -188,8 +190,14 @@ collision_mask = 2
 [node name="Polygon2D" type="Polygon2D" parent="ancher"]
 modulate = Color(1, 1, 1, 0.290196)
 position = Vector2(10, 0)
-polygon = PackedVector2Array(48, -16, 0, 0, 48, 16)
+polygon = PackedVector2Array(45.9999, -16.0002, 0, 0, 46.0001, 15.9998, 54, 11.9998, 57, 6.99976, 60, -0.000253399, 57, -9.00024, 54, -13.0002)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ancher"]
 position = Vector2(10, 0)
-polygon = PackedVector2Array(48, -16, 0, 0, 48, 16)
+polygon = PackedVector2Array(45.9999, -16.0002, 0, 0, 46.0001, 15.9998, 54, 11.9998, 57, 6.99976, 60, -0.000253399, 57, -9.00024, 54, -13.0002)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

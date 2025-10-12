@@ -1,19 +1,198 @@
-[gd_scene load_steps=3 format=3 uid="uid://bq1jy1jqrineu"]
+[gd_scene load_steps=15 format=3 uid="uid://bq1jy1jqrineu"]
 
 [ext_resource type="Script" uid="uid://del1ej2a3mqvv" path="res://Escenas/Coop/fantasma.gd" id="1_pdpob"]
+[ext_resource type="Texture2D" uid="uid://brrljmwbeiayi" path="res://Recursos/Coop/New Piskel (6).png" id="2_373pk"]
+[ext_resource type="Texture2D" uid="uid://wyywjnoa4bh3" path="res://Recursos/Coop/particula.png" id="3_o8is2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8is2"]
+atlas = ExtResource("2_373pk")
+region = Rect2(0, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uy5ws"]
+atlas = ExtResource("2_373pk")
+region = Rect2(60, 0, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_685x1"]
+atlas = ExtResource("2_373pk")
+region = Rect2(0, 60, 60, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vk0k"]
+atlas = ExtResource("2_373pk")
+region = Rect2(60, 60, 60, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qcwyq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8is2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uy5ws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_685x1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vk0k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c3o2d"]
+radius = 15.0
+
+[sub_resource type="Animation" id="Animation_o8is2"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("sprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_373pk"]
+resource_name = "apearing"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_uy5ws"]
+resource_name = "hurting"
+length = 0.15
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.777775, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.0614633, 0.133333)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.777775, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.0614633, 0.133333)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.059301, 0.132287),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uy5ws"]
+_data = {
+&"RESET": SubResource("Animation_o8is2"),
+&"apearing": SubResource("Animation_373pk"),
+&"hurting": SubResource("Animation_uy5ws")
+}
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uy5ws"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 15.94
+direction = Vector3(0, 1, 0)
+spread = 27.979
+initial_velocity_min = 0.65
+initial_velocity_max = 39.11
+gravity = Vector3(0, -62.8, 0)
+scale_min = 0.5
+scale_max = 0.5
 
 [node name="fantasma" type="Area2D"]
-collision_layer = 2
+collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_pdpob")
 
-[node name="sprite" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(-11, 11, -9, -7, 0, -11, 9, -7, 12, 11, 5, 11, -4, 11)
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qcwyq")
+autoplay = "default"
+frame_progress = 0.183269
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_c3o2d")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_uy5ws")
+}
+
+[node name="particles" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 4
+texture = ExtResource("3_o8is2")
+lifetime = 0.36
+speed_scale = 4.06
+process_material = SubResource("ParticleProcessMaterial_uy5ws")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]

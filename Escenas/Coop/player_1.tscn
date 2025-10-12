@@ -175,6 +175,8 @@ animation = &"idle_side"
 shape = SubResource("RectangleShape2D_pycni")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_pycni")
@@ -183,13 +185,20 @@ debug_color = Color(0.77195, 0.39877, 0.519241, 0.42)
 [node name="ancher" type="Area2D" parent="."]
 rotation = 1.5708
 collision_layer = 2
-collision_mask = 2
+collision_mask = 0
 
 [node name="Polygon2D" type="Polygon2D" parent="ancher"]
 modulate = Color(1, 1, 1, 0.290196)
 position = Vector2(10, 0)
-polygon = PackedVector2Array(48, -16, 0, 0, 48, 16)
+polygon = PackedVector2Array(45.9999, -16.0002, 0, 0, 46.0001, 15.9998, 54, 11.9998, 57, 6.99976, 60, -0.000253399, 57, -9.00024, 54, -13.0002)
+uv = PackedVector2Array(47.8935, -0.0273566, 56.4068, 4.29682, 46.4071, 6.99943)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ancher"]
 position = Vector2(10, 0)
-polygon = PackedVector2Array(48, -16, 0, 0, 48, 16)
+polygon = PackedVector2Array(45.9999, -16.0002, 0, 0, 46.0001, 15.9998, 54, 11.9998, 57, 6.99976, 60, -0.000253399, 57, -9.00024, 54, -13.0002)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

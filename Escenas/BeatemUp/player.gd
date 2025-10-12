@@ -6,7 +6,7 @@ var direction = Vector2(-1.0, 0.0)
 var speed = 150.0
 
 # Ataques 
-var hit_particle = preload("res://Escenas/Peleas/golpe.tscn")
+var hit_particle = preload("res://Escenas/BeatemUp/golpe.tscn")
 @onready var upercut_box : CollisionShape2D = $Hitboxes/UpercutShape
 @onready var punch_box : CollisionShape2D= $Hitboxes/PunchShape
 @onready var kick_box : CollisionShape2D= $Hitboxes/KickShape
