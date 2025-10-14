@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://blybkbtk6s8sv"]
+
+[ext_resource type="SpriteFrames" uid="uid://dma74alq86pni" path="res://Escenas/Coop/player_2_animation.tres" id="1_4qg21"]
+[ext_resource type="SpriteFrames" uid="uid://bbvmv75wucxdg" path="res://Escenas/Coop/player_1_animation.tres" id="2_4qg21"]
+
+[node name="Players_animation_Test" type="AnimatedSprite2D"]
+sprite_frames = ExtResource("1_4qg21")
+animation = &"scream"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(40, 0)
+sprite_frames = ExtResource("2_4qg21")
+animation = &"scream"

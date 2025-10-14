@@ -16,7 +16,6 @@ metadata/_edit_lock_ = true
 position = Vector2(267, 99)
 
 [node name="Player_2" parent="." instance=ExtResource("2_jy8rr")]
-modulate = Color(0.811765, 0.0117647, 0.729412, 1)
 position = Vector2(22, 15)
 player = 1
 

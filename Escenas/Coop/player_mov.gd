@@ -16,49 +16,72 @@ var mov_anim
 
 var radian : float = 0.0
 var is_holding : bool = false
+var holding_dir : Vector2 = Vector2.LEFT
+
+var scared = false
+var recovering = false
+var recover_frames : int = 0
+var recover_timer : float = 0.0
 
 func _ready() -> void:
 	if player == PLAYERS.P2:
 		player_input = "p2_"
-	pass
+		var animation = load("res://Escenas/Coop/player_2_animation.tres")
+		anim.sprite_frames = animation
 
 func _physics_process(delta: float) -> void:
-	var mov = Input.get_vector( player_input +'left',  player_input +'right',  player_input +'up',  player_input +'down')
-	direction = mov if mov != Vector2.ZERO else direction
-	mov_anim = mov
+	if scared : return
 	
-	velocity = mov * speed
+	var mov = Input.get_vector( player_input +'left',  player_input +'right',  player_input +'up',  player_input +'down')
+	mov_anim = mov
 	
 	is_holding = false
 	if Input.is_action_pressed(player_input + 'hold'):
 		is_holding = true
-	
-	if !is_holding:
+	else:
+		direction = mov if mov != Vector2.ZERO else direction
 		var target_direction = atan2(direction.y, direction.x)
 		ancher.rotation = lerp_angle(ancher.rotation, target_direction, delta* 10.0) 
 	
+	velocity = mov * speed
 	move_and_slide()
 	
 	position.x = clamp(position.x, 12.0, 308.0)
 	position.y = clamp(position.y, 12.0, 168.0)
+	
+	if recovering:
+		recover_timer += delta
+		if recover_timer >= 1.0:
+			recover_timer = 0.0
+			recover_frames = 0
+			recovering = false
+			anim.show()
 
 func _process(_delta: float) -> void:
+	if scared : return
+	
+	if recovering:
+		recover_frames += 1
+		if recover_frames % 4 == 0:
+			anim.hide()
+		elif recover_frames % 7 == 0:
+			anim.show()
+	
 	var anim_type : String
+	var anim_dir = direction
 	
 	if mov_anim == Vector2.ZERO:
 		anim_type = "idle"
 	else:
 		anim_type = "walk"
 	
-	
 	if is_holding:
-		var str_anim = anim.get_animation().get_slice("_", 1)
-		anim.play(anim_type + "_" + str_anim)
-		return
+		holding_dir = Vector2(snappedf(cos(ancher.rotation), 0.1), snappedf(sin(ancher.rotation),0.1))
+		anim_dir = holding_dir
 	
-	anim.flip_h = false if direction.x < 0.0 else true
+	anim.flip_h = false if anim_dir.x < 0.0 else true
 	
-	match direction:
+	match anim_dir:
 		Vector2.DOWN:
 			anim.play(anim_type + "_front")
 		Vector2.UP:
@@ -66,16 +89,22 @@ func _process(_delta: float) -> void:
 		Vector2.LEFT, Vector2.RIGHT:
 			anim.play(anim_type + "_side")
 		_:
-			if direction.dot(Vector2.UP) > 0.0:
+			if anim_dir.dot(Vector2.UP) > 0.0:
 				anim.play(anim_type + "_backDiagonal")
-			elif direction.dot(Vector2.UP) < 0.0:
+			elif anim_dir.dot(Vector2.UP) < 0.0:
 				anim.play(anim_type + "_frontDiagonal")
 
 func _on_area_entered(_area: Area2D) -> void:
+	if recovering : return
+	recovering = true
+	
 	ancher.hide()
 	light_shape.call_deferred("set_disabled", true)
 	$Timer.start()
+	anim.play("scream")
+	scared = true
 
 func _on_timer_timeout() -> void:
 	ancher.show()
 	light_shape.call_deferred("set_disabled", false)
+	scared = false
