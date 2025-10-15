@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxqvh853aket4"]
+[gd_scene load_steps=7 format=3 uid="uid://dxqvh853aket4"]
 
+[ext_resource type="Script" uid="uid://ccxev8g4u2pgc" path="res://Escenas/Coop/overlord.gd" id="1_24pik"]
 [ext_resource type="Texture2D" uid="uid://6sppvdg6lg0e" path="res://Recursos/Capibara/fondo_02.png" id="1_voyxy"]
 [ext_resource type="PackedScene" uid="uid://iy6y0brbaqck" path="res://Escenas/Coop/player_1.tscn" id="2_jy8rr"]
-[ext_resource type="PackedScene" uid="uid://bq1jy1jqrineu" path="res://Escenas/Coop/fantasma.tscn" id="4_vbxlp"]
+[ext_resource type="PackedScene" uid="uid://otwtu7nuuawx" path="res://Escenas/Coop/Fantasmas/fantasma_02.tscn" id="4_1b1fo"]
+[ext_resource type="PackedScene" uid="uid://bq1jy1jqrineu" path="res://Escenas/Coop/Fantasmas/fantasma.tscn" id="4_vbxlp"]
+[ext_resource type="PackedScene" uid="uid://dbb7iqtm3svqy" path="res://Escenas/Coop/Fantasmas/fantasma_03.tscn" id="5_1b1fo"]
 
 [node name="main" type="Node2D"]
+script = ExtResource("1_24pik")
 
 [node name="Fondo" type="Sprite2D" parent="."]
 modulate = Color(0.317647, 0.407843, 0.705882, 1)
@@ -22,13 +26,10 @@ player = 1
 [node name="Fantasmas" type="Node2D" parent="."]
 
 [node name="fantasma4" parent="Fantasmas" instance=ExtResource("4_vbxlp")]
-position = Vector2(173, 129)
+position = Vector2(164, 95)
 
-[node name="fantasma5" parent="Fantasmas" instance=ExtResource("4_vbxlp")]
-position = Vector2(142, 56)
+[node name="Fantasma_02" parent="Fantasmas" instance=ExtResource("4_1b1fo")]
+position = Vector2(109, 92)
 
-[node name="fantasma6" parent="Fantasmas" instance=ExtResource("4_vbxlp")]
-position = Vector2(197, 69)
-
-[node name="fantasma7" parent="Fantasmas" instance=ExtResource("4_vbxlp")]
-position = Vector2(112, 117)
+[node name="Fantasma_03" parent="Fantasmas" instance=ExtResource("5_1b1fo")]
+position = Vector2(61, 110)

@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://b07crstkqsjji"]
+
+[ext_resource type="Texture2D" uid="uid://dvktpvltgny3d" path="res://Recursos/Sanson/arena.png" id="1_tmqhf"]
+[ext_resource type="PackedScene" uid="uid://cvp675cxo04ta" path="res://Escenas/Peleas/player_1.tscn" id="2_o0w6e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0w6e"]
+size = Vector2(456, 30)
+
+[node name="main" type="Node2D"]
+
+[node name="Fondo" type="Sprite2D" parent="."]
+texture = ExtResource("1_tmqhf")
+centered = false
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Fondo2" type="Sprite2D" parent="Fondo"]
+position = Vector2(0, 45)
+texture = ExtResource("1_tmqhf")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 320, 110.5)
+
+[node name="floor" type="StaticBody2D" parent="Fondo"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fondo/floor"]
+position = Vector2(176, 173)
+shape = SubResource("RectangleShape2D_o0w6e")
+
+[node name="Player_1" parent="." instance=ExtResource("2_o0w6e")]
+position = Vector2(265, 112)
