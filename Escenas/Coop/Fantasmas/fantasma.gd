@@ -3,6 +3,7 @@ extends Area2D
 
 @export var maxHp : float = 10.0
 var hp : float = maxHp
+@export var speed : float = 40.0
 
 var is_fading : bool = false
 
@@ -41,7 +42,7 @@ func fading(delta) -> void:
 
 func movement(delta) -> void:
 	if !can_move : return
-	radian += delta*5.0
+	radian += delta
 	position.x = pos.x + (sin(radian))*dist
 	if position.y <= 0.0:
 		position.y = 1.0
@@ -50,7 +51,7 @@ func movement(delta) -> void:
 		position.y = 179.0
 		direction = -1.0
 		pass
-	position.y += delta*40.0*direction
+	position.y += delta*speed*direction
 
 func _on_area_entered(_area: Area2D) -> void:
 	is_fading = true

@@ -188,7 +188,7 @@ gravity = Vector3(0, -62.8, 0)
 scale_min = 0.5
 scale_max = 0.5
 
-[node name="fantasma" type="Area2D"]
+[node name="fantasma_sofiS" type="Area2D"]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_uy5ws")

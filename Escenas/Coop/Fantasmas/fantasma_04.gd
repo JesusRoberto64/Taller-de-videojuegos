@@ -11,13 +11,13 @@ func _ready() -> void:
 func starting_point() -> void:
 	direction = [-1.0, 1.0].pick_random()
 	if direction < 0.0: # is es negativa
-		position.x = 320.0 + 18.0
-		spr.flip_h = true
-	else:
-		position.x = -18.0
+		position.y = 180 + 24
 		spr.flip_h = false
-	position.y = randf_range(28.0, 122.0) 
-	pos.y = position.y
+	else:
+		position.y = -24
+		spr.flip_h = true
+	position.x = randf_range(24.0, 290.0)
+	pos.x = position.x
 
 func _physics_process(delta: float) -> void:
 	fading(delta)
@@ -25,11 +25,11 @@ func _physics_process(delta: float) -> void:
 
 func movement(delta):
 	if !can_move: return
-	position.x += delta * speed * direction
+	position.y += delta * speed * direction
 	radian += delta * 5.0
-	position.y = pos.y + (sin(radian) * dist)
+	position.x = pos.x + (sin(radian) * dist)
 	
-	if position.x > 350.0 or position.x < -18.0:
+	if position.y < -30.0 or position.y > 210.0:
 		starting_point()
 
 func revive() -> void:

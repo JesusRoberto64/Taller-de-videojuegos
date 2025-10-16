@@ -1,44 +1,44 @@
-[gd_scene load_steps=16 format=3 uid="uid://dbb7iqtm3svqy"]
+[gd_scene load_steps=16 format=3 uid="uid://dihcfqe37wegi"]
 
-[ext_resource type="Texture2D" uid="uid://cwnt4470bcn05" path="res://Recursos/Coop/fantasma_h.png" id="1_ts0kn"]
-[ext_resource type="Script" uid="uid://dddfwxk77gaor" path="res://Escenas/Coop/Fantasmas/fantasma_03.gd" id="1_ue4g7"]
-[ext_resource type="Texture2D" uid="uid://xum2uxnhgtse" path="res://Recursos/Capibara/shadow.png" id="3_hwf4m"]
-[ext_resource type="Texture2D" uid="uid://wyywjnoa4bh3" path="res://Recursos/Coop/particula.png" id="4_wdbej"]
+[ext_resource type="Script" uid="uid://5wskbl1n8xit" path="res://Escenas/Coop/Fantasmas/fantasma_04.gd" id="1_dhs26"]
+[ext_resource type="Texture2D" uid="uid://dpohj3yax8otl" path="res://Recursos/Coop/fanta.png" id="2_dhs26"]
+[ext_resource type="Texture2D" uid="uid://xum2uxnhgtse" path="res://Recursos/Capibara/shadow.png" id="3_hscvs"]
+[ext_resource type="Texture2D" uid="uid://wyywjnoa4bh3" path="res://Recursos/Coop/particula.png" id="4_cohid"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_foqeh"]
 radius = 7.0
 height = 24.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ue4g7"]
-atlas = ExtResource("1_ts0kn")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ho220"]
+atlas = ExtResource("2_dhs26")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6d8l4"]
-atlas = ExtResource("1_ts0kn")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hwf4m"]
-atlas = ExtResource("1_ts0kn")
+[sub_resource type="AtlasTexture" id="AtlasTexture_hscvs"]
+atlas = ExtResource("2_dhs26")
 region = Rect2(0, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wdbej"]
-atlas = ExtResource("1_ts0kn")
-region = Rect2(32, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_cohid"]
+atlas = ExtResource("2_dhs26")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jgc1"]
+atlas = ExtResource("2_dhs26")
+region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3n754"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ue4g7")
+"texture": SubResource("AtlasTexture_ho220")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6d8l4")
+"texture": SubResource("AtlasTexture_hscvs")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hwf4m")
+"texture": SubResource("AtlasTexture_cohid")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wdbej")
+"texture": SubResource("AtlasTexture_0jgc1")
 }],
 "loop": true,
 "name": &"default",
@@ -189,10 +189,10 @@ gravity = Vector3(0, -62.8, 0)
 scale_min = 0.5
 scale_max = 0.5
 
-[node name="Fantasma_03" type="Area2D"]
+[node name="Fantasma_Camila" type="Area2D"]
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("1_ue4g7")
+script = ExtResource("1_dhs26")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 2
@@ -204,15 +204,16 @@ z_index = 1
 sprite_frames = SubResource("SpriteFrames_3n754")
 autoplay = "default"
 frame_progress = 0.305232
+offset = Vector2(2, 4)
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="Shadow" type="Sprite2D" parent="sprite"]
 modulate = Color(0.41598, 0.41598, 0.41598, 1)
 z_index = -1
-position = Vector2(0, 9)
-scale = Vector2(0.876738, 0.681764)
-texture = ExtResource("3_hwf4m")
+position = Vector2(1.5, 9)
+scale = Vector2(0.71875, 0.681764)
+texture = ExtResource("3_hscvs")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
@@ -225,7 +226,7 @@ libraries = {
 [node name="particles" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 4
-texture = ExtResource("4_wdbej")
+texture = ExtResource("4_cohid")
 lifetime = 0.36
 speed_scale = 4.06
 process_material = SubResource("ParticleProcessMaterial_22bnv")

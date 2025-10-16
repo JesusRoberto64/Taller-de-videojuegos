@@ -1,7 +1,7 @@
 extends Fantasma
 
 var vec_direction : Vector2 = Vector2(1.0,1.0)
-var speed : float = 150.0
+
 
 func _ready() -> void:
 	anim_player.connect('animation_finished',_on_animation_finished)
