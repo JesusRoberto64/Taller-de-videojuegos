@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxqvh853aket4"]
+[gd_scene load_steps=9 format=3 uid="uid://dxqvh853aket4"]
 
 [ext_resource type="Script" uid="uid://ccxev8g4u2pgc" path="res://Escenas/Coop/overlord.gd" id="1_24pik"]
 [ext_resource type="Texture2D" uid="uid://6sppvdg6lg0e" path="res://Recursos/Capibara/fondo_02.png" id="1_voyxy"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bq1jy1jqrineu" path="res://Escenas/Coop/Fantasmas/fantasma_SofiS.tscn" id="4_vbxlp"]
 [ext_resource type="PackedScene" uid="uid://dbb7iqtm3svqy" path="res://Escenas/Coop/Fantasmas/fantasma_Hector.tscn" id="5_1b1fo"]
 [ext_resource type="PackedScene" uid="uid://dihcfqe37wegi" path="res://Escenas/Coop/Fantasmas/fantasma_Camila.tscn" id="7_kq4ra"]
+[ext_resource type="PackedScene" uid="uid://ib0g0k4scb7t" path="res://Escenas/Coop/Fantasmas/fantasma_Socrates.tscn" id="8_q7u7n"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_24pik")
@@ -37,3 +38,6 @@ position = Vector2(61, 110)
 
 [node name="Fantasma_Camila" parent="Fantasmas" instance=ExtResource("7_kq4ra")]
 position = Vector2(186, 53)
+
+[node name="Fantasma_Socrates" parent="Fantasmas" instance=ExtResource("8_q7u7n")]
+position = Vector2(248, 47)
