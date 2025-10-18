@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://bq1jy1jqrineu"]
 
-[ext_resource type="Script" uid="uid://xygx8qxqdaao" path="res://Escenas/Coop/Fantasmas/fantasma_01.gd" id="1_uy5ws"]
+[ext_resource type="Script" uid="uid://cxb21pc83dgox" path="res://Escenas/Coop/Fantasmas/fantasma_06.gd" id="1_ivxnq"]
 [ext_resource type="Texture2D" uid="uid://brrljmwbeiayi" path="res://Recursos/Coop/New Piskel (6).png" id="2_373pk"]
 [ext_resource type="Texture2D" uid="uid://wyywjnoa4bh3" path="res://Recursos/Coop/particula.png" id="3_o8is2"]
 [ext_resource type="Texture2D" uid="uid://xum2uxnhgtse" path="res://Recursos/Capibara/shadow.png" id="3_uy5ws"]
@@ -191,7 +191,7 @@ scale_max = 0.5
 [node name="fantasma_sofiS" type="Area2D"]
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("1_uy5ws")
+script = ExtResource("1_ivxnq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 2
