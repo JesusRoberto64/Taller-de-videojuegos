@@ -26,7 +26,7 @@ texture = ExtResource("2_0pvjh")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 0
 sprite_frames = ExtResource("2_rcuap")
-animation = &"idle_side"
+animation = &"idle_front"
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
