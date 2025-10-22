@@ -1,7 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://dihcfqe37wegi"]
+[gd_scene load_steps=19 format=3 uid="uid://dihcfqe37wegi"]
 
 [ext_resource type="Script" uid="uid://5wskbl1n8xit" path="res://Escenas/Coop/Fantasmas/fantasma_04.gd" id="1_dhs26"]
 [ext_resource type="Texture2D" uid="uid://dpohj3yax8otl" path="res://Recursos/Coop/fanta.png" id="2_dhs26"]
+[ext_resource type="Texture2D" uid="uid://trg7oj5scd0c" path="res://Recursos/Coop/particula_light.png" id="2_ho220"]
+[ext_resource type="Shader" uid="uid://bpy83ugtn3tha" path="res://Escenas/Coop/fantasma_glow.gdshader" id="3_cohid"]
 [ext_resource type="Texture2D" uid="uid://xum2uxnhgtse" path="res://Recursos/Capibara/shadow.png" id="3_hscvs"]
 [ext_resource type="Texture2D" uid="uid://wyywjnoa4bh3" path="res://Recursos/Coop/particula.png" id="4_cohid"]
 
@@ -44,6 +46,10 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0jgc1"]
+shader = ExtResource("3_cohid")
+shader_parameter/amount = 0.4
 
 [sub_resource type="Animation" id="Animation_o8is2"]
 length = 0.001
@@ -195,6 +201,7 @@ collision_mask = 2
 script = ExtResource("1_dhs26")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 z_index = 2
 position = Vector2(1, 0)
 shape = SubResource("CapsuleShape2D_foqeh")
@@ -204,9 +211,17 @@ z_index = 1
 sprite_frames = SubResource("SpriteFrames_3n754")
 autoplay = "default"
 frame_progress = 0.305232
-offset = Vector2(2, 4)
+offset = Vector2(0, 4)
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
+
+[node name="glow" type="Sprite2D" parent="sprite"]
+modulate = Color(0.898157, 0.822948, 0.993895, 1)
+material = SubResource("ShaderMaterial_0jgc1")
+position = Vector2(0, 4.23516e-22)
+scale = Vector2(0.625, 0.6875)
+texture = ExtResource("2_ho220")
+region_rect = Rect2(0, 0, 32, 128)
 
 [node name="Shadow" type="Sprite2D" parent="sprite"]
 modulate = Color(0.41598, 0.41598, 0.41598, 1)

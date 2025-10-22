@@ -1,27 +1,147 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxqvh853aket4"]
+[gd_scene load_steps=18 format=4 uid="uid://dxqvh853aket4"]
 
 [ext_resource type="Script" uid="uid://ccxev8g4u2pgc" path="res://Escenas/Coop/overlord.gd" id="1_24pik"]
 [ext_resource type="Texture2D" uid="uid://6sppvdg6lg0e" path="res://Recursos/Capibara/fondo_02.png" id="1_voyxy"]
 [ext_resource type="PackedScene" uid="uid://iy6y0brbaqck" path="res://Escenas/Coop/player_1.tscn" id="2_jy8rr"]
-[ext_resource type="PackedScene" uid="uid://dyc12uhgsq2at" path="res://Escenas/Coop/Fantasmas/fantasma_Juilio.tscn" id="5_1b1fo"]
+[ext_resource type="Texture2D" uid="uid://jk55a8txd5tv" path="res://Recursos/Capibara/arbusto.png" id="4_n8g33"]
+[ext_resource type="Texture2D" uid="uid://bmqya8hv8wcg2" path="res://Recursos/Capibara/tiles_shadow_00.png" id="5_1b1fo"]
+[ext_resource type="Texture2D" uid="uid://cw25hepvrl5c6" path="res://Recursos/Coop/tiles_00.png" id="6_24pik"]
+[ext_resource type="Texture2D" uid="uid://wyywjnoa4bh3" path="res://Recursos/Coop/particula.png" id="7_kq4ra"]
+[ext_resource type="PackedScene" uid="uid://dbb7iqtm3svqy" path="res://Escenas/Coop/Fantasmas/fantasma_Hector.tscn" id="8_6j1nl"]
+[ext_resource type="PackedScene" uid="uid://det3wibfb20vc" path="res://Escenas/Coop/alma.tscn" id="8_mtjjo"]
+[ext_resource type="Shader" uid="uid://dypflfpnexd6a" path="res://Escenas/Coop/vinnete.gdshader" id="8_q7u7n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6j1nl"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6j1nl"]
+texture = ExtResource("4_n8g33")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kq4ra"]
+texture = ExtResource("6_24pik")
+texture_region_size = Vector2i(20, 20)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 1.57895, -10, 1.57895)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(3.68421, -10, 3.68421, 4.73684, -10, 4.73684, -10, -10)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, 1.57895, 10, 1.57895, 10, -10, -10, -10)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(10, 1.57895, -10, 1.57895, -10, -10, 10, -10)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -8.94737, 10, -8.94737, 10, 10, -10, 10)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -8.94737, 5.78947, -8.94737, 5.78947, 10, -10, 10)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(5.78947, -10, 5.78947, 1.57895, -10, 1.57895, -10, -10)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, 1.57895, 10, 1.57895, 10, -10, -10, -10)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, 1.57895, 10, 1.57895, 10, -10, -10, -10)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 3.68421, -10, 3.68421, 3.68421, -10, 3.68421)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -8.94737, 3.68421, -8.94737, 3.68421, 10, -10, 10)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -8.94737, 10, -8.94737, 10, 10, -10, 10)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, -10, 1.57895, 10, 1.57895, 10, -10, -10, -10)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(3.68421, -10, 3.68421, 10, -10, 10, -10, -10)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10, -10, -10)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 5.78947, -10, 5.78947, 10, -10, 10)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, 1.57895, 5.78947, 1.57895, 5.78947, -10, -10, -10)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -8.94737, 10, -8.94737, 10, 10, -10, 10)
+
+[sub_resource type="TileSet" id="TileSet_1b1fo"]
+tile_size = Vector2i(20, 20)
+physics_layer_0/collision_layer = 8
+physics_layer_0/collision_mask = 8
+sources/1 = SubResource("TileSetAtlasSource_kq4ra")
+sources/0 = SubResource("TileSetAtlasSource_6j1nl")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1b1fo"]
+texture = ExtResource("5_1b1fo")
+texture_region_size = Vector2i(20, 20)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_24pik"]
+tile_size = Vector2i(20, 20)
+sources/0 = SubResource("TileSetAtlasSource_1b1fo")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n8g33"]
+shader = ExtResource("8_q7u7n")
+shader_parameter/radius = 0.79
+shader_parameter/softness = 0.39
+shader_parameter/amount = 0.71
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_24pik")
 
 [node name="Fondo" type="Sprite2D" parent="."]
 modulate = Color(0.317647, 0.407843, 0.705882, 1)
+material = SubResource("ShaderMaterial_6j1nl")
 texture = ExtResource("1_voyxy")
 centered = false
 metadata/_edit_lock_ = true
 
-[node name="Player_1" parent="." instance=ExtResource("2_jy8rr")]
-position = Vector2(267, 99)
+[node name="Y-sort" type="Node2D" parent="."]
+y_sort_enabled = true
 
-[node name="Player_2" parent="." instance=ExtResource("2_jy8rr")]
-position = Vector2(22, 15)
+[node name="Player_1" parent="Y-sort" instance=ExtResource("2_jy8rr")]
+position = Vector2(189, 60)
+
+[node name="Player_2" parent="Y-sort" instance=ExtResource("2_jy8rr")]
+position = Vector2(130, 102)
 player = 1
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Y-sort"]
+modulate = Color(0.173013, 0.234812, 0.45018, 1)
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAAGAAMAAAAAAAAAABAJAAUAAAAAAAAAABAFAAcAAQAAAAAAAAAKAAcAAQAAAAAAAAALAAcAAQABAAAAAAANAAUAAQACAAIAAAAFAAEAAQADAAAAAAAGAAEAAQAEAAAAAAAKAAEAAQADAAAAAAALAAEAAQAEAAAAAAAGAAcAAQABAAAAAAADAAQAAQACAAMAAAADAAUAAQACAAIAAAADAAMAAQACAAEAAAANAAQAAQACAAMAAAANAAMAAQACAAEAAAA=")
+tile_set = SubResource("TileSet_1b1fo")
+
+[node name="TileMapShadow" type="TileMapLayer" parent="Y-sort"]
+visible = false
+modulate = Color(0.198076, 0.26615, 0.502411, 1)
+position = Vector2(-2, -2)
+tile_map_data = PackedByteArray("AAAFAAEAAAAAAAAAAAAKAAEAAAAAAAAAAAAKAAcAAAAAAAAAAAAEAAcAAAAAAAAAAAAMAAUAAAAAAAAAAAADAAUAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_24pik")
 
 [node name="Fantasmas" type="Node2D" parent="."]
 
-[node name="fantasma_Julio" parent="Fantasmas" instance=ExtResource("5_1b1fo")]
-position = Vector2(172, 84)
+[node name="Fantasma_Hector" parent="Fantasmas" instance=ExtResource("8_6j1nl")]
+position = Vector2(159, 42)
+
+[node name="alma" parent="Fantasmas" instance=ExtResource("8_mtjjo")]
+position = Vector2(70, 84)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(154, 201.295)
+scale = Vector2(1.79694, 1.63669)
+color = Color(1, 1, 1, 0.290196)
+energy = 0.5
+shadow_color = Color(0, 0, 0, 0.192157)
+texture = ExtResource("7_kq4ra")
+offset = Vector2(0, -68)
+texture_scale = 6.95
+metadata/_edit_lock_ = true
+
+[node name="ColorVinnet" type="ColorRect" parent="."]
+z_index = 100
+material = SubResource("ShaderMaterial_n8g33")
+offset_right = 320.0
+offset_bottom = 180.0
+metadata/_edit_lock_ = true

@@ -23,11 +23,17 @@ var recovering = false
 var recover_frames : int = 0
 var recover_timer : float = 0.0
 
+signal get_alma
+var light_power : float = 0.0 
+
 func _ready() -> void:
 	if player == PLAYERS.P2:
 		player_input = "p2_"
 		var animation = load("res://Escenas/Coop/player_2_animation.tres")
 		anim.sprite_frames = animation
+	# To add power
+	get_alma.connect(_on_get_alma)
+	ancher.scale = Vector2(0.5,0.5)
 
 func _physics_process(delta: float) -> void:
 	if scared : return
@@ -103,8 +109,15 @@ func _on_area_entered(_area: Area2D) -> void:
 	$Timer.start()
 	anim.play("scream")
 	scared = true
+	ancher.scale = Vector2(0.5, 0.5)
 
 func _on_timer_timeout() -> void:
 	ancher.show()
 	light_shape.call_deferred("set_disabled", false)
 	scared = false
+
+func _on_get_alma() -> void:
+	light_power += 1.0
+	var mult_scale = ancher.scale.x + 0.1
+	mult_scale = clamp(mult_scale, 0.5, 1.5)
+	ancher.scale = Vector2(mult_scale, mult_scale)

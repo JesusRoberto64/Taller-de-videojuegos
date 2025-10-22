@@ -21,6 +21,9 @@ var can_move : bool = false
 @onready var particles : GPUParticles2D = $particles
 @onready var anim_player : AnimationPlayer = $AnimationPlayer
 
+# Almas
+var alma = preload("res://Escenas/Coop/alma.tscn")
+
 func invoke() -> void:
 	dist = randf_range(20.0,45.0)
 	$Timer.connect("timeout", revive)
