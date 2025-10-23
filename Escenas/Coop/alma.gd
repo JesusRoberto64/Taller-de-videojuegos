@@ -18,33 +18,27 @@ var cycles : int = 0
 func _ready() -> void:
 	connect("body_entered", _on_body_entered)
 	$rango.connect("body_entered", _on_rango_body_entered)
-	
 	pos = position # para iniciar animación de salto
-	
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if disapeared: queue_free()
 
 func _physics_process(delta: float) -> void:
 	if following:
 		var target_pos = target.global_position
-		global_position = global_position.move_toward(target_pos, delta*60.0)
+		global_position = global_position.move_toward(target_pos, delta*100.0)
 	elif jumpig:
 		# Salto
 		if cycles >= 3:
 			jumpig = false
-		radian += delta * 3.0
+		radian += delta * 6.0
 		position.y = pos.y - abs(sin(radian)) * dist
 		if radian >= PI:
 			radian -= PI
 			dist *= 0.6
 			cycles += 1
-		
 		# Desplazamiento
 		position.x += delta * (dist*0.5) * direction
-		
-		
-		pass
 
 func _on_body_entered(body : Node2D) -> void:
 	body.emit_signal("get_alma")

@@ -42,6 +42,7 @@ func fading(delta) -> void:
 		$Timer.start()
 		$CollisionShape2D.disabled = true
 		can_move = false
+		instance_alma(position)
 
 func movement(delta) -> void:
 	if !can_move : return
@@ -53,7 +54,6 @@ func movement(delta) -> void:
 	elif position.y >= 180.0:
 		position.y = 179.0
 		direction = -1.0
-		pass
 	position.y += delta*speed*direction
 
 func _on_area_entered(_area: Area2D) -> void:
@@ -78,3 +78,8 @@ func revive() -> void:
 func _on_animation_finished(_anim_name: StringName) -> void:
 	$CollisionShape2D.disabled = false
 	can_move = true
+
+func instance_alma(_pos: Vector2) -> void:
+	var a : Area2D = alma.instantiate()
+	a.position = _pos
+	get_parent().add_child(a)

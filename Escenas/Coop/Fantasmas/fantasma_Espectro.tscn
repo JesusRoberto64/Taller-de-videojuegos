@@ -1,57 +1,64 @@
-[gd_scene load_steps=20 format=3 uid="uid://dyc12uhgsq2at"]
+[gd_scene load_steps=21 format=3 uid="uid://bf7c3sluea6l0"]
 
-[ext_resource type="Script" uid="uid://d01gqm1thrgjw" path="res://Escenas/Coop/Fantasmas/fantasma_07.gd" id="1_fxnw6"]
-[ext_resource type="Texture2D" uid="uid://c6y7s8xx0x4p7" path="res://Recursos/Coop/Fantasma Miron.png" id="2_8p2na"]
-[ext_resource type="Shader" uid="uid://bpy83ugtn3tha" path="res://Escenas/Coop/fantasma_glow.gdshader" id="3_pryby"]
-[ext_resource type="Texture2D" uid="uid://xum2uxnhgtse" path="res://Recursos/Capibara/shadow.png" id="3_s0c2g"]
-[ext_resource type="Texture2D" uid="uid://trg7oj5scd0c" path="res://Recursos/Coop/particula_light.png" id="4_7ofnh"]
-[ext_resource type="Texture2D" uid="uid://wyywjnoa4bh3" path="res://Recursos/Coop/particula.png" id="4_pryby"]
+[ext_resource type="Script" uid="uid://d01gqm1thrgjw" path="res://Escenas/Coop/Fantasmas/fantasma_07.gd" id="1_fcr56"]
+[ext_resource type="Texture2D" uid="uid://dx0nbb656l86y" path="res://Recursos/Coop/Referencias.png" id="2_fcr56"]
+[ext_resource type="Shader" uid="uid://bpy83ugtn3tha" path="res://Escenas/Coop/fantasma_glow.gdshader" id="3_b48su"]
+[ext_resource type="Texture2D" uid="uid://trg7oj5scd0c" path="res://Recursos/Coop/particula_light.png" id="4_ft4y2"]
+[ext_resource type="Texture2D" uid="uid://xum2uxnhgtse" path="res://Recursos/Capibara/shadow.png" id="5_k7hn8"]
+[ext_resource type="Texture2D" uid="uid://wyywjnoa4bh3" path="res://Recursos/Coop/particula.png" id="6_27ypv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c3o2d"]
 radius = 12.0416
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s0c2g"]
-atlas = ExtResource("2_8p2na")
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3052"]
+atlas = ExtResource("2_fcr56")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b48su"]
+atlas = ExtResource("2_fcr56")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pryby"]
-atlas = ExtResource("2_8p2na")
-region = Rect2(64, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ft4y2"]
+atlas = ExtResource("2_fcr56")
+region = Rect2(0, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7ofnh"]
-atlas = ExtResource("2_8p2na")
-region = Rect2(64, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7hn8"]
+atlas = ExtResource("2_fcr56")
+region = Rect2(32, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yd1j5"]
-atlas = ExtResource("2_8p2na")
+[sub_resource type="AtlasTexture" id="AtlasTexture_27ypv"]
+atlas = ExtResource("2_fcr56")
 region = Rect2(0, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1gbje"]
-atlas = ExtResource("2_8p2na")
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8iqv"]
+atlas = ExtResource("2_fcr56")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qcwyq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s0c2g")
+"texture": SubResource("AtlasTexture_f3052")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pryby")
+"texture": SubResource("AtlasTexture_b48su")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7ofnh")
+"texture": SubResource("AtlasTexture_ft4y2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yd1j5")
+"texture": SubResource("AtlasTexture_k7hn8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27ypv")
 }],
-"loop": false,
+"loop": true,
 "name": &"attack",
 "speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1gbje")
+"texture": SubResource("AtlasTexture_e8iqv")
 }],
 "loop": true,
 "name": &"default",
@@ -59,8 +66,8 @@ animations = [{
 }]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yd1j5"]
-shader = ExtResource("3_pryby")
-shader_parameter/amount = 0.3
+shader = ExtResource("3_b48su")
+shader_parameter/amount = 0.9
 
 [sub_resource type="Animation" id="Animation_o8is2"]
 length = 0.001
@@ -206,10 +213,10 @@ gravity = Vector3(0, -62.8, 0)
 scale_min = 0.5
 scale_max = 0.5
 
-[node name="fantasma_Julio" type="Area2D"]
+[node name="fantasma_Espectro" type="Area2D"]
 collision_layer = 4
 collision_mask = 2
-script = ExtResource("1_fxnw6")
+script = ExtResource("1_fcr56")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -220,16 +227,13 @@ shape = SubResource("CircleShape2D_c3o2d")
 [node name="sprite" type="AnimatedSprite2D" parent="."]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_qcwyq")
-animation = &"attack"
 autoplay = "default"
-frame = 3
-frame_progress = 1.0
 
 [node name="glow" type="Sprite2D" parent="sprite"]
+modulate = Color(0.127859, 0.167815, 0.278037, 1)
 material = SubResource("ShaderMaterial_yd1j5")
-position = Vector2(0, -3)
 scale = Vector2(0.890625, 0.890625)
-texture = ExtResource("4_7ofnh")
+texture = ExtResource("4_ft4y2")
 region_rect = Rect2(0, 0, 32, 128)
 
 [node name="Shadow" type="Sprite2D" parent="sprite"]
@@ -237,7 +241,7 @@ modulate = Color(0.41598, 0.41598, 0.41598, 1)
 z_index = -1
 position = Vector2(-0.500001, 9)
 scale = Vector2(1.34375, 0.681764)
-texture = ExtResource("3_s0c2g")
+texture = ExtResource("5_k7hn8")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
@@ -250,7 +254,7 @@ libraries = {
 [node name="particles" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 4
-texture = ExtResource("4_pryby")
+texture = ExtResource("6_27ypv")
 lifetime = 0.36
 speed_scale = 4.06
 process_material = SubResource("ParticleProcessMaterial_uy5ws")

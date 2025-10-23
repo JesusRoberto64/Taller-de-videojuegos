@@ -217,8 +217,8 @@ metadata/_edit_lock_ = true
 [node name="glow" type="Sprite2D" parent="sprite"]
 modulate = Color(0.362946, 0.864768, 0.630705, 1)
 material = SubResource("ShaderMaterial_qtrvy")
-position = Vector2(9.53674e-07, -0.181817)
-scale = Vector2(1.0625, 1.25568)
+position = Vector2(0.999999, 1.5)
+scale = Vector2(0.8125, 0.90625)
 texture = ExtResource("4_uh5p8")
 region_rect = Rect2(0, 0, 32, 128)
 

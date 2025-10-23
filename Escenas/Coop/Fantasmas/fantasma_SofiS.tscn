@@ -1,9 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://bq1jy1jqrineu"]
+[gd_scene load_steps=19 format=3 uid="uid://bq1jy1jqrineu"]
 
 [ext_resource type="Script" uid="uid://cxb21pc83dgox" path="res://Escenas/Coop/Fantasmas/fantasma_06.gd" id="1_ivxnq"]
 [ext_resource type="Texture2D" uid="uid://brrljmwbeiayi" path="res://Recursos/Coop/New Piskel (6).png" id="2_373pk"]
+[ext_resource type="Shader" uid="uid://bpy83ugtn3tha" path="res://Escenas/Coop/fantasma_glow.gdshader" id="3_1agyh"]
 [ext_resource type="Texture2D" uid="uid://wyywjnoa4bh3" path="res://Recursos/Coop/particula.png" id="3_o8is2"]
 [ext_resource type="Texture2D" uid="uid://xum2uxnhgtse" path="res://Recursos/Capibara/shadow.png" id="3_uy5ws"]
+[ext_resource type="Texture2D" uid="uid://trg7oj5scd0c" path="res://Recursos/Coop/particula_light.png" id="4_d5kgd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c3o2d"]
 radius = 15.0
@@ -43,6 +45,10 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g43qs"]
+shader = ExtResource("3_1agyh")
+shader_parameter/amount = 0.5
 
 [sub_resource type="Animation" id="Animation_o8is2"]
 length = 0.001
@@ -204,6 +210,14 @@ z_index = 1
 sprite_frames = SubResource("SpriteFrames_qcwyq")
 autoplay = "default"
 frame_progress = 0.183269
+
+[node name="glow" type="Sprite2D" parent="sprite"]
+modulate = Color(0.344261, 0.777059, 0.563123, 1)
+material = SubResource("ShaderMaterial_g43qs")
+position = Vector2(0, 4)
+scale = Vector2(1.35937, 1.3236)
+texture = ExtResource("4_d5kgd")
+region_rect = Rect2(0, 0, 32, 128)
 
 [node name="Shadow" type="Sprite2D" parent="sprite"]
 modulate = Color(0.41598, 0.41598, 0.41598, 1)

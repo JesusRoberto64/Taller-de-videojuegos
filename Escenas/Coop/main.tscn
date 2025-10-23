@@ -1,17 +1,22 @@
-[gd_scene load_steps=18 format=4 uid="uid://dxqvh853aket4"]
+[gd_scene load_steps=23 format=4 uid="uid://dxqvh853aket4"]
 
 [ext_resource type="Script" uid="uid://ccxev8g4u2pgc" path="res://Escenas/Coop/overlord.gd" id="1_24pik"]
 [ext_resource type="Texture2D" uid="uid://6sppvdg6lg0e" path="res://Recursos/Capibara/fondo_02.png" id="1_voyxy"]
 [ext_resource type="PackedScene" uid="uid://iy6y0brbaqck" path="res://Escenas/Coop/player_1.tscn" id="2_jy8rr"]
+[ext_resource type="Script" uid="uid://tslwajw2gddx" path="res://Escenas/Coop/Fantasmas/fantasmas_list.gd" id="2_mtjjo"]
+[ext_resource type="Shader" uid="uid://6lcqcfa5biyd" path="res://Escenas/Coop/light_2d.gdshader" id="4_mtjjo"]
 [ext_resource type="Texture2D" uid="uid://jk55a8txd5tv" path="res://Recursos/Capibara/arbusto.png" id="4_n8g33"]
 [ext_resource type="Texture2D" uid="uid://bmqya8hv8wcg2" path="res://Recursos/Capibara/tiles_shadow_00.png" id="5_1b1fo"]
 [ext_resource type="Texture2D" uid="uid://cw25hepvrl5c6" path="res://Recursos/Coop/tiles_00.png" id="6_24pik"]
 [ext_resource type="Texture2D" uid="uid://wyywjnoa4bh3" path="res://Recursos/Coop/particula.png" id="7_kq4ra"]
-[ext_resource type="PackedScene" uid="uid://dbb7iqtm3svqy" path="res://Escenas/Coop/Fantasmas/fantasma_Hector.tscn" id="8_6j1nl"]
-[ext_resource type="PackedScene" uid="uid://det3wibfb20vc" path="res://Escenas/Coop/alma.tscn" id="8_mtjjo"]
 [ext_resource type="Shader" uid="uid://dypflfpnexd6a" path="res://Escenas/Coop/vinnete.gdshader" id="8_q7u7n"]
+[ext_resource type="Texture2D" uid="uid://c8c4wmcmkf2c4" path="res://Recursos/Coop/alma_00.png" id="11_mtjjo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6j1nl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o3f4x"]
+shader = ExtResource("4_mtjjo")
+shader_parameter/color = Vector4(100, 70, 50, 59)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6j1nl"]
 texture = ExtResource("4_n8g33")
@@ -83,12 +88,94 @@ sources/0 = SubResource("TileSetAtlasSource_1b1fo")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n8g33"]
 shader = ExtResource("8_q7u7n")
-shader_parameter/radius = 0.79
-shader_parameter/softness = 0.39
-shader_parameter/amount = 0.71
+shader_parameter/radius = 0.75
+shader_parameter/softness = 0.0
+shader_parameter/amount = 1.0
+
+[sub_resource type="Animation" id="Animation_mtjjo"]
+resource_name = "vinnet"
+length = 0.4
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorVinnet:material:shader_parameter/radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.75, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorVinnet:material:shader_parameter/softness")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.41, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0, 0.4)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorVinnet:material:shader_parameter/amount")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.84, -0.2, 0, 0.2, 0),
+"times": PackedFloat32Array(0, 0.4)
+}
+
+[sub_resource type="Animation" id="Animation_o3f4x"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorVinnet:material:shader_parameter/radius")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.75, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorVinnet:material:shader_parameter/softness")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorVinnet:material:shader_parameter/amount")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h0lkn"]
+_data = {
+&"RESET": SubResource("Animation_o3f4x"),
+&"vinnet": SubResource("Animation_mtjjo")
+}
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_24pik")
+
+[node name="Invoker" type="Node" parent="."]
+script = ExtResource("2_mtjjo")
 
 [node name="Fondo" type="Sprite2D" parent="."]
 modulate = Color(0.317647, 0.407843, 0.705882, 1)
@@ -101,16 +188,20 @@ metadata/_edit_lock_ = true
 y_sort_enabled = true
 
 [node name="Player_1" parent="Y-sort" instance=ExtResource("2_jy8rr")]
-position = Vector2(189, 60)
+position = Vector2(189, 76)
 
 [node name="Player_2" parent="Y-sort" instance=ExtResource("2_jy8rr")]
-position = Vector2(130, 102)
+position = Vector2(132, 104)
 player = 1
+metadata/_edit_group_ = true
+
+[node name="Polygon2D" parent="Y-sort/Player_2/ancher" index="1"]
+material = SubResource("ShaderMaterial_o3f4x")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Y-sort"]
 modulate = Color(0.173013, 0.234812, 0.45018, 1)
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAGAAMAAAAAAAAAABAJAAUAAAAAAAAAABAFAAcAAQAAAAAAAAAKAAcAAQAAAAAAAAALAAcAAQABAAAAAAANAAUAAQACAAIAAAAFAAEAAQADAAAAAAAGAAEAAQAEAAAAAAAKAAEAAQADAAAAAAALAAEAAQAEAAAAAAAGAAcAAQABAAAAAAADAAQAAQACAAMAAAADAAUAAQACAAIAAAADAAMAAQACAAEAAAANAAQAAQACAAMAAAANAAMAAQACAAEAAAA=")
+tile_map_data = PackedByteArray("AAAGAAMAAAAAAAAAABAJAAUAAAAAAAAAABAFAAcAAQAAAAAAAAAKAAcAAQAAAAAAAAALAAcAAQABAAAAAAANAAUAAQACAAIAAAAGAAcAAQABAAAAAAADAAQAAQACAAMAAAADAAUAAQACAAIAAAADAAMAAQACAAEAAAANAAQAAQACAAMAAAANAAMAAQACAAEAAAAFAAEAAQADAAAAAAAGAAEAAQAEAAAAAAAKAAEAAQADAAAAAAALAAEAAQAEAAAAAAA=")
 tile_set = SubResource("TileSet_1b1fo")
 
 [node name="TileMapShadow" type="TileMapLayer" parent="Y-sort"]
@@ -121,12 +212,6 @@ tile_map_data = PackedByteArray("AAAFAAEAAAAAAAAAAAAKAAEAAAAAAAAAAAAKAAcAAAAAAAA
 tile_set = SubResource("TileSet_24pik")
 
 [node name="Fantasmas" type="Node2D" parent="."]
-
-[node name="Fantasma_Hector" parent="Fantasmas" instance=ExtResource("8_6j1nl")]
-position = Vector2(159, 42)
-
-[node name="alma" parent="Fantasmas" instance=ExtResource("8_mtjjo")]
-position = Vector2(70, 84)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(154, 201.295)
@@ -145,3 +230,47 @@ material = SubResource("ShaderMaterial_n8g33")
 offset_right = 320.0
 offset_bottom = 180.0
 metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Ready" type="Label" parent="CanvasLayer"]
+offset_top = 76.0
+offset_right = 320.0
+offset_bottom = 99.0
+size_flags_horizontal = 3
+text = "¡Captura Almas!"
+horizontal_alignment = 1
+
+[node name="almas" type="Label" parent="CanvasLayer"]
+offset_left = 127.0
+offset_right = 210.0
+offset_bottom = 23.0
+text = "x 0000"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/almas"]
+position = Vector2(5, 12)
+scale = Vector2(1.67053, 1.67053)
+texture = ExtResource("11_mtjjo")
+
+[node name="Timer" type="Label" parent="CanvasLayer"]
+offset_right = 54.0
+offset_bottom = 23.0
+text = "3 : 00"
+horizontal_alignment = 1
+
+[node name="Pause" type="Label" parent="CanvasLayer"]
+visible = false
+offset_top = 76.0
+offset_right = 320.0
+offset_bottom = 99.0
+size_flags_horizontal = 3
+text = "Pause"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_h0lkn")
+}
+
+[editable path="Y-sort/Player_2"]

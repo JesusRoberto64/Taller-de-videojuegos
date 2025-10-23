@@ -12,7 +12,7 @@ var player_input = "p1_"
 var direction : Vector2 = Vector2.DOWN
 var speed = 95.0
 
-var mov_anim
+var mov_anim 
 
 var radian : float = 0.0
 var is_holding : bool = false
@@ -24,7 +24,7 @@ var recover_frames : int = 0
 var recover_timer : float = 0.0
 
 signal get_alma
-var light_power : float = 0.0 
+@onready var anim_player = $AnimationPlayer
 
 func _ready() -> void:
 	if player == PLAYERS.P2:
@@ -53,7 +53,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	position.x = clamp(position.x, 12.0, 308.0)
-	position.y = clamp(position.y, 12.0, 168.0)
+	position.y = clamp(position.y, 6.0, 168.0)
 	
 	if recovering:
 		recover_timer += delta
@@ -117,7 +117,7 @@ func _on_timer_timeout() -> void:
 	scared = false
 
 func _on_get_alma() -> void:
-	light_power += 1.0
 	var mult_scale = ancher.scale.x + 0.1
 	mult_scale = clamp(mult_scale, 0.5, 1.5)
 	ancher.scale = Vector2(mult_scale, mult_scale)
+	anim_player.play("binking")
