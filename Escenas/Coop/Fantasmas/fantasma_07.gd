@@ -29,10 +29,11 @@ func movement(delta) -> void:
 	position = lerp(position, target.position, delta)
 
 func revive() -> void:
-	position = Vector2(randf_range(36.0, 280.0), randf_range(36.0, 150.0))
-	pos = position
-	hp = maxHp
-	anim_player.play("apearing")
-	
-	spr.play("default")
-	is_close = true
+	queue_free()
+	#position = Vector2(randf_range(36.0, 280.0), randf_range(36.0, 150.0))
+	#pos = position
+	#hp = maxHp
+	#anim_player.play("apearing")
+	#
+	#spr.play("default")
+	#is_close = true

@@ -31,6 +31,7 @@ func _physics_process(delta: float) -> void:
 		# Salto
 		if cycles >= 3:
 			jumpig = false
+			rango_shape.disabled = false
 		radian += delta * 6.0
 		position.y = pos.y - abs(sin(radian)) * dist
 		if radian >= PI:

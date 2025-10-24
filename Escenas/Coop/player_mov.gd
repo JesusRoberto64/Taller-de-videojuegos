@@ -26,6 +26,8 @@ var recover_timer : float = 0.0
 signal get_alma
 @onready var anim_player = $AnimationPlayer
 
+var friend = null
+
 func _ready() -> void:
 	if player == PLAYERS.P2:
 		player_input = "p2_"
@@ -34,6 +36,12 @@ func _ready() -> void:
 	# To add power
 	get_alma.connect(_on_get_alma)
 	ancher.scale = Vector2(0.5,0.5)
+	
+	var players = get_tree().get_nodes_in_group("Player")
+	for f in players:
+		if f != self:
+			friend = f
+			break
 
 func _physics_process(delta: float) -> void:
 	if scared : return
@@ -64,7 +72,11 @@ func _physics_process(delta: float) -> void:
 			anim.show()
 
 func _process(_delta: float) -> void:
-	if scared : return
+	if scared : 
+		if position.distance_to(friend.position) < 14.0:
+			_on_timer_timeout()
+			pass
+		return
 	
 	if recovering:
 		recover_frames += 1
@@ -106,7 +118,7 @@ func _on_area_entered(_area: Area2D) -> void:
 	
 	ancher.hide()
 	light_shape.call_deferred("set_disabled", true)
-	$Timer.start()
+	#$Timer.start()
 	anim.play("scream")
 	scared = true
 	ancher.scale = Vector2(0.5, 0.5)
@@ -117,7 +129,7 @@ func _on_timer_timeout() -> void:
 	scared = false
 
 func _on_get_alma() -> void:
-	var mult_scale = ancher.scale.x + 0.1
+	var mult_scale = ancher.scale.x + 0.5
 	mult_scale = clamp(mult_scale, 0.5, 1.5)
 	ancher.scale = Vector2(mult_scale, mult_scale)
 	anim_player.play("binking")

@@ -12,6 +12,7 @@ var socrates = preload("res://Escenas/Coop/Fantasmas/fantasma_Socrates.tscn")
 
 var list : Array = []
 var invoked : Array = []
+signal no_soul
 
 func _ready() -> void:
 	list =[
@@ -29,10 +30,13 @@ func _ready() -> void:
 func invoke(father, _level: int = 1, _amaount: int = 1) -> void:
 	invoked = []
 	for f in _amaount:
-		var fantasma = list.pick_random().instantiate()
+		var fantasma : Fantasma = list.pick_random().instantiate()
 		father.add_child(fantasma)
+		fantasma.destroyed.connect(destroyed)
 		invoked.append(fantasma)
 
-func destroyed(fantasma: Fantasma) -> int:
+func destroyed(fantasma: Fantasma) -> void:
 	invoked.erase(fantasma)
-	return invoked.size()
+	if invoked.size() <= 0:
+		await get_tree().create_timer(2.0).timeout
+		no_soul.emit()

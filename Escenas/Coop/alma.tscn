@@ -28,4 +28,5 @@ shape = SubResource("CircleShape2D_oy8yv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rango"]
 shape = SubResource("CircleShape2D_h131j")
+disabled = true
 debug_color = Color(0.742639, 0.431515, 0.470075, 0.42)

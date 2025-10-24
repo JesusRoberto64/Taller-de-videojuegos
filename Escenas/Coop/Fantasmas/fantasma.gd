@@ -3,6 +3,8 @@ extends Area2D
 
 @export var maxHp : float = 10.0
 var hp : float = maxHp
+signal destroyed(fantasma : Fantasma)
+
 @export var speed : float = 40.0
 
 var is_fading : bool = false
@@ -39,6 +41,7 @@ func fading(delta) -> void:
 	hp = max(hp, 0.0)
 	spr.modulate.a = hp / maxHp
 	if hp == 0.0:
+		destroyed.emit(self)
 		$Timer.start()
 		$CollisionShape2D.disabled = true
 		can_move = false
@@ -68,12 +71,13 @@ func _on_area_exited(_area: Area2D) -> void:
 	anim_player.stop()
 
 func revive() -> void:
-	position = Vector2(randf_range(36.0, 280.0), randf_range(36.0, 150.0))
-	pos = position
-	hp = maxHp
-	anim_player.play("apearing")
-	radian = 0.0
-	direction *= -1
+	queue_free()
+	#position = Vector2(randf_range(36.0, 280.0), randf_range(36.0, 150.0))
+	#pos = position
+	#hp = maxHp
+	#anim_player.play("apearing")
+	#radian = 0.0
+	#direction *= -1
 
 func _on_animation_finished(_anim_name: StringName) -> void:
 	$CollisionShape2D.disabled = false

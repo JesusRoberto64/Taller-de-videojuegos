@@ -33,8 +33,9 @@ func movement(delta):
 		starting_point()
 
 func revive() -> void:
-	starting_point()
-	hp = maxHp
-	anim_player.play("apearing")
-	radian = 0.0
-	direction *= -1
+	queue_free()
+	#starting_point()
+	#hp = maxHp
+	#anim_player.play("apearing")
+	#radian = 0.0
+	#direction *= -1

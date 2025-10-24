@@ -15,7 +15,7 @@ var players : Array = []
 @onready var timer_lab = $CanvasLayer/Timer
 
 var timer : float = 4.0 
-var timer_game : float = 180.0
+var timer_game : float = 100.0
 
 var is_invoking : float = false
 
@@ -23,6 +23,9 @@ func _ready() -> void:
 	players = get_tree().get_nodes_in_group("Player")
 	for player in players:
 		player.connect("get_alma", get_alma)
+	
+	# HUB
+	Invoker.connect("no_soul", no_soul)
 
 func _process(delta: float) -> void:
 	match cur_state:
@@ -33,7 +36,7 @@ func _process(delta: float) -> void:
 				ready_lab.hide()
 				anim.play("vinnet")
 				cur_state = STATE.GAME
-				Invoker.invoke(Fantasmas, 1,3)
+				Invoker.invoke(Fantasmas, 1,level)
 			pass
 		STATE.GAME:
 			timer_game -= delta
@@ -41,16 +44,14 @@ func _process(delta: float) -> void:
 				timer_game = 0.0
 				cur_state = STATE.GAMEOVER
 				anim.play_backwards("vinnet")
+				ready_lab.show()
+				ready_lab.text = "¡FELIZ HALLOWEEN!"
 			var seconds = fmod(timer_game, 60)
 			var minutes = fmod(timer_game, 3600) / 60
 			timer_lab.text = "%02d : %02d" % [minutes, seconds]
-			
-			
-			
-			
-			
 			pass
 		STATE.GAMEOVER:
+			
 			pass
 	pass
 
@@ -58,3 +59,7 @@ func get_alma() -> void:
 	almas += 1
 	almas = min(almas, 9999)
 	almas_lab.text = "x %0004d" % [almas]
+
+func no_soul():
+	level += 1
+	Invoker.invoke(Fantasmas, 1,level)
