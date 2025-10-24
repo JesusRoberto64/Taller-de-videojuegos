@@ -15,11 +15,16 @@ var players : Array = []
 @onready var timer_lab = $CanvasLayer/Timer
 
 var timer : float = 4.0 
-var timer_game : float = 100.0
+var timer_game : float = 50.0
 
 var is_invoking : float = false
 
 func _ready() -> void:
+	var seconds = fmod(timer_game, 60)
+	var minutes = fmod(timer_game, 3600) / 60
+	timer_lab.text = "%02d : %02d" % [minutes, seconds]
+	
+	
 	players = get_tree().get_nodes_in_group("Player")
 	for player in players:
 		player.connect("get_alma", get_alma)
@@ -46,14 +51,32 @@ func _process(delta: float) -> void:
 				anim.play_backwards("vinnet")
 				ready_lab.show()
 				ready_lab.text = "¡FELIZ HALLOWEEN!"
+				for f in Fantasmas.get_children():
+					if f is Fantasma:
+						f.disappear()
 			var seconds = fmod(timer_game, 60)
 			var minutes = fmod(timer_game, 3600) / 60
 			timer_lab.text = "%02d : %02d" % [minutes, seconds]
+			
+			# Two scared
+			var scared = 0
+			for p in players:
+				if p.scared == true:
+					scared += 1
+			if scared >= 2:
+				cur_state = STATE.GAMEOVER
+				#anim.play_backwards("vinnet")
+				ready_lab.show()
+				ready_lab.text = "¡GAME OUVA!"
+				
 			pass
 		STATE.GAMEOVER:
 			
 			pass
-	pass
+	
+	if Input.is_action_just_released("ui_undo"):
+		get_tree().reload_current_scene()
+	
 
 func get_alma() -> void:
 	almas += 1

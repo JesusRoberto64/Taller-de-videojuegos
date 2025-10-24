@@ -79,7 +79,8 @@ func revive() -> void:
 	#radian = 0.0
 	#direction *= -1
 
-func _on_animation_finished(_anim_name: StringName) -> void:
+func _on_animation_finished(anim_name: StringName) -> void:
+	if anim_name != "apearing": return
 	$CollisionShape2D.disabled = false
 	can_move = true
 
@@ -87,3 +88,8 @@ func instance_alma(_pos: Vector2) -> void:
 	var a : Area2D = alma.instantiate()
 	a.position = _pos
 	get_parent().add_child(a)
+
+func disappear() -> void:
+	$CollisionShape2D.disabled = true
+	can_move = false
+	anim_player.play("desappear")

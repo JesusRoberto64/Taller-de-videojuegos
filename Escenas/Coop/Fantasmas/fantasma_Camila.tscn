@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dihcfqe37wegi"]
+[gd_scene load_steps=16 format=3 uid="uid://dihcfqe37wegi"]
 
 [ext_resource type="Script" uid="uid://5wskbl1n8xit" path="res://Escenas/Coop/Fantasmas/fantasma_04.gd" id="1_dhs26"]
 [ext_resource type="Texture2D" uid="uid://dpohj3yax8otl" path="res://Recursos/Coop/fanta.png" id="2_dhs26"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://bpy83ugtn3tha" path="res://Escenas/Coop/fantasma_glow.gdshader" id="3_cohid"]
 [ext_resource type="Texture2D" uid="uid://xum2uxnhgtse" path="res://Recursos/Capibara/shadow.png" id="3_hscvs"]
 [ext_resource type="Texture2D" uid="uid://wyywjnoa4bh3" path="res://Recursos/Coop/particula.png" id="4_cohid"]
+[ext_resource type="PackedScene" uid="uid://bjj4ey3xr3d1f" path="res://Escenas/Coop/animation_player.tscn" id="7_cohid"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_foqeh"]
 radius = 7.0
@@ -50,138 +51,6 @@ animations = [{
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0jgc1"]
 shader = ExtResource("3_cohid")
 shader_parameter/amount = 0.4
-
-[sub_resource type="Animation" id="Animation_o8is2"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:modulate:a")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("sprite:scale:x")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("sprite:scale:y")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("sprite:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("particles:emitting")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_373pk"]
-resource_name = "apearing"
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:modulate:a")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.3, 1)
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("particles:emitting")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_uy5ws"]
-resource_name = "hurting"
-length = 0.15
-loop_mode = 1
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("sprite:scale:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.777775, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.0614633, 0.133333)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("sprite:scale:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.777775, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.0614633, 0.133333)
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = false
-tracks/2/path = NodePath("sprite:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.059301, 0.132287),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_uy5ws"]
-_data = {
-&"RESET": SubResource("Animation_o8is2"),
-&"apearing": SubResource("Animation_373pk"),
-&"hurting": SubResource("Animation_uy5ws")
-}
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_22bnv"]
 particle_flag_disable_z = true
@@ -233,11 +102,6 @@ texture = ExtResource("3_hscvs")
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_uy5ws")
-}
-
 [node name="particles" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 4
@@ -246,3 +110,5 @@ lifetime = 0.36
 speed_scale = 4.06
 process_material = SubResource("ParticleProcessMaterial_22bnv")
 metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" parent="." instance=ExtResource("7_cohid")]

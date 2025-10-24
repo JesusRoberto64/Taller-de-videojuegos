@@ -7,6 +7,7 @@ var targets : Array = []
 var target = null
 
 func _ready() -> void:
+	anim_player.connect('animation_finished',_on_animation_finished)
 	targets = get_tree().get_nodes_in_group("Player")
 	invoke()
 
