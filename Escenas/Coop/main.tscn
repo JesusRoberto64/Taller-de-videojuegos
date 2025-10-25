@@ -89,7 +89,7 @@ sources/0 = SubResource("TileSetAtlasSource_1b1fo")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n8g33"]
 shader = ExtResource("8_q7u7n")
 shader_parameter/radius = 0.75
-shader_parameter/softness = 0.0
+shader_parameter/softness = 0.01
 shader_parameter/amount = 1.0
 
 [sub_resource type="Animation" id="Animation_o3f4x"]
@@ -113,7 +113,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0.01, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/2/type = "bezier"
@@ -150,7 +150,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.41, -0.15, 0, 0.15, 0),
+"points": PackedFloat32Array(0.01, -0.25, 0, 0.25, 0, 0.41, -0.15, 0, 0.15, 0),
 "times": PackedFloat32Array(0, 0.4)
 }
 tracks/2/type = "bezier"

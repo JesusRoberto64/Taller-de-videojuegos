@@ -6,6 +6,7 @@ func _ready() -> void:
 	anim_player.connect('animation_finished',_on_animation_finished)
 	connect("area_entered", _on_area_entered)
 	connect("area_exited", _on_area_exited)
+	spr.hide()
 	invoke()
 	var numbers = [-1.0, 1.0, 0.5, -0.5, 0.25,-0.25]
 	vec_direction = Vector2(numbers.pick_random() , numbers.pick_random()).normalized()

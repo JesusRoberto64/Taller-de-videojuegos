@@ -51,9 +51,6 @@ func _process(delta: float) -> void:
 				anim.play_backwards("vinnet")
 				ready_lab.show()
 				ready_lab.text = "¡FELIZ HALLOWEEN!"
-				for f in Fantasmas.get_children():
-					if f is Fantasma:
-						f.disappear()
 			var seconds = fmod(timer_game, 60)
 			var minutes = fmod(timer_game, 3600) / 60
 			timer_lab.text = "%02d : %02d" % [minutes, seconds]
@@ -71,8 +68,11 @@ func _process(delta: float) -> void:
 				
 			pass
 		STATE.GAMEOVER:
-			
-			pass
+			for f in Fantasmas.get_children():
+				if f is Fantasma:
+					f.disappear()
+				else:
+					f.queue_free()
 	
 	if Input.is_action_just_released("ui_undo"):
 		get_tree().reload_current_scene()

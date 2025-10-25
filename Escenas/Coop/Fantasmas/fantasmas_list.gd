@@ -30,7 +30,7 @@ func _ready() -> void:
 func invoke(father, _level: int = 1, _amaount: int = 1) -> void:
 	invoked = []
 	for f in _amaount:
-		var fantasma : Fantasma = list.pick_random().instantiate()
+		var fantasma : Fantasma = list.pick_random().instantiate()#list.pick_random().instantiate()
 		father.add_child(fantasma)
 		fantasma.destroyed.connect(destroyed)
 		invoked.append(fantasma)

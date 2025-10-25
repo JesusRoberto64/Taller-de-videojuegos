@@ -90,6 +90,7 @@ func instance_alma(_pos: Vector2) -> void:
 	get_parent().add_child(a)
 
 func disappear() -> void:
+	if !can_move : return
 	$CollisionShape2D.disabled = true
 	can_move = false
 	anim_player.play("desappear")

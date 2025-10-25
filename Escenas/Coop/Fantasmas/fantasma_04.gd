@@ -4,6 +4,7 @@ func _ready() -> void:
 	anim_player.connect('animation_finished',_on_animation_finished)
 	connect("area_entered", _on_area_entered)
 	connect("area_exited", _on_area_exited)
+	spr.hide()
 	invoke()
 	starting_point()
 	dist = 10.0
@@ -32,8 +33,8 @@ func movement(delta):
 	if position.y < -30.0 or position.y > 210.0:
 		starting_point()
 
-func revive() -> void:
-	queue_free()
+#func revive() -> void:
+	#queue_free()
 	#starting_point()
 	#hp = maxHp
 	#anim_player.play("apearing")
