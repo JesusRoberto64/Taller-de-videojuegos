@@ -19,16 +19,14 @@ var timer_game : float = 50.0
 
 var is_invoking : float = false
 
+var wave_timer : float = 2.0
+var invoke_timer : float = 1.0
+
 func _ready() -> void:
-	var seconds = fmod(timer_game, 60)
-	var minutes = fmod(timer_game, 3600) / 60
-	timer_lab.text = "%02d : %02d" % [minutes, seconds]
-	
-	
+	timer_lab.text = chronometer_label(timer_game)
 	players = get_tree().get_nodes_in_group("Player")
 	for player in players:
 		player.connect("get_alma", get_alma)
-	
 	# HUB
 	Invoker.connect("no_soul", no_soul)
 
@@ -45,15 +43,13 @@ func _process(delta: float) -> void:
 			pass
 		STATE.GAME:
 			timer_game -= delta
+			timer_lab.text = chronometer_label(timer_game)
 			if timer_game <= 0.0:
 				timer_game = 0.0
 				cur_state = STATE.GAMEOVER
 				anim.play_backwards("vinnet")
 				ready_lab.show()
 				ready_lab.text = "¡FELIZ HALLOWEEN!"
-			var seconds = fmod(timer_game, 60)
-			var minutes = fmod(timer_game, 3600) / 60
-			timer_lab.text = "%02d : %02d" % [minutes, seconds]
 			
 			# Two scared
 			var scared = 0
@@ -62,10 +58,11 @@ func _process(delta: float) -> void:
 					scared += 1
 			if scared >= 2:
 				cur_state = STATE.GAMEOVER
-				#anim.play_backwards("vinnet")
 				ready_lab.show()
 				ready_lab.text = "¡GAME OUVA!"
-				
+			
+			
+			
 			pass
 		STATE.GAMEOVER:
 			for f in Fantasmas.get_children():
@@ -86,3 +83,8 @@ func get_alma() -> void:
 func no_soul():
 	level += 1
 	Invoker.invoke(Fantasmas, 1,level)
+
+func chronometer_label(_timer) -> String:
+	var seconds = fmod(_timer, 60)
+	var minutes = fmod(_timer, 3600) / 60
+	return "%02d : %02d" % [minutes, seconds]

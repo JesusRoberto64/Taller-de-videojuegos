@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bq1jy1jqrineu"]
+[gd_scene load_steps=17 format=3 uid="uid://bq1jy1jqrineu"]
 
 [ext_resource type="Script" uid="uid://cxb21pc83dgox" path="res://Escenas/Coop/Fantasmas/fantasma_06.gd" id="1_ivxnq"]
 [ext_resource type="Texture2D" uid="uid://brrljmwbeiayi" path="res://Recursos/Coop/New Piskel (6).png" id="2_373pk"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://xum2uxnhgtse" path="res://Recursos/Capibara/shadow.png" id="3_uy5ws"]
 [ext_resource type="Texture2D" uid="uid://trg7oj5scd0c" path="res://Recursos/Coop/particula_light.png" id="4_d5kgd"]
 [ext_resource type="PackedScene" uid="uid://bjj4ey3xr3d1f" path="res://Escenas/Coop/animation_player.tscn" id="6_d5kgd"]
+[ext_resource type="AnimationLibrary" uid="uid://d4imgg10d8m" path="res://Escenas/Coop/Fatasmas_anim.res" id="7_g43qs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c3o2d"]
 radius = 15.0
@@ -99,6 +100,9 @@ texture = ExtResource("3_uy5ws")
 one_shot = true
 
 [node name="AnimationPlayer" parent="." instance=ExtResource("6_d5kgd")]
+libraries = {
+&"Fatasmas_anim": ExtResource("7_g43qs")
+}
 
 [node name="particles" type="GPUParticles2D" parent="."]
 emitting = false

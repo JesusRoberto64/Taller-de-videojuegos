@@ -38,5 +38,4 @@ func invoke(father, _level: int = 1, _amaount: int = 1) -> void:
 func destroyed(fantasma: Fantasma) -> void:
 	invoked.erase(fantasma)
 	if invoked.size() <= 0:
-		await get_tree().create_timer(2.0).timeout
 		no_soul.emit()

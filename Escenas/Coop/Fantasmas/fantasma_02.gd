@@ -2,7 +2,6 @@ extends Fantasma
 
 var vec_direction : Vector2 = Vector2(1.0,1.0)
 
-
 func _ready() -> void:
 	anim_player.connect('animation_finished',_on_animation_finished)
 	connect("area_entered", _on_area_entered)
@@ -11,6 +10,7 @@ func _ready() -> void:
 	invoke()
 	var numbers = [-1.0, 1.0, 0.5, -0.5, 0.25,-0.25]
 	vec_direction = Vector2(numbers.pick_random() , numbers.pick_random()).normalized()
+	#$AnimationPlayer.play("Fatasmas_anim/apearing")
 
 func _physics_process(delta: float) -> void:
 	fading(delta)

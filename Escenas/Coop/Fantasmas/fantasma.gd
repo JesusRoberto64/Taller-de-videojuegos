@@ -25,6 +25,7 @@ var can_move : bool = false
 
 # Almas
 var alma = preload("res://Escenas/Coop/alma.tscn")
+var disepeared = false
 
 func invoke() -> void:
 	dist = randf_range(20.0,45.0)
@@ -33,7 +34,7 @@ func invoke() -> void:
 	pos = position
 	# Apear
 	$CollisionShape2D.disabled = true
-	anim_player.play("apearing")
+	anim_player.play("Fatasmas_anim/apearing")
 
 func fading(delta) -> void:
 	if !is_fading: return
@@ -63,7 +64,7 @@ func _on_area_entered(_area: Area2D) -> void:
 	is_fading = true
 	light_mult += 0.4
 	if not anim_player.is_playing():
-		anim_player.play("hurting")
+		anim_player.play("Fatasmas_anim/hurting")
 
 func _on_area_exited(_area: Area2D) -> void:
 	is_fading = false
@@ -80,7 +81,7 @@ func revive() -> void:
 	#direction *= -1
 
 func _on_animation_finished(anim_name: StringName) -> void:
-	if anim_name != "apearing": return
+	if anim_name != "Fatasmas_anim/apearing": return
 	$CollisionShape2D.disabled = false
 	can_move = true
 
@@ -90,7 +91,9 @@ func instance_alma(_pos: Vector2) -> void:
 	get_parent().add_child(a)
 
 func disappear() -> void:
-	if !can_move : return
+	if disepeared and anim_player.is_playing(): 
+		return
 	$CollisionShape2D.disabled = true
 	can_move = false
-	anim_player.play("desappear")
+	anim_player.play("Fatasmas_anim/desappear")
+	disepeared = true

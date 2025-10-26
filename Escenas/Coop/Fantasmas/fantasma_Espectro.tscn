@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://trg7oj5scd0c" path="res://Recursos/Coop/particula_light.png" id="4_ft4y2"]
 [ext_resource type="Texture2D" uid="uid://xum2uxnhgtse" path="res://Recursos/Capibara/shadow.png" id="5_k7hn8"]
 [ext_resource type="Texture2D" uid="uid://wyywjnoa4bh3" path="res://Recursos/Coop/particula.png" id="6_27ypv"]
-[ext_resource type="PackedScene" uid="uid://bjj4ey3xr3d1f" path="res://Escenas/Coop/animation_player.tscn" id="7_f3052"]
+[ext_resource type="AnimationLibrary" uid="uid://d4imgg10d8m" path="res://Escenas/Coop/Fatasmas_anim.res" id="8_b48su"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c3o2d"]
 radius = 12.0416
@@ -124,7 +124,10 @@ speed_scale = 4.06
 process_material = SubResource("ParticleProcessMaterial_uy5ws")
 metadata/_edit_lock_ = true
 
-[node name="AnimationPlayer" parent="." instance=ExtResource("7_f3052")]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"Fatasmas_anim": ExtResource("8_b48su")
+}
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
