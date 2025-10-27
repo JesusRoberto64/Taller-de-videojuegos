@@ -1,7 +1,16 @@
-[gd_resource type="SpriteFrames" load_steps=20 format=3 uid="uid://bbvmv75wucxdg"]
+[gd_resource type="SpriteFrames" load_steps=23 format=3 uid="uid://bbvmv75wucxdg"]
 
+[ext_resource type="Texture2D" uid="uid://cpyf4nt4jea2u" path="res://Recursos/Coop/player_clebration.png" id="1_6g2ub"]
 [ext_resource type="Texture2D" uid="uid://drka5343n2nak" path="res://Recursos/Coop/player.png" id="1_f5q8i"]
 [ext_resource type="Texture2D" uid="uid://bs8ytqob71g3y" path="res://Recursos/Coop/player_jump_care.png" id="2_6g2ub"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26oxx"]
+atlas = ExtResource("1_6g2ub")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dri86"]
+atlas = ExtResource("1_6g2ub")
+region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rcuap"]
 atlas = ExtResource("1_f5q8i")
@@ -73,6 +82,17 @@ region = Rect2(64, 32, 32, 32)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26oxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dri86")
+}],
+"loop": true,
+"name": &"celebration",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rcuap")

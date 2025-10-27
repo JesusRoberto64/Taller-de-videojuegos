@@ -5,7 +5,9 @@
 
 [node name="Players_animation_Test" type="AnimatedSprite2D"]
 sprite_frames = ExtResource("1_4qg21")
-animation = &"scream"
+animation = &"celebration"
+frame = 1
+frame_progress = 0.175529
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(40, 0)

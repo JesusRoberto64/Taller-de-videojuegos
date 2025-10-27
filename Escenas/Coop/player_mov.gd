@@ -27,6 +27,8 @@ signal get_alma
 @onready var anim_player = $AnimationPlayer
 
 var friend = null
+var is_celebration = false
+var is_loose = false
 
 func _ready() -> void:
 	if player == PLAYERS.P2:
@@ -43,8 +45,9 @@ func _ready() -> void:
 			friend = f
 			break
 
+
 func _physics_process(delta: float) -> void:
-	if scared : return
+	if scared or is_celebration or is_loose: return
 	
 	var mov = Input.get_vector( player_input +'left',  player_input +'right',  player_input +'up',  player_input +'down')
 	mov_anim = mov
@@ -72,7 +75,9 @@ func _physics_process(delta: float) -> void:
 			anim.show()
 
 func _process(_delta: float) -> void:
-	if scared : 
+	if is_celebration or is_loose: 
+		return
+	elif scared : 
 		if position.distance_to(friend.position) < 14.0:
 			_on_timer_timeout()
 			pass
@@ -133,3 +138,13 @@ func _on_get_alma() -> void:
 	mult_scale = clamp(mult_scale, 0.5, 1.5)
 	ancher.scale = Vector2(mult_scale, mult_scale)
 	anim_player.play("binking")
+
+func celebration() -> void:
+	is_celebration = true
+	anim.play("celebration")
+	ancher.hide()
+
+func loose() -> void:
+	is_loose = true
+	anim.play("scream")
+	ancher.hide()
