@@ -1,17 +1,19 @@
-[gd_scene load_steps=24 format=4 uid="uid://dxqvh853aket4"]
+[gd_scene load_steps=26 format=4 uid="uid://dxqvh853aket4"]
 
-[ext_resource type="Script" uid="uid://ccxev8g4u2pgc" path="res://Escenas/Coop/overlord.gd" id="1_24pik"]
+[ext_resource type="Script" uid="uid://ccxev8g4u2pgc" path="res://Escenas/Coop/Logica/overlord.gd" id="1_d3dvq"]
 [ext_resource type="Texture2D" uid="uid://6sppvdg6lg0e" path="res://Recursos/Capibara/fondo_02.png" id="1_voyxy"]
-[ext_resource type="PackedScene" uid="uid://iy6y0brbaqck" path="res://Escenas/Coop/player_1.tscn" id="2_jy8rr"]
+[ext_resource type="PackedScene" uid="uid://iy6y0brbaqck" path="res://Escenas/Coop/Escenas/player_1.tscn" id="2_jy8rr"]
 [ext_resource type="Script" uid="uid://tslwajw2gddx" path="res://Escenas/Coop/Fantasmas/fantasmas_list.gd" id="2_mtjjo"]
-[ext_resource type="Shader" uid="uid://6lcqcfa5biyd" path="res://Escenas/Coop/light_2d.gdshader" id="4_mtjjo"]
+[ext_resource type="Shader" uid="uid://6lcqcfa5biyd" path="res://Escenas/Coop/Recursos/light_2d.gdshader" id="4_mtjjo"]
 [ext_resource type="Texture2D" uid="uid://jk55a8txd5tv" path="res://Recursos/Capibara/arbusto.png" id="4_n8g33"]
 [ext_resource type="Texture2D" uid="uid://bmqya8hv8wcg2" path="res://Recursos/Capibara/tiles_shadow_00.png" id="5_1b1fo"]
 [ext_resource type="Texture2D" uid="uid://cw25hepvrl5c6" path="res://Recursos/Coop/tiles_00.png" id="6_24pik"]
 [ext_resource type="Texture2D" uid="uid://wyywjnoa4bh3" path="res://Recursos/Coop/particula.png" id="7_kq4ra"]
-[ext_resource type="Shader" uid="uid://dypflfpnexd6a" path="res://Escenas/Coop/vinnete.gdshader" id="8_q7u7n"]
+[ext_resource type="Shader" uid="uid://dypflfpnexd6a" path="res://Escenas/Coop/Recursos/vinnete.gdshader" id="8_q7u7n"]
 [ext_resource type="Texture2D" uid="uid://c8c4wmcmkf2c4" path="res://Recursos/Coop/alma_00.png" id="11_mtjjo"]
 [ext_resource type="FontFile" uid="uid://jdtydgbnb8dg" path="res://Recursos/Coop/interface_00.png" id="11_o3f4x"]
+[ext_resource type="FontFile" uid="uid://s1k30xb0m3o8" path="res://Recursos/FontGloboErmilo_w15X.png" id="11_uw5ef"]
+[ext_resource type="PackedScene" uid="uid://bkxbrktvo4plm" path="res://Escenas/Coop/Escenas/pause.tscn" id="13_fxmkv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6j1nl"]
 
@@ -173,7 +175,7 @@ _data = {
 }
 
 [node name="main" type="Node2D"]
-script = ExtResource("1_24pik")
+script = ExtResource("1_d3dvq")
 
 [node name="Invoker" type="Node" parent="."]
 script = ExtResource("2_mtjjo")
@@ -239,6 +241,8 @@ offset_top = 76.0
 offset_right = 320.0
 offset_bottom = 99.0
 size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("11_uw5ef")
 text = "¡Captura Fantasmas!"
 horizontal_alignment = 1
 
@@ -266,14 +270,7 @@ theme_override_fonts/font = ExtResource("11_o3f4x")
 text = ".00"
 horizontal_alignment = 1
 
-[node name="Pause" type="Label" parent="CanvasLayer"]
-visible = false
-offset_top = 76.0
-offset_right = 320.0
-offset_bottom = 99.0
-size_flags_horizontal = 3
-text = "Pause"
-horizontal_alignment = 1
+[node name="Pause" parent="." instance=ExtResource("13_fxmkv")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -1,3 +1,4 @@
+## ESCENA PRINCIPAL DE MODO SUPERVIVENCIA
 extends Node2D
 
 enum STATE {READY, GAME, GAMEOVER, PAUSE}
@@ -13,9 +14,10 @@ var players : Array = []
 @onready var almas_lab = $CanvasLayer/almas
 @onready var ready_lab = $CanvasLayer/Ready
 @onready var timer_lab = $CanvasLayer/Timer
+@onready var Pause = $Pause
 
 var timer : float = 4.0 
-var timer_game : float = 120.0
+var timer_game : float = 0.0
 
 var is_invoking : float = false
 # Rules
@@ -28,6 +30,7 @@ var max_ghost = 1
 
 var loose = false
 var survived = false
+signal finish
 
 func _ready() -> void:
 	timer_lab.text = ".%02d" % timer_game
@@ -36,6 +39,7 @@ func _ready() -> void:
 		player.connect("get_alma", get_alma)
 	# HUB
 	Invoker.connect("no_ghost", no_ghost)
+	finish.connect(Pause.finish)
 
 func _process(delta: float) -> void:
 	match cur_state:
@@ -47,9 +51,8 @@ func _process(delta: float) -> void:
 				anim.play("vinnet")
 				cur_state = STATE.GAME
 		STATE.GAME:
-			timer_game -= delta
+			timer_game += delta
 			timer_lab.text = ".%02d" % timer_game
-			#timer_lab.text = chronometer_label(timer_game)
 			if timer_game <= 0.0:
 				timer_game = 0.0
 				cur_state = STATE.GAMEOVER
@@ -57,27 +60,24 @@ func _process(delta: float) -> void:
 				ready_lab.show()
 				ready_lab.text = "¡FELIZ HALLOWEEN!"
 				survived = true
+				finish.emit()
 			
 			# Spawn rules
 			wave(delta)
 			
 			# Two scared
-			var scared = 0
-			for p in players:
-				if p.scared == true:
-					scared += 1
-			if scared >= 2:
+			if players[0].scared == true:
 				cur_state = STATE.GAMEOVER
 				ready_lab.show()
-				ready_lab.text = "¡GAME OUVA!"
+				ready_lab.text = "GAME OVER"
 				loose = true
+				finish.emit()
 		STATE.GAMEOVER:
 			for f in Fantasmas.get_children():
 				if f is Fantasma:
 					f.disappear()
 				else:
 					f.queue_free()
-			
 			if loose:
 				for p in players:
 					p.loose()
@@ -85,9 +85,6 @@ func _process(delta: float) -> void:
 				for p in players:
 					p.celebration()
 				
-	
-	if Input.is_action_just_released("ui_undo"):
-		get_tree().reload_current_scene()
 
 func get_alma() -> void:
 	almas += 1
@@ -122,6 +119,3 @@ func chronometer_label(_timer) -> String:
 	var seconds = fmod(_timer, 60)
 	var minutes = fmod(_timer, 3600) / 60
 	return "%02d : %02d" % [minutes, seconds]
-
-func chrono_typo_ghost(_timer) -> String:
-	return ".%02d" % _timer

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://det3wibfb20vc"]
 
-[ext_resource type="Script" uid="uid://cwot8e2sjlky1" path="res://Escenas/Coop/alma.gd" id="1_h131j"]
+[ext_resource type="Script" uid="uid://cwot8e2sjlky1" path="res://Escenas/Coop/Logica/alma.gd" id="1_h131j"]
 [ext_resource type="Texture2D" uid="uid://trg7oj5scd0c" path="res://Recursos/Coop/particula_light.png" id="1_kr5u0"]
 [ext_resource type="Texture2D" uid="uid://c8c4wmcmkf2c4" path="res://Recursos/Coop/alma_00.png" id="1_oy8yv"]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bjj4ey3xr3d1f"]
 
-[ext_resource type="Animation" uid="uid://tqbakeels5b3" path="res://Escenas/Coop/apearing.res" id="1_ampw5"]
+[ext_resource type="Animation" uid="uid://tqbakeels5b3" path="res://Escenas/Coop/Recursos/apearing.res" id="1_ampw5"]
 
 [sub_resource type="Animation" id="Animation_27gli"]
 resource_name = "RESET"

@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://iy6y0brbaqck"]
 
-[ext_resource type="Script" uid="uid://qhcahrxnbbra" path="res://Escenas/Coop/player_mov.gd" id="1_rcuap"]
+[ext_resource type="Script" uid="uid://qhcahrxnbbra" path="res://Escenas/Coop/Logica/player_mov.gd" id="1_rcuap"]
 [ext_resource type="Texture2D" uid="uid://xum2uxnhgtse" path="res://Recursos/Capibara/shadow.png" id="2_0pvjh"]
-[ext_resource type="SpriteFrames" uid="uid://bbvmv75wucxdg" path="res://Escenas/Coop/player_1_animation.tres" id="2_rcuap"]
+[ext_resource type="SpriteFrames" uid="uid://bbvmv75wucxdg" path="res://Escenas/Coop/Recursos/player_1_animation.tres" id="2_rcuap"]
 [ext_resource type="Texture2D" uid="uid://trg7oj5scd0c" path="res://Recursos/Coop/particula_light.png" id="5_ikbbi"]
-[ext_resource type="Shader" uid="uid://6lcqcfa5biyd" path="res://Escenas/Coop/light_2d.gdshader" id="6_ikbbi"]
+[ext_resource type="Shader" uid="uid://6lcqcfa5biyd" path="res://Escenas/Coop/Recursos/light_2d.gdshader" id="6_ikbbi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pycni"]
 size = Vector2(10, 12)

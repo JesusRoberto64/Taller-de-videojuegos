@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cbd44ydoinf70" path="res://Escenas/Coop/Fantasmas/fantasma_05.gd" id="1_fj8la"]
 [ext_resource type="Texture2D" uid="uid://cpap4dyqwehuh" path="res://Recursos/Coop/socrates_00.png" id="2_fj8la"]
-[ext_resource type="Shader" uid="uid://bpy83ugtn3tha" path="res://Escenas/Coop/fantasma_glow.gdshader" id="3_0l8kc"]
+[ext_resource type="Shader" uid="uid://bpy83ugtn3tha" path="res://Escenas/Coop/Recursos/fantasma_glow.gdshader" id="3_0l8kc"]
 [ext_resource type="Texture2D" uid="uid://xum2uxnhgtse" path="res://Recursos/Capibara/shadow.png" id="3_665ht"]
 [ext_resource type="Texture2D" uid="uid://wyywjnoa4bh3" path="res://Recursos/Coop/particula.png" id="4_0l8kc"]
 [ext_resource type="Texture2D" uid="uid://trg7oj5scd0c" path="res://Recursos/Coop/particula_light.png" id="4_ro8xu"]
-[ext_resource type="AnimationLibrary" uid="uid://d4imgg10d8m" path="res://Escenas/Coop/Fatasmas_anim.res" id="8_ro8xu"]
+[ext_resource type="AnimationLibrary" uid="uid://d4imgg10d8m" path="res://Escenas/Coop/Recursos/Fatasmas_anim.res" id="8_ro8xu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_foqeh"]
 radius = 8.0

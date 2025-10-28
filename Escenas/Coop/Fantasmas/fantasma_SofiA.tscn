@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cvycxp1d8wvss" path="res://Escenas/Coop/Fantasmas/fantasma_02.gd" id="1_a2r8v"]
 [ext_resource type="Texture2D" uid="uid://cb0vvdr7kewf7" path="res://Recursos/Coop/fantasma_02.png" id="2_dpwf2"]
-[ext_resource type="Shader" uid="uid://bpy83ugtn3tha" path="res://Escenas/Coop/fantasma_glow.gdshader" id="3_c1nlq"]
+[ext_resource type="Shader" uid="uid://bpy83ugtn3tha" path="res://Escenas/Coop/Recursos/fantasma_glow.gdshader" id="3_c1nlq"]
 [ext_resource type="Texture2D" uid="uid://xum2uxnhgtse" path="res://Recursos/Capibara/shadow.png" id="3_dpwf2"]
 [ext_resource type="Texture2D" uid="uid://wyywjnoa4bh3" path="res://Recursos/Coop/particula.png" id="3_iel7q"]
 [ext_resource type="Texture2D" uid="uid://trg7oj5scd0c" path="res://Recursos/Coop/particula_light.png" id="4_yg0id"]
-[ext_resource type="AnimationLibrary" uid="uid://d4imgg10d8m" path="res://Escenas/Coop/Fatasmas_anim.res" id="7_yg0id"]
+[ext_resource type="AnimationLibrary" uid="uid://d4imgg10d8m" path="res://Escenas/Coop/Recursos/Fatasmas_anim.res" id="7_yg0id"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_foqeh"]
 height = 38.0

@@ -33,7 +33,7 @@ var is_loose = false
 func _ready() -> void:
 	if player == PLAYERS.P2:
 		player_input = "p2_"
-		var animation = load("res://Escenas/Coop/player_2_animation.tres")
+		var animation = load("res://Escenas/Coop/Recursos/player_2_animation.tres")
 		anim.sprite_frames = animation
 	# To add power
 	get_alma.connect(_on_get_alma)
@@ -77,7 +77,7 @@ func _physics_process(delta: float) -> void:
 func _process(_delta: float) -> void:
 	if is_celebration or is_loose: 
 		return
-	elif scared : 
+	elif scared and friend != null: 
 		if position.distance_to(friend.position) < 14.0:
 			_on_timer_timeout()
 			pass

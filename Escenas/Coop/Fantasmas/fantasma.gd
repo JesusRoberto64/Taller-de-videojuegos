@@ -24,7 +24,7 @@ var can_move : bool = false
 @onready var anim_player : AnimationPlayer = $AnimationPlayer
 
 # Almas
-var alma = preload("res://Escenas/Coop/alma.tscn")
+var alma = preload("res://Escenas/Coop/Escenas/alma.tscn")
 var disepeared = false
 
 func invoke() -> void:
