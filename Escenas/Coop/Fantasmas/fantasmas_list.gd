@@ -14,6 +14,8 @@ var list : Array = []
 var invoked : Array = []
 signal no_ghost
 
+var fernando = preload("res://Escenas/Coop/Fantasmas/fantasma_Fernando.tscn")
+
 func _ready() -> void:
 	list =[
 		antonio, 
@@ -27,9 +29,14 @@ func _ready() -> void:
 		socrates
 	]
 
-func invoke(father, _level: int = 1) -> void:
+func invoke(father, level: int = 1, speed_mult : int = 1) -> void:
 	invoked = []
-	var fantasma : Fantasma = list.pick_random().instantiate()#list.pick_random().instantiate()
+	var fantasma : Fantasma 
+	if level % 7 == 0:
+		fantasma = fernando.instantiate()
+	else:
+		fantasma = list.pick_random().instantiate()
+	fantasma.speed *= speed_mult
 	father.add_child(fantasma)
 	fantasma.destroyed.connect(destroyed)
 	invoked.append(fantasma)
@@ -37,3 +44,10 @@ func invoke(father, _level: int = 1) -> void:
 func destroyed(fantasma: Fantasma) -> void:
 	invoked.erase(fantasma)
 	no_ghost.emit()
+
+func invoke_boss(father, _level: int = 1) -> void:
+	invoked = []
+	var fantasma : Fantasma = fernando.instantiate()#list.pick_random().instantiate()
+	father.add_child(fantasma)
+	fantasma.destroyed.connect(destroyed)
+	invoked.append(fantasma)

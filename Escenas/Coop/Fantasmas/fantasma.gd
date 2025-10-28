@@ -28,6 +28,7 @@ var alma = preload("res://Escenas/Coop/Escenas/alma.tscn")
 var disepeared = false
 
 func invoke() -> void:
+	hp = maxHp
 	dist = randf_range(20.0,45.0)
 	$Timer.connect("timeout", revive)
 	position = Vector2(randf_range(36.0, 280.0), randf_range(36.0, 150.0))

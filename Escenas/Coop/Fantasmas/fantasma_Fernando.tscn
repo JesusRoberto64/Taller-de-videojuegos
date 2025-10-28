@@ -79,9 +79,11 @@ scale_min = 0.5
 scale_max = 0.5
 
 [node name="fantasma_Fernando" type="Area2D"]
+scale = Vector2(2.25, 2.25)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_k20as")
+maxHp = 120.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 2
@@ -91,7 +93,7 @@ shape = SubResource("CircleShape2D_c3o2d")
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_qcwyq")
 autoplay = "default"
-frame_progress = 0.0228399
+frame_progress = 0.561368
 
 [node name="glow" type="Sprite2D" parent="sprite"]
 modulate = Color(0.344261, 0.777059, 0.563123, 1)
@@ -104,8 +106,8 @@ region_rect = Rect2(0, 0, 32, 128)
 [node name="Shadow" type="Sprite2D" parent="sprite"]
 modulate = Color(0.41598, 0.41598, 0.41598, 1)
 z_index = -1
-position = Vector2(5.96046e-08, 16)
-scale = Vector2(1.62194, 0.681764)
+position = Vector2(0, 11.5611)
+scale = Vector2(1.16954, 0.821322)
 texture = ExtResource("5_lyy8o")
 
 [node name="Timer" type="Timer" parent="."]

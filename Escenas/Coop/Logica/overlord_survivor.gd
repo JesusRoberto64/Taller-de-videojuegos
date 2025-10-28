@@ -1,38 +1,8 @@
 ## ESCENA PRINCIPAL DE MODO SUPERVIVENCIA
-extends Node2D
-
-enum STATE {READY, GAME, GAMEOVER, PAUSE}
-var cur_state = STATE.READY
-var level = 1
-
-var almas : int = 0
-var players : Array = []
-
-@onready var Fantasmas = $Fantasmas
-@onready var Invoker = $Invoker
-@onready var anim : AnimationPlayer = $AnimationPlayer
-@onready var almas_lab = $CanvasLayer/almas
-@onready var ready_lab = $CanvasLayer/Ready
-@onready var timer_lab = $CanvasLayer/Timer
-@onready var Pause = $Pause
-
-var timer : float = 4.0 
-var timer_game : float = 0.0
-
-var is_invoking : float = false
-# Rules
-var wave_timer : float = 1.25
-var invoke_timer : float = 1.0
-var is_wave : bool = true 
-var invoke_counter = 1
-var ghost_counter = 1
-var max_ghost = 1
-
-var loose = false
-var survived = false
-signal finish
+extends OverlordCoop
 
 func _ready() -> void:
+	timer_game = 0.0
 	timer_lab.text = ".%02d" % timer_game
 	players = get_tree().get_nodes_in_group("Player")
 	for player in players:
@@ -85,37 +55,3 @@ func _process(delta: float) -> void:
 				for p in players:
 					p.celebration()
 				
-
-func get_alma() -> void:
-	almas += 1
-	almas = min(almas, 9999)
-	almas_lab.text = "-/%0004d" % [almas]
-
-func wave(delta: float) -> void:
-	if not is_wave:
-		wave_timer -= delta
-		if wave_timer <= 0.0:
-			wave_timer = 1.25
-			is_wave = true
-	else:
-		if invoke_counter > 0:
-			invoke_timer -= delta
-			if invoke_timer <= 0.0:
-				Invoker.invoke(Fantasmas)
-				invoke_timer = 1.0
-				invoke_counter -= 1
-	if ghost_counter <= 0:
-		is_wave = false
-		max_ghost += 1
-		ghost_counter = max_ghost
-		invoke_counter = max_ghost
-		invoke_timer = 1.0
-		wave_timer = 1.25
-
-func no_ghost():
-	ghost_counter -= 1
-
-func chronometer_label(_timer) -> String:
-	var seconds = fmod(_timer, 60)
-	var minutes = fmod(_timer, 3600) / 60
-	return "%02d : %02d" % [minutes, seconds]

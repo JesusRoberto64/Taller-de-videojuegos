@@ -1,8 +1,10 @@
+class_name OverlordCoop
 extends Node2D
 
 enum STATE {READY, GAME, GAMEOVER, PAUSE}
 var cur_state = STATE.READY
 var level = 1
+var speed_mult = 1
 
 var almas : int = 0
 var players : Array = []
@@ -106,7 +108,7 @@ func wave(delta: float) -> void:
 		if invoke_counter > 0:
 			invoke_timer -= delta
 			if invoke_timer <= 0.0:
-				Invoker.invoke(Fantasmas)
+				Invoker.invoke(Fantasmas, level, speed_mult)
 				invoke_timer = 1.0
 				invoke_counter -= 1
 	if ghost_counter <= 0:
@@ -116,6 +118,12 @@ func wave(delta: float) -> void:
 		invoke_counter = max_ghost
 		invoke_timer = 1.0
 		wave_timer = 1.25
+		level += 1
+		if level % 7 == 0:
+			max_ghost = 1
+			ghost_counter = max_ghost
+			invoke_counter = max_ghost
+			speed_mult += 1
 
 func no_ghost():
 	ghost_counter -= 1
@@ -124,6 +132,3 @@ func chronometer_label(_timer) -> String:
 	var seconds = fmod(_timer, 60)
 	var minutes = fmod(_timer, 3600) / 60
 	return "%02d : %02d" % [minutes, seconds]
-
-func chrono_typo_ghost(_timer) -> String:
-	return ".%02d" % _timer
