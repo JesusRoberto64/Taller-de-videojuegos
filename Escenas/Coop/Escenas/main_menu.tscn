@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://cji655uey3bvu"]
+[gd_scene load_steps=19 format=3 uid="uid://cji655uey3bvu"]
 
 [ext_resource type="Script" uid="uid://bvwift0ukog4a" path="res://Escenas/Coop/Logica/main_menu.gd" id="1_8l850"]
+[ext_resource type="Script" uid="uid://btp313cap7kt4" path="res://Escenas/Coop/Logica/shader_warmup.gd" id="2_4utyp"]
 [ext_resource type="Texture2D" uid="uid://b2jrlbfwv54l4" path="res://Recursos/Coop/tiltle_scren_bg_00.png" id="2_edh6u"]
 [ext_resource type="FontFile" uid="uid://s1k30xb0m3o8" path="res://Recursos/FontGloboErmilo_w15X.png" id="2_kqyxs"]
 [ext_resource type="Texture2D" uid="uid://l0av4jfi7w6e" path="res://Recursos/Coop/tiltle_scree_00.png" id="3_0wyjt"]
@@ -146,6 +147,9 @@ _data = {
 
 [node name="main_menu" type="CanvasLayer"]
 script = ExtResource("1_8l850")
+
+[node name="ShaderWarmup" type="Node" parent="."]
+script = ExtResource("2_4utyp")
 
 [node name="bg" type="Sprite2D" parent="."]
 texture = ExtResource("2_edh6u")

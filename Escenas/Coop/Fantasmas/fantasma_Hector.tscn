@@ -1,11 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://dbb7iqtm3svqy"]
+[gd_scene load_steps=15 format=3 uid="uid://dbb7iqtm3svqy"]
 
 [ext_resource type="Texture2D" uid="uid://cwnt4470bcn05" path="res://Recursos/Coop/fantasma_h.png" id="1_ts0kn"]
 [ext_resource type="Script" uid="uid://dddfwxk77gaor" path="res://Escenas/Coop/Fantasmas/fantasma_03.gd" id="1_ue4g7"]
 [ext_resource type="Texture2D" uid="uid://xum2uxnhgtse" path="res://Recursos/Capibara/shadow.png" id="3_hwf4m"]
 [ext_resource type="Shader" uid="uid://bpy83ugtn3tha" path="res://Escenas/Coop/Recursos/fantasma_glow.gdshader" id="3_uw18g"]
 [ext_resource type="Texture2D" uid="uid://trg7oj5scd0c" path="res://Recursos/Coop/particula_light.png" id="4_uh5p8"]
-[ext_resource type="Texture2D" uid="uid://wyywjnoa4bh3" path="res://Recursos/Coop/particula.png" id="4_wdbej"]
+[ext_resource type="PackedScene" uid="uid://dnustdadiy5t6" path="res://Escenas/Coop/Escenas/particles_apearing.tscn" id="7_qtrvy"]
 [ext_resource type="AnimationLibrary" uid="uid://d4imgg10d8m" path="res://Escenas/Coop/Recursos/Fatasmas_anim.res" id="7_uh5p8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_foqeh"]
@@ -52,18 +52,6 @@ animations = [{
 shader = ExtResource("3_uw18g")
 shader_parameter/amount = 0.1
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_22bnv"]
-particle_flag_disable_z = true
-emission_shape = 1
-emission_sphere_radius = 15.94
-direction = Vector3(0, 1, 0)
-spread = 27.979
-initial_velocity_min = 0.65
-initial_velocity_max = 39.11
-gravity = Vector3(0, -62.8, 0)
-scale_min = 0.5
-scale_max = 0.5
-
 [node name="Fantasma_Hector" type="Area2D"]
 collision_layer = 4
 collision_mask = 2
@@ -101,16 +89,9 @@ texture = ExtResource("3_hwf4m")
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
-[node name="particles" type="GPUParticles2D" parent="."]
-emitting = false
-amount = 4
-texture = ExtResource("4_wdbej")
-lifetime = 0.36
-speed_scale = 4.06
-process_material = SubResource("ParticleProcessMaterial_22bnv")
-metadata/_edit_lock_ = true
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"Fatasmas_anim": ExtResource("7_uh5p8")
 }
+
+[node name="particles" parent="." instance=ExtResource("7_qtrvy")]

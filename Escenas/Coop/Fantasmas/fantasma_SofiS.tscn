@@ -1,13 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://bq1jy1jqrineu"]
+[gd_scene load_steps=16 format=3 uid="uid://bq1jy1jqrineu"]
 
 [ext_resource type="Script" uid="uid://cxb21pc83dgox" path="res://Escenas/Coop/Fantasmas/fantasma_06.gd" id="1_ivxnq"]
 [ext_resource type="Texture2D" uid="uid://brrljmwbeiayi" path="res://Recursos/Coop/New Piskel (6).png" id="2_373pk"]
 [ext_resource type="Shader" uid="uid://bpy83ugtn3tha" path="res://Escenas/Coop/Recursos/fantasma_glow.gdshader" id="3_1agyh"]
-[ext_resource type="Texture2D" uid="uid://wyywjnoa4bh3" path="res://Recursos/Coop/particula.png" id="3_o8is2"]
 [ext_resource type="Texture2D" uid="uid://xum2uxnhgtse" path="res://Recursos/Capibara/shadow.png" id="3_uy5ws"]
 [ext_resource type="Texture2D" uid="uid://trg7oj5scd0c" path="res://Recursos/Coop/particula_light.png" id="4_d5kgd"]
 [ext_resource type="PackedScene" uid="uid://bjj4ey3xr3d1f" path="res://Escenas/Coop/Escenas/animation_player.tscn" id="6_d5kgd"]
 [ext_resource type="AnimationLibrary" uid="uid://d4imgg10d8m" path="res://Escenas/Coop/Recursos/Fatasmas_anim.res" id="7_g43qs"]
+[ext_resource type="PackedScene" uid="uid://dnustdadiy5t6" path="res://Escenas/Coop/Escenas/particles_apearing.tscn" id="8_g43qs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c3o2d"]
 radius = 15.0
@@ -52,18 +52,6 @@ animations = [{
 shader = ExtResource("3_1agyh")
 shader_parameter/amount = 0.5
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uy5ws"]
-particle_flag_disable_z = true
-emission_shape = 1
-emission_sphere_radius = 15.94
-direction = Vector3(0, 1, 0)
-spread = 27.979
-initial_velocity_min = 0.65
-initial_velocity_max = 39.11
-gravity = Vector3(0, -62.8, 0)
-scale_min = 0.5
-scale_max = 0.5
-
 [node name="fantasma_sofiS" type="Area2D"]
 collision_layer = 4
 collision_mask = 2
@@ -104,14 +92,7 @@ libraries = {
 &"Fatasmas_anim": ExtResource("7_g43qs")
 }
 
-[node name="particles" type="GPUParticles2D" parent="."]
-emitting = false
-amount = 4
-texture = ExtResource("3_o8is2")
-lifetime = 0.36
-speed_scale = 4.06
-process_material = SubResource("ParticleProcessMaterial_uy5ws")
-metadata/_edit_lock_ = true
+[node name="particles" parent="." instance=ExtResource("8_g43qs")]
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cshhakrdxfdhe"]
+[gd_scene load_steps=18 format=3 uid="uid://cshhakrdxfdhe"]
 
 [ext_resource type="Script" uid="uid://bvw24ed6gb16l" path="res://Escenas/Coop/Fantasmas/fantasma_09.gd" id="1_k20as"]
 [ext_resource type="Texture2D" uid="uid://coxcbdatyvu8v" path="res://Recursos/Coop/fantazmita_fernando.png" id="2_k20as"]
@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://xum2uxnhgtse" path="res://Recursos/Capibara/shadow.png" id="5_lyy8o"]
 [ext_resource type="PackedScene" uid="uid://bjj4ey3xr3d1f" path="res://Escenas/Coop/Escenas/animation_player.tscn" id="6_x5gi7"]
 [ext_resource type="AnimationLibrary" uid="uid://d4imgg10d8m" path="res://Escenas/Coop/Recursos/Fatasmas_anim.res" id="7_6wsuy"]
-[ext_resource type="Texture2D" uid="uid://wyywjnoa4bh3" path="res://Recursos/Coop/particula.png" id="8_w12uj"]
+[ext_resource type="PackedScene" uid="uid://dnustdadiy5t6" path="res://Escenas/Coop/Escenas/particles_apearing.tscn" id="8_k20as"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c3o2d"]
 radius = 9.0
@@ -66,18 +66,6 @@ animations = [{
 shader = ExtResource("3_1u1tr")
 shader_parameter/amount = 0.5
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uy5ws"]
-particle_flag_disable_z = true
-emission_shape = 1
-emission_sphere_radius = 15.94
-direction = Vector3(0, 1, 0)
-spread = 27.979
-initial_velocity_min = 0.65
-initial_velocity_max = 39.11
-gravity = Vector3(0, -62.8, 0)
-scale_min = 0.5
-scale_max = 0.5
-
 [node name="fantasma_Fernando" type="Area2D"]
 scale = Vector2(2.25, 2.25)
 collision_layer = 4
@@ -118,13 +106,6 @@ libraries = {
 &"Fatasmas_anim": ExtResource("7_6wsuy")
 }
 
-[node name="particles" type="GPUParticles2D" parent="."]
-emitting = false
-amount = 4
-texture = ExtResource("8_w12uj")
-lifetime = 0.36
-speed_scale = 4.06
-process_material = SubResource("ParticleProcessMaterial_uy5ws")
-metadata/_edit_lock_ = true
+[node name="particles" parent="." instance=ExtResource("8_k20as")]
 
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
