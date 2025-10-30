@@ -151,6 +151,10 @@ script = ExtResource("1_8l850")
 [node name="ShaderWarmup" type="Node" parent="."]
 script = ExtResource("2_4utyp")
 
+[node name="Timer" type="Timer" parent="ShaderWarmup"]
+one_shot = true
+autostart = true
+
 [node name="bg" type="Sprite2D" parent="."]
 texture = ExtResource("2_edh6u")
 centered = false
@@ -243,6 +247,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_0wyjt")
 }
 
+[connection signal="timeout" from="ShaderWarmup/Timer" to="ShaderWarmup" method="_on_timer_timeout"]
 [connection signal="pressed" from="Coop" to="." method="_on_coop_pressed"]
 [connection signal="pressed" from="Sobrevivencia" to="." method="_on_sobrevivencia_pressed"]
 [connection signal="pressed" from="salir" to="." method="_on_salir_pressed"]
