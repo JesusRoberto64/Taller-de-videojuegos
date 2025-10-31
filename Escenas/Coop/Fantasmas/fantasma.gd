@@ -56,6 +56,7 @@ func fading(delta) -> void:
 		$CollisionShape2D.disabled = true
 		can_move = false
 		instance_alma(position)
+		sfx_inst.play_desapear()
 	sfx_inst.play_absorb(delta)
 
 func movement(delta) -> void:

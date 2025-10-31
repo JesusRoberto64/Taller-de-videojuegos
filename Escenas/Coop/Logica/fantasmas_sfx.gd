@@ -11,3 +11,6 @@ func play_absorb(delta) -> void:
 
 func play_appear() -> void:
 	$Apear.play()
+
+func play_desapear() -> void:
+	$Desapear.play()

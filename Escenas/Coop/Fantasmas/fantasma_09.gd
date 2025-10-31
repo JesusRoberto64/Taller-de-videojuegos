@@ -44,5 +44,5 @@ func fading(delta) -> void:
 		speed += 7.0
 		instance_alma(position)
 		hited_timer = 0.5
-	
+		sfx_inst.play_desapear()
 	sfx_inst.play_absorb(delta)

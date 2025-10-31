@@ -4,7 +4,6 @@ extends Node
 
 func play_music(intense: int = 1) -> void:
 	var postion = now_playign.get_playback_position()
-	var last_song = now_playign
 	match intense:
 		1:
 			$music_normal.play(postion)
@@ -12,7 +11,7 @@ func play_music(intense: int = 1) -> void:
 		2:
 			$music_intense.play(postion)
 			now_playign = $music_intense
-			last_song.stop()
+			$music_normal.stop()
 
 
 func stop_music() -> void:
