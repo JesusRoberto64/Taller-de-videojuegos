@@ -27,6 +27,10 @@ var can_move : bool = false
 var alma = preload("res://Escenas/Coop/Escenas/alma.tscn")
 var disepeared = false
 
+# Sound
+var SFX = preload("res://Escenas/Coop/Escenas/fantasmas_sfx.tscn")
+var sfx_inst = null
+
 func invoke() -> void:
 	hp = maxHp
 	dist = randf_range(20.0,45.0)
@@ -36,6 +40,10 @@ func invoke() -> void:
 	# Apear
 	$CollisionShape2D.disabled = true
 	anim_player.play("Fatasmas_anim/apearing")
+	# Add Sound
+	sfx_inst = SFX.instantiate()
+	add_child(sfx_inst)
+	sfx_inst.play_appear()
 
 func fading(delta) -> void:
 	if !is_fading: return
@@ -48,6 +56,7 @@ func fading(delta) -> void:
 		$CollisionShape2D.disabled = true
 		can_move = false
 		instance_alma(position)
+	sfx_inst.play_absorb(delta)
 
 func movement(delta) -> void:
 	if !can_move : return

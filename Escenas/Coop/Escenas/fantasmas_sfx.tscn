@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://x0gbon7tll25"]
+
+[ext_resource type="Script" uid="uid://jn3kcidsqv1w" path="res://Escenas/Coop/Logica/fantasmas_sfx.gd" id="1_uue2j"]
+[ext_resource type="AudioStream" uid="uid://cfjgtd2ntxnc2" path="res://Recursos/Sonido/SFX/Boxing 007.wav" id="2_mgkdo"]
+[ext_resource type="AudioStream" uid="uid://3timj6ks0cjm" path="res://Recursos/Sonido/SFX/Pixel Bubbles 001.wav" id="3_fe4l7"]
+
+[node name="Fantasmas_SFX" type="Node"]
+script = ExtResource("1_uue2j")
+
+[node name="Absorb" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_mgkdo")
+
+[node name="Apear" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_fe4l7")

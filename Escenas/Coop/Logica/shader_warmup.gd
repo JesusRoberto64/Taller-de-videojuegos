@@ -12,7 +12,7 @@ var particles = [
 
 var run = true
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not run: return
 	for mat in shaders:
 		var s = Sprite2D.new()

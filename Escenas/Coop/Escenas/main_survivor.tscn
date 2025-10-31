@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://bvpyj4mkd3wum"]
+[gd_scene load_steps=25 format=4 uid="uid://bvpyj4mkd3wum"]
 
 [ext_resource type="Script" uid="uid://cm7ygjh8ww8qo" path="res://Escenas/Coop/Logica/overlord_survivor.gd" id="1_si4ao"]
 [ext_resource type="Script" uid="uid://tslwajw2gddx" path="res://Escenas/Coop/Fantasmas/fantasmas_list.gd" id="2_ywu56"]
@@ -13,6 +13,7 @@
 [ext_resource type="FontFile" uid="uid://jdtydgbnb8dg" path="res://Recursos/Coop/interface_00.png" id="11_360ve"]
 [ext_resource type="Texture2D" uid="uid://c8c4wmcmkf2c4" path="res://Recursos/Coop/alma_00.png" id="12_5clvu"]
 [ext_resource type="PackedScene" uid="uid://bkxbrktvo4plm" path="res://Escenas/Coop/Escenas/pause.tscn" id="12_ev5fi"]
+[ext_resource type="PackedScene" uid="uid://b4gudo8qx5rvl" path="res://Escenas/Coop/Escenas/sfx_main.tscn" id="14_5a8cj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6j1nl"]
 
@@ -25,7 +26,7 @@ texture_region_size = Vector2i(32, 32)
 texture = ExtResource("7_fggel")
 texture_region_size = Vector2i(20, 20)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 1.57895, -10, 1.57895)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 4.73684, -10, 4.73684)
 1:0/0 = 0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(3.68421, -10, 3.68421, 4.73684, -10, 4.73684, -10, -10)
 2:0/0 = 0
@@ -272,3 +273,5 @@ libraries = {
 }
 
 [node name="Pause" parent="." instance=ExtResource("12_ev5fi")]
+
+[node name="SFX_main" parent="." instance=ExtResource("14_5a8cj")]

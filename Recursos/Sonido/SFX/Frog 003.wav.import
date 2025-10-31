@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cs3r7lloypo7u"
+path="res://.godot/imported/Frog 003.wav-330321052be8dde744d15e90c0c42ccc.sample"
+
+[deps]
+
+source_file="res://Recursos/Sonido/SFX/Frog 003.wav"
+dest_files=["res://.godot/imported/Frog 003.wav-330321052be8dde744d15e90c0c42ccc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

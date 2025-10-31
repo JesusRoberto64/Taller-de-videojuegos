@@ -10,6 +10,7 @@ func _ready() -> void:
 	# HUB
 	Invoker.connect("no_ghost", no_ghost)
 	finish.connect(Pause.finish)
+	finish.connect(SFX.stop_music)
 
 func _process(delta: float) -> void:
 	match cur_state:
@@ -20,6 +21,7 @@ func _process(delta: float) -> void:
 				ready_lab.hide()
 				anim.play("vinnet")
 				cur_state = STATE.GAME
+				SFX.play_music()
 		STATE.GAME:
 			timer_game += delta
 			timer_lab.text = ".%02d" % timer_game

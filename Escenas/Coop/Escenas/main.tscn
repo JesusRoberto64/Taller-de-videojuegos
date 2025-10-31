@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://dxqvh853aket4"]
+[gd_scene load_steps=27 format=4 uid="uid://dxqvh853aket4"]
 
 [ext_resource type="Script" uid="uid://ccxev8g4u2pgc" path="res://Escenas/Coop/Logica/overlord.gd" id="1_d3dvq"]
 [ext_resource type="Texture2D" uid="uid://6sppvdg6lg0e" path="res://Recursos/Capibara/fondo_02.png" id="1_voyxy"]
@@ -14,6 +14,7 @@
 [ext_resource type="FontFile" uid="uid://jdtydgbnb8dg" path="res://Recursos/Coop/interface_00.png" id="11_o3f4x"]
 [ext_resource type="FontFile" uid="uid://s1k30xb0m3o8" path="res://Recursos/FontGloboErmilo_w15X.png" id="11_uw5ef"]
 [ext_resource type="PackedScene" uid="uid://bkxbrktvo4plm" path="res://Escenas/Coop/Escenas/pause.tscn" id="13_fxmkv"]
+[ext_resource type="PackedScene" uid="uid://b4gudo8qx5rvl" path="res://Escenas/Coop/Escenas/sfx_main.tscn" id="15_r8rr6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6j1nl"]
 
@@ -30,7 +31,7 @@ texture_region_size = Vector2i(32, 32)
 texture = ExtResource("6_24pik")
 texture_region_size = Vector2i(20, 20)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 1.57895, -10, 1.57895)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 4.73684, -10, 4.73684)
 1:0/0 = 0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(3.68421, -10, 3.68421, 4.73684, -10, 4.73684, -10, -10)
 2:0/0 = 0
@@ -276,5 +277,7 @@ horizontal_alignment = 1
 libraries = {
 &"": SubResource("AnimationLibrary_h0lkn")
 }
+
+[node name="SFX_main" parent="." instance=ExtResource("15_r8rr6")]
 
 [editable path="Y-sort/Player_2"]

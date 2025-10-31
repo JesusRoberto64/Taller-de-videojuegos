@@ -1,10 +1,13 @@
-[gd_scene load_steps=19 format=3 uid="uid://cji655uey3bvu"]
+[gd_scene load_steps=22 format=3 uid="uid://cji655uey3bvu"]
 
 [ext_resource type="Script" uid="uid://bvwift0ukog4a" path="res://Escenas/Coop/Logica/main_menu.gd" id="1_8l850"]
 [ext_resource type="Script" uid="uid://btp313cap7kt4" path="res://Escenas/Coop/Logica/shader_warmup.gd" id="2_4utyp"]
 [ext_resource type="Texture2D" uid="uid://b2jrlbfwv54l4" path="res://Recursos/Coop/tiltle_scren_bg_00.png" id="2_edh6u"]
 [ext_resource type="FontFile" uid="uid://s1k30xb0m3o8" path="res://Recursos/FontGloboErmilo_w15X.png" id="2_kqyxs"]
 [ext_resource type="Texture2D" uid="uid://l0av4jfi7w6e" path="res://Recursos/Coop/tiltle_scree_00.png" id="3_0wyjt"]
+[ext_resource type="AudioStream" uid="uid://bwk3roc5wypqd" path="res://Recursos/Sonido/Musica/jazzy_00.mp3" id="6_d1sqb"]
+[ext_resource type="AudioStream" uid="uid://c6cn08cr6j87x" path="res://Recursos/Sonido/SFX/select.mp3" id="7_jhefx"]
+[ext_resource type="AudioStream" uid="uid://t610tnw61gu5" path="res://Recursos/Sonido/SFX/accept.mp3" id="8_j5pj1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ulh3"]
 bg_color = Color(0.270588, 0.270588, 0.270588, 0.45098)
@@ -247,7 +250,21 @@ libraries = {
 &"": SubResource("AnimationLibrary_0wyjt")
 }
 
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_d1sqb")
+volume_db = -8.0
+autoplay = true
+
+[node name="select_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_jhefx")
+
+[node name="accept_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_j5pj1")
+
 [connection signal="timeout" from="ShaderWarmup/Timer" to="ShaderWarmup" method="_on_timer_timeout"]
+[connection signal="focus_entered" from="Coop" to="select_sfx" method="play"]
 [connection signal="pressed" from="Coop" to="." method="_on_coop_pressed"]
+[connection signal="focus_entered" from="Sobrevivencia" to="select_sfx" method="play"]
 [connection signal="pressed" from="Sobrevivencia" to="." method="_on_sobrevivencia_pressed"]
+[connection signal="focus_entered" from="salir" to="select_sfx" method="play"]
 [connection signal="pressed" from="salir" to="." method="_on_salir_pressed"]

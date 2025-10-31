@@ -9,10 +9,12 @@ func _ready() -> void:
 func _on_coop_pressed() -> void:
 	scene = "res://Escenas/Coop/Escenas/main.tscn"
 	$AnimationPlayer.play("fade_in")
+	$accept_sfx.play()
 
 func _on_sobrevivencia_pressed() -> void:
 	scene = "res://Escenas/Coop/Escenas/main_survivor.tscn"
 	$AnimationPlayer.play("fade_in")
+	$accept_sfx.play()
 
 func _on_salir_pressed() -> void:
 	get_tree().quit()

@@ -8,6 +8,10 @@ var player_input = "p1_"
 @onready var area = $CollisionShape2D
 @onready var ancher = $ancher
 @onready var light_shape = $ancher/CollisionPolygon2D
+# SFX
+@onready var alma_sfx = $alma_sfx
+@onready var scream_sfx = $scream_sfx
+@onready var recover_sfx = $recover_sfx
 
 var direction : Vector2 = Vector2.DOWN
 var speed = 95.0
@@ -125,6 +129,7 @@ func _on_area_entered(_area: Area2D) -> void:
 	light_shape.call_deferred("set_disabled", true)
 	#$Timer.start()
 	anim.play("scream")
+	scream_sfx.play()
 	scared = true
 	ancher.scale = Vector2(0.5, 0.5)
 
@@ -132,12 +137,15 @@ func _on_timer_timeout() -> void:
 	ancher.show()
 	light_shape.call_deferred("set_disabled", false)
 	scared = false
+	recover_sfx.play()
 
 func _on_get_alma() -> void:
 	var mult_scale = ancher.scale.x + 0.5
 	mult_scale = clamp(mult_scale, 0.5, 1.5)
 	ancher.scale = Vector2(mult_scale, mult_scale)
 	anim_player.play("binking")
+	alma_sfx.play()
+
 
 func celebration() -> void:
 	is_celebration = true
