@@ -5,7 +5,7 @@ extends Area2D
 var hp : float = maxHp
 signal destroyed(fantasma : Fantasma)
 
-@export var speed : float = 40.0
+@export var speed : float = 30.0
 
 var is_fading : bool = false
 
