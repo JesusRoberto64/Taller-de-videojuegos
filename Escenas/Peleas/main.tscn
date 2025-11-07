@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://b07crstkqsjji"]
+[gd_scene load_steps=6 format=3 uid="uid://b07crstkqsjji"]
 
 [ext_resource type="Texture2D" uid="uid://dvktpvltgny3d" path="res://Recursos/Sanson/arena.png" id="1_tmqhf"]
 [ext_resource type="PackedScene" uid="uid://cvp675cxo04ta" path="res://Escenas/Peleas/player_1.tscn" id="2_o0w6e"]
+[ext_resource type="Texture2D" uid="uid://dh4k3vu6apd5s" path="res://Recursos/Sanson/saco.png" id="3_kh6ir"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o0w6e"]
 size = Vector2(456, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmqhf"]
+size = Vector2(20, 33)
 
 [node name="main" type="Node2D"]
 
@@ -29,3 +33,17 @@ shape = SubResource("RectangleShape2D_o0w6e")
 
 [node name="Player_1" parent="." instance=ExtResource("2_o0w6e")]
 position = Vector2(265, 112)
+
+[node name="Saco" type="CharacterBody2D" parent="." groups=["Player"]]
+position = Vector2(148, 130)
+scale = Vector2(1.48097, 1.74935)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Saco"]
+texture = ExtResource("3_kh6ir")
+hframes = 3
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Saco"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_tmqhf")

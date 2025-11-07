@@ -135,7 +135,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 2.0,
@@ -170,6 +170,17 @@ animations = [{
 "loop": true,
 "name": &"walk",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjfrr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sf3k")
+}],
+"loop": true,
+"name": &"walk_back",
+"speed": 8.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmqhf"]
@@ -192,8 +203,7 @@ script = ExtResource("1_cf5k1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.59677, 1.59677)
 sprite_frames = SubResource("SpriteFrames_xmmhw")
-animation = &"crunch"
-frame = 1
+animation = &"walk_back"
 script = ExtResource("5_7t5ba")
 
 [node name="stand" type="CollisionShape2D" parent="."]
