@@ -14,7 +14,13 @@ func animation_state(direction: float, direction_mov: float,
 			play("falling")
 		return
 	
-	if movement != Vector2.ZERO:
+	# Si está agachado
+	if movement.y > 0.0:
+		if animation != "crunch":
+			play("crunch")
+		return
+	
+	if movement.x != 0.0:
 		if direction + direction_mov == 0.0:
 			play('walk')
 		else:
