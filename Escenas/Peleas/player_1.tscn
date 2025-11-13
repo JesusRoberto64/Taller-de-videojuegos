@@ -91,7 +91,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"crunch",
-"speed": 8.0
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -203,7 +203,7 @@ script = ExtResource("1_cf5k1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.59677, 1.59677)
 sprite_frames = SubResource("SpriteFrames_xmmhw")
-animation = &"walk_back"
+animation = &"crunch"
 script = ExtResource("5_7t5ba")
 
 [node name="stand" type="CollisionShape2D" parent="."]

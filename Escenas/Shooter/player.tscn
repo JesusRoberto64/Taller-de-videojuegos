@@ -1,0 +1,97 @@
+[gd_scene load_steps=14 format=3 uid="uid://dmaeo7o8f6ivq"]
+
+[ext_resource type="Script" uid="uid://co2uj6cx3tdnd" path="res://Escenas/Shooter/player_shooter.gd" id="1_bchyl"]
+[ext_resource type="Texture2D" uid="uid://mu5vdx33nndv" path="res://Recursos/Delfin/delfin48.png" id="2_ddwqw"]
+[ext_resource type="Script" uid="uid://exnb6umab3vk" path="res://Escenas/Shooter/invoker.gd" id="3_k45oi"]
+[ext_resource type="Texture2D" uid="uid://ck16jiui8h84q" path="res://Recursos/triangulo.png" id="4_ddwqw"]
+[ext_resource type="Script" uid="uid://1yrl6csmh7m6" path="res://Escenas/Shooter/camera_offset.gd" id="4_jry21"]
+[ext_resource type="Script" uid="uid://siyk2gc7r6rn" path="res://Escenas/Shooter/area_2d_player.gd" id="6_k45oi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcwev"]
+atlas = ExtResource("2_ddwqw")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwuh5"]
+atlas = ExtResource("2_ddwqw")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utimc"]
+atlas = ExtResource("2_ddwqw")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nd6v3"]
+atlas = ExtResource("2_ddwqw")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vfqdl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcwev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwuh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utimc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nd6v3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_avcio"]
+height = 38.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ddwqw"]
+radius = 4.0
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_bchyl")
+speed = 10.0
+MAX_ACCEL = 150.0
+releace_time = 1.0
+metadata/_edit_group_ = true
+
+[node name="sprite_anim" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vfqdl")
+autoplay = "default"
+offset = Vector2(2, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_avcio")
+
+[node name="Ancher" type="Node2D" parent="."]
+
+[node name="Invoker" type="Node2D" parent="Ancher" groups=["Invoker"]]
+position = Vector2(22, -1)
+script = ExtResource("3_k45oi")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ancher/Invoker"]
+texture = ExtResource("4_ddwqw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_callback = 0
+limit_top = 0
+limit_bottom = 180
+drag_left_margin = 0.4
+drag_top_margin = 0.4
+drag_right_margin = 0.4
+drag_bottom_margin = 0.4
+editor_draw_drag_margin = true
+script = ExtResource("4_jry21")
+speed = 136.18
+max_dist = 82.7
+
+[node name="Area2DPlayer" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("6_k45oi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2DPlayer"]
+shape = SubResource("CircleShape2D_ddwqw")
+debug_color = Color(0.959509, 1.92523e-07, 0.521231, 0.42)

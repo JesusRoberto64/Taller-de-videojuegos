@@ -1,3 +1,173 @@
-[gd_scene format=3 uid="uid://cmomsv3awrlg4"]
+[gd_scene load_steps=10 format=3 uid="uid://cmomsv3awrlg4"]
+
+[ext_resource type="Script" uid="uid://pos66obfogi3" path="res://Escenas/Shooter/shooter_overloard.gd" id="1_t1w7l"]
+[ext_resource type="PackedScene" uid="uid://dmaeo7o8f6ivq" path="res://Escenas/Shooter/player.tscn" id="1_wo6vq"]
+[ext_resource type="Texture2D" uid="uid://cvwmeyf5ek5r7" path="res://Recursos/Delfin/fondoDelfin_00.png" id="4_lspku"]
+[ext_resource type="Texture2D" uid="uid://vwqtfbe27nhu" path="res://Recursos/Delfin/coral_title_02_X2.png" id="4_sxtia"]
+[ext_resource type="Texture2D" uid="uid://ck16jiui8h84q" path="res://Recursos/triangulo.png" id="5_5muxs"]
+[ext_resource type="PackedScene" uid="uid://dubemomlgfphp" path="res://Escenas/Shooter/ring.tscn" id="6_wadt7"]
+
+[sub_resource type="Animation" id="Animation_wadt7"]
+resource_name = "hover"
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(2, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-72, -0.25, 0, 0.25, 0, -85, -0.25, 0, 0.25, 0, -72, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.533333, 1)
+}
+
+[sub_resource type="Animation" id="Animation_lspku"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-72, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vfqdl"]
+_data = {
+&"RESET": SubResource("Animation_lspku"),
+&"hover": SubResource("Animation_wadt7")
+}
 
 [node name="main_shooter" type="Node2D"]
+script = ExtResource("1_t1w7l")
+metadata/_edit_vertical_guides_ = [1000.0, 0.0, 416.0, 613.0]
+metadata/_edit_horizontal_guides_ = [180.0]
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+visible = false
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+texture = ExtResource("4_lspku")
+centered = false
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("4_lspku")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(320, 0)
+
+[node name="CoralTitle02X2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(0, 138)
+texture = ExtResource("4_sxtia")
+centered = false
+
+[node name="CoralTitle02X3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(182, 21)
+texture = ExtResource("4_sxtia")
+centered = false
+
+[node name="player" parent="." instance=ExtResource("1_wo6vq")]
+position = Vector2(160, 86)
+
+[node name="Rings" type="Node2D" parent="."]
+
+[node name="Ring" parent="Rings" instance=ExtResource("6_wadt7")]
+position = Vector2(390, 53)
+
+[node name="Ring2" parent="Rings" instance=ExtResource("6_wadt7")]
+position = Vector2(441, 74)
+
+[node name="Ring3" parent="Rings" instance=ExtResource("6_wadt7")]
+position = Vector2(505, 66)
+
+[node name="Ring4" parent="Rings" instance=ExtResource("6_wadt7")]
+position = Vector2(578, 57)
+
+[node name="Ring5" parent="Rings" instance=ExtResource("6_wadt7")]
+position = Vector2(641, 61)
+
+[node name="Ring6" parent="Rings" instance=ExtResource("6_wadt7")]
+position = Vector2(964, 133)
+
+[node name="Ring7" parent="Rings" instance=ExtResource("6_wadt7")]
+position = Vector2(1026, 126)
+
+[node name="Ring8" parent="Rings" instance=ExtResource("6_wadt7")]
+position = Vector2(1103, 96)
+
+[node name="Ring9" parent="Rings" instance=ExtResource("6_wadt7")]
+position = Vector2(1051, 45)
+
+[node name="Ring10" parent="Rings" instance=ExtResource("6_wadt7")]
+position = Vector2(991, 42)
+
+[node name="Ring11" parent="Rings" instance=ExtResource("6_wadt7")]
+position = Vector2(1354, 131)
+
+[node name="Ring12" parent="Rings" instance=ExtResource("6_wadt7")]
+position = Vector2(1426, 120)
+
+[node name="Ring13" parent="Rings" instance=ExtResource("6_wadt7")]
+position = Vector2(1499, 96)
+
+[node name="Ring14" parent="Rings" instance=ExtResource("6_wadt7")]
+position = Vector2(1552, 75)
+
+[node name="Ring15" parent="Rings" instance=ExtResource("6_wadt7")]
+position = Vector2(1621, 108)
+
+[node name="Gifts" type="Node2D" parent="."]
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="CoralTitle02X2" type="Sprite2D" parent="Level"]
+modulate = Color(0.587887, 0.280913, 0.361529, 1)
+position = Vector2(519, 183)
+texture = ExtResource("4_sxtia")
+
+[node name="Triangulo" type="Sprite2D" parent="Level/CoralTitle02X2"]
+position = Vector2(2, -72)
+rotation = 1.57079
+scale = Vector2(2.8447, 2.8447)
+texture = ExtResource("5_5muxs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Level/CoralTitle02X2/Triangulo"]
+libraries = {
+&"": SubResource("AnimationLibrary_vfqdl")
+}
+autoplay = "hover"

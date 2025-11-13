@@ -1,8 +1,8 @@
 [gd_scene load_steps=16 format=4 uid="uid://db1nlg1wnmxkm"]
 
 [ext_resource type="Texture2D" uid="uid://mu5vdx33nndv" path="res://Recursos/Delfin/delfin48.png" id="1_ki1y3"]
-[ext_resource type="Script" uid="uid://njf6dbqd0ddn" path="res://Escenas/Movimiento/Desliz/player.gd" id="2_6cf0e"]
-[ext_resource type="Script" uid="uid://o6ikiuiej25c" path="res://Escenas/Movimiento/Simple/camera_offset.gd" id="3_poue4"]
+[ext_resource type="Script" uid="uid://co2uj6cx3tdnd" path="res://Escenas/Shooter/player_shooter.gd" id="1_poue4"]
+[ext_resource type="Script" uid="uid://1yrl6csmh7m6" path="res://Escenas/Shooter/camera_offset.gd" id="3_f3kou"]
 [ext_resource type="Texture2D" uid="uid://dabvrgqk8an7" path="res://Recursos/Delfin/coral_title_01_X2.png" id="4_2xste"]
 [ext_resource type="Texture2D" uid="uid://vwqtfbe27nhu" path="res://Recursos/Delfin/coral_title_02_X2.png" id="4_poue4"]
 [ext_resource type="Texture2D" uid="uid://cvwmeyf5ek5r7" path="res://Recursos/Delfin/fondoDelfin_00.png" id="4_qya0g"]
@@ -95,7 +95,7 @@ metadata/_edit_horizontal_guides_ = [860.0]
 
 [node name="player" type="CharacterBody2D" parent="."]
 position = Vector2(128, 162)
-script = ExtResource("2_6cf0e")
+script = ExtResource("1_poue4")
 speed = 10.0
 MAX_ACCEL = 225.0
 releace_time = 1.5
@@ -123,7 +123,7 @@ drag_top_margin = 0.4
 drag_right_margin = 0.4
 drag_bottom_margin = 0.4
 editor_draw_drag_margin = true
-script = ExtResource("3_poue4")
+script = ExtResource("3_f3kou")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-2, 2)
