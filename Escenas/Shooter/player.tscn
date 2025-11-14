@@ -58,9 +58,10 @@ releace_time = 1.0
 metadata/_edit_group_ = true
 
 [node name="sprite_anim" type="AnimatedSprite2D" parent="."]
+rotation = 0.00661373
 sprite_frames = SubResource("SpriteFrames_vfqdl")
 autoplay = "default"
-offset = Vector2(2, 4)
+offset = Vector2(-14, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
