@@ -28,7 +28,7 @@ func _physics_process(delta) -> void :
 		gravity_force += delta * 150.0
 		position.y += delta * gravity_force
 	
-	
+	#
 	if force > 0.0:
 		position.x += delta * force * direction
 		force = lerpf(force, 0.0, delta)

@@ -11,6 +11,13 @@ var accel = Vector2.ZERO
 var direction : float = 1.0
 var mov_anim : Vector2 = Vector2.ZERO
 
+var dash_timer: float = 0.8
+var is_dashing : bool = false
+var BASE_ACCEL = 7.0
+
+func _ready() -> void:
+	BASE_ACCEL = MAX_ACCEL
+
 func _physics_process(delta: float) -> void:
 	var mov = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	mov_anim = mov
@@ -38,3 +45,12 @@ func _physics_process(delta: float) -> void:
 	cam.offset_movement(mov, delta)
 	#position.x = wrapf(position.x, 0.0 , 320.0)
 	
+
+func dash(delta) -> void:
+	if not is_dashing: return 
+	dash_timer -= delta
+	if dash_timer <= 0.0:
+		MAX_ACCEL = BASE_ACCEL
+		is_dashing = false
+		pass
+	pass

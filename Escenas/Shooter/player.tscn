@@ -1,42 +1,42 @@
 [gd_scene load_steps=14 format=3 uid="uid://dmaeo7o8f6ivq"]
 
 [ext_resource type="Script" uid="uid://co2uj6cx3tdnd" path="res://Escenas/Shooter/player_shooter.gd" id="1_bchyl"]
-[ext_resource type="Texture2D" uid="uid://mu5vdx33nndv" path="res://Recursos/Delfin/delfin48.png" id="2_ddwqw"]
+[ext_resource type="Texture2D" uid="uid://cw37iatm71gr5" path="res://Recursos/Shooter/Santa.png" id="2_k45oi"]
 [ext_resource type="Script" uid="uid://exnb6umab3vk" path="res://Escenas/Shooter/invoker.gd" id="3_k45oi"]
 [ext_resource type="Texture2D" uid="uid://ck16jiui8h84q" path="res://Recursos/triangulo.png" id="4_ddwqw"]
 [ext_resource type="Script" uid="uid://1yrl6csmh7m6" path="res://Escenas/Shooter/camera_offset.gd" id="4_jry21"]
 [ext_resource type="Script" uid="uid://siyk2gc7r6rn" path="res://Escenas/Shooter/area_2d_player.gd" id="6_k45oi"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bcwev"]
-atlas = ExtResource("2_ddwqw")
-region = Rect2(0, 0, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_jry21"]
+atlas = ExtResource("2_k45oi")
+region = Rect2(0, 0, 48, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bwuh5"]
-atlas = ExtResource("2_ddwqw")
-region = Rect2(48, 0, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_x15gk"]
+atlas = ExtResource("2_k45oi")
+region = Rect2(48, 0, 48, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_utimc"]
-atlas = ExtResource("2_ddwqw")
-region = Rect2(0, 48, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_psjbw"]
+atlas = ExtResource("2_k45oi")
+region = Rect2(0, 32, 48, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nd6v3"]
-atlas = ExtResource("2_ddwqw")
-region = Rect2(48, 48, 48, 48)
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyj8t"]
+atlas = ExtResource("2_k45oi")
+region = Rect2(48, 32, 48, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vfqdl"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bcwev")
+"texture": SubResource("AtlasTexture_jry21")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bwuh5")
+"texture": SubResource("AtlasTexture_x15gk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_utimc")
+"texture": SubResource("AtlasTexture_psjbw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nd6v3")
+"texture": SubResource("AtlasTexture_jyj8t")
 }],
 "loop": true,
 "name": &"default",
@@ -44,7 +44,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_avcio"]
-height = 38.0
+radius = 6.0
+height = 34.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ddwqw"]
 radius = 4.0
@@ -68,7 +69,7 @@ shape = SubResource("CapsuleShape2D_avcio")
 [node name="Ancher" type="Node2D" parent="."]
 
 [node name="Invoker" type="Node2D" parent="Ancher" groups=["Invoker"]]
-position = Vector2(22, -1)
+position = Vector2(-8, 0)
 script = ExtResource("3_k45oi")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ancher/Invoker"]
