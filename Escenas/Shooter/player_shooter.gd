@@ -17,6 +17,7 @@ var BASE_ACCEL = 7.0
 
 var vec_direction : Vector2 = Vector2.RIGHT
 var is_flipping : bool = false
+var radian = 0.0
 
 func _ready() -> void:
 	BASE_ACCEL = MAX_ACCEL
@@ -55,33 +56,25 @@ func _physics_process(delta: float) -> void:
 		changed_direction = true
 		is_flipping = true
 	elif is_flipping:
-		print(direction)
 		if direction < 0.0:
-			sprite_anim.rotation = lerp_angle(sprite_anim.rotation, PI , delta)
+			
+			if sprite_anim.rotation > -PI / 2.0 :
+				velocity = Vector2(-125.0, -80.0)
+			else:
+				velocity = Vector2(-125.0, 0.0)
+				sprite_anim.flip_v = true
+			sprite_anim.rotation = lerpf(sprite_anim.rotation, -PI , delta*3.0)
+			if sprite_anim.rotation < -(PI - 0.1):
+				is_flipping = false
 		else:
+			sprite_anim.flip_v = false
 			print(sprite_anim.rotation)
-			sprite_anim.rotation = lerp_angle(sprite_anim.rotation, 0.0 , delta)
+			sprite_anim.rotation = lerpf(sprite_anim.rotation, 0.0 , delta * 3.0)
+			velocity = Vector2(125.0, 80.0)
+			if abs(sprite_anim.rotation) < 0.1:
+				is_flipping = false
+		move_and_slide()
 		return
-		
-		#if last_direction < 0.0:
-			#var flip_direction = atan2(vec_direction.y, vec_direction.x)
-			#print(flip_direction)
-			#pass
-			#if sprite_anim.rotation > -PI / 2.0:
-				#sprite_anim.rotation = lerp_angle(sprite_anim.rotation, -PI / 1.8, delta * 10.0)
-				#velocity = Vector2(0.0, -100.0)
-			#else:
-				#sprite_anim.rotation = lerp_angle(sprite_anim.rotation, -PI , delta * 0.0)
-				#velocity = Vector2.ZERO
-			#print(sprite_anim.rotation)
-			#move_and_slide()
-			#pass
-		#else:
-			#sprite_anim.rotation = lerp_angle(sprite_anim.rotation, 0.0, delta)
-			#pass
-		#
-		#
-		#pass
 	
 	if mov.x != 0.0:
 		var target_direction = atan2(vec_direction.y, vec_direction.x)
@@ -89,7 +82,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		var hover_direction = atan2(0.0, vec_direction.x)
 		sprite_anim.rotation = lerp_angle(sprite_anim.rotation, hover_direction, delta)
-	
 
 func dash(delta) -> void:
 	if not is_dashing: return 
