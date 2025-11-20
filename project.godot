@@ -11,10 +11,14 @@ config_version=5
 [application]
 
 config/name="Taller de Videojuegos"
-run/main_scene="uid://cmomsv3awrlg4"
+run/main_scene="uid://t6ibltlud6qa"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 run/delta_smoothing=false
 config/icon="res://icon.svg"
+
+[autoload]
+
+CollectatonData="*res://Escenas/Colectaton/CollectatonData.gd"
 
 [display]
 

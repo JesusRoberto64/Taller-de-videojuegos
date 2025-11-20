@@ -1,0 +1,244 @@
+[gd_scene load_steps=27 format=3 uid="uid://t6ibltlud6qa"]
+
+[ext_resource type="Texture2D" uid="uid://6sppvdg6lg0e" path="res://Recursos/Capibara/fondo_02.png" id="1_82nk6"]
+[ext_resource type="Texture2D" uid="uid://b2f6knsflsabs" path="res://Recursos/Capibara/capibara Idle.png" id="1_j3wub"]
+[ext_resource type="Script" uid="uid://ccihrr85c3h7v" path="res://Escenas/Colectaton/main_top.gd" id="1_nu6k3"]
+[ext_resource type="Texture2D" uid="uid://di6q1gtsyuwye" path="res://Recursos/Capibara/capibara.png" id="2_82nk6"]
+[ext_resource type="Script" uid="uid://b4vsum1512lr1" path="res://Escenas/Colectaton/player_top.gd" id="2_bqi11"]
+[ext_resource type="Script" uid="uid://d3s36ifao7xqr" path="res://Escenas/Colectaton/teleport.gd" id="4_3uian"]
+[ext_resource type="Texture2D" uid="uid://xum2uxnhgtse" path="res://Recursos/Capibara/shadow.png" id="4_hrofp"]
+[ext_resource type="Texture2D" uid="uid://cs4cd0furcgyh" path="res://Recursos/Capibara/portal.png" id="4_ujvfd"]
+[ext_resource type="PackedScene" uid="uid://bo6xdj88c3hir" path="res://Escenas/Colectaton/hoja.tscn" id="6_j2lw0"]
+[ext_resource type="Texture2D" uid="uid://dvf0teao0qc8c" path="res://Recursos/Capibara/cueva.png" id="7_hu57y"]
+[ext_resource type="Texture2D" uid="uid://b4pfnbrc5vr8c" path="res://Recursos/Capibara/hoja.png" id="7_j2lw0"]
+[ext_resource type="Script" uid="uid://en6n5db6spdv" path="res://Escenas/Colectaton/portal.gd" id="8_af4c3"]
+[ext_resource type="Script" uid="uid://ticxvgqoabgw" path="res://Escenas/Colectaton/camera_collectaton.gd" id="11_q8snl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3uian"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hrofp"]
+radius = 4.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_maaq8"]
+atlas = ExtResource("1_j3wub")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nu6k3"]
+atlas = ExtResource("1_j3wub")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2lw0"]
+atlas = ExtResource("1_j3wub")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hu57y"]
+atlas = ExtResource("1_j3wub")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrofp"]
+atlas = ExtResource("1_j3wub")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_af4c3"]
+atlas = ExtResource("2_82nk6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujvfd"]
+atlas = ExtResource("2_82nk6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3uian"]
+atlas = ExtResource("2_82nk6")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8snl"]
+atlas = ExtResource("2_82nk6")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dvdqf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_maaq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nu6k3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2lw0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hu57y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrofp")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_af4c3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujvfd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3uian")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8snl")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3wub"]
+size = Vector2(23, 14.75)
+
+[node name="MainTop" type="Node2D"]
+script = ExtResource("1_nu6k3")
+
+[node name="Mapa" type="Node2D" parent="."]
+
+[node name="Fondo" type="Sprite2D" parent="Mapa"]
+texture = ExtResource("1_82nk6")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Fondo2" type="Sprite2D" parent="Mapa"]
+modulate = Color(0.458448, 0.498554, 0.759709, 1)
+position = Vector2(320, 0)
+texture = ExtResource("1_82nk6")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Fondo3" type="Sprite2D" parent="Mapa"]
+modulate = Color(1, 0.680798, 0.745946, 1)
+position = Vector2(0, 180)
+texture = ExtResource("1_82nk6")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Fondo4" type="Sprite2D" parent="Mapa"]
+position = Vector2(320, 180)
+texture = ExtResource("1_82nk6")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="cueva" type="Sprite2D" parent="Mapa"]
+position = Vector2(565, 255)
+scale = Vector2(2, 2)
+texture = ExtResource("7_hu57y")
+
+[node name="Teleport A" type="Area2D" parent="." node_paths=PackedStringArray("pair")]
+position = Vector2(89, 147)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_3uian")
+pair = NodePath("../Teleport A2")
+metadata/_edit_group_ = true
+
+[node name="Portal" type="Sprite2D" parent="Teleport A"]
+texture = ExtResource("4_ujvfd")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport A"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_3uian")
+
+[node name="Teleport A2" type="Area2D" parent="." node_paths=PackedStringArray("pair")]
+position = Vector2(72, 297)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_3uian")
+pair = NodePath("../Teleport A")
+metadata/_edit_group_ = true
+
+[node name="Portal" type="Sprite2D" parent="Teleport A2"]
+texture = ExtResource("4_ujvfd")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport A2"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_3uian")
+
+[node name="cueva" type="Area2D" parent="."]
+position = Vector2(565, 255)
+scale = Vector2(2, 2)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("8_af4c3")
+to_level = "Level2"
+my_door = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cueva"]
+position = Vector2(1, 9)
+shape = SubResource("CircleShape2D_hrofp")
+
+[node name="Marker2D" type="Marker2D" parent="cueva"]
+position = Vector2(1.5, 20.5)
+
+[node name="Player_top" type="CharacterBody2D" parent="."]
+position = Vector2(273, 141)
+collision_layer = 3
+script = ExtResource("2_bqi11")
+metadata/_edit_group_ = true
+
+[node name="Shadow" type="Sprite2D" parent="Player_top"]
+position = Vector2(0, 1)
+texture = ExtResource("4_hrofp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player_top"]
+sprite_frames = SubResource("SpriteFrames_dvdqf")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player_top"]
+position = Vector2(-0.5, 0.625)
+shape = SubResource("RectangleShape2D_j3wub")
+
+[node name="Ancher" type="Node" parent="Player_top"]
+
+[node name="CameraCollectaton" type="Camera2D" parent="Player_top/Ancher"]
+anchor_mode = 0
+editor_draw_drag_margin = true
+script = ExtResource("11_q8snl")
+
+[node name="Hojas" type="Node2D" parent="."]
+
+[node name="Hoja" parent="Hojas" instance=ExtResource("6_j2lw0")]
+position = Vector2(271, 78)
+
+[node name="Hoja2" parent="Hojas" instance=ExtResource("6_j2lw0")]
+position = Vector2(315, 109)
+
+[node name="Hoja3" parent="Hojas" instance=ExtResource("6_j2lw0")]
+position = Vector2(354, 141)
+
+[node name="Hoja4" parent="Hojas" instance=ExtResource("6_j2lw0")]
+position = Vector2(442, 146)
+
+[node name="Hoja5" parent="Hojas" instance=ExtResource("6_j2lw0")]
+position = Vector2(486, 171)
+
+[node name="Hoja6" parent="Hojas" instance=ExtResource("6_j2lw0")]
+position = Vector2(488, 305)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(15, 15)
+texture = ExtResource("7_j2lw0")
+region_enabled = true
+region_rect = Rect2(3.00027, 0, 25.4458, 27.3616)
+
+[node name="Hojas_lab" type="Label" parent="CanvasLayer"]
+offset_left = 27.0
+offset_top = 4.0
+offset_right = 67.0
+offset_bottom = 27.0
+text = " X 0"

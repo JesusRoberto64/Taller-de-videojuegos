@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://bo6xdj88c3hir"]
+
+[ext_resource type="Texture2D" uid="uid://b4pfnbrc5vr8c" path="res://Recursos/Capibara/hoja.png" id="1_jiq0b"]
+[ext_resource type="Script" uid="uid://dwl28d2jnd2vt" path="res://Escenas/Colectaton/hoja.gd" id="1_x3uyr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3uyr"]
+atlas = ExtResource("1_jiq0b")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d173w"]
+atlas = ExtResource("1_jiq0b")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bc7h1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3uyr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d173w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jiq0b"]
+size = Vector2(12, 18)
+
+[node name="Hoja" type="Area2D"]
+script = ExtResource("1_x3uyr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bc7h1")
+autoplay = "default"
+frame_progress = 0.959981
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_jiq0b")
