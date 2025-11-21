@@ -1,6 +1,6 @@
 extends Camera2D
 
-var target_node = self
+@export var target_node : Node2D = self
 
 var x : float = 320.0
 var y : float = 180.0

@@ -195,10 +195,11 @@ shape = SubResource("RectangleShape2D_v6m8v")
 
 [node name="Ancher" type="Node" parent="Players_side"]
 
-[node name="CameraCollectaton" type="Camera2D" parent="Players_side/Ancher"]
+[node name="CameraCollectaton" type="Camera2D" parent="Players_side/Ancher" node_paths=PackedStringArray("target_node")]
 anchor_mode = 0
 limit_left = 0
 script = ExtResource("6_04556")
+target_node = NodePath("../..")
 
 [node name="Salida" type="Area2D" parent="."]
 position = Vector2(-18, 106)
