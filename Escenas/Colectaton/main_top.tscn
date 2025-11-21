@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://t6ibltlud6qa"]
+[gd_scene load_steps=34 format=4 uid="uid://t6ibltlud6qa"]
 
 [ext_resource type="Texture2D" uid="uid://6sppvdg6lg0e" path="res://Recursos/Capibara/fondo_02.png" id="1_82nk6"]
 [ext_resource type="Texture2D" uid="uid://b2f6knsflsabs" path="res://Recursos/Capibara/capibara Idle.png" id="1_j3wub"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b4pfnbrc5vr8c" path="res://Recursos/Capibara/hoja.png" id="7_j2lw0"]
 [ext_resource type="Script" uid="uid://en6n5db6spdv" path="res://Escenas/Colectaton/portal.gd" id="8_af4c3"]
 [ext_resource type="Script" uid="uid://ticxvgqoabgw" path="res://Escenas/Colectaton/camera_collectaton.gd" id="11_q8snl"]
+[ext_resource type="Script" uid="uid://b520vvllb8kqx" path="res://Escenas/Colectaton/kick_force.gd" id="12_v852a"]
 [ext_resource type="Script" uid="uid://cc80sr6w7olih" path="res://Escenas/Colectaton/ball.gd" id="13_clbw4"]
 [ext_resource type="Texture2D" uid="uid://dk0ktq8v3ogmx" path="res://Recursos/Capibara/ball.png" id="13_dvdqf"]
 [ext_resource type="Texture2D" uid="uid://cw25hepvrl5c6" path="res://Recursos/Coop/tiles_00.png" id="16_umgjj"]
@@ -22,6 +23,50 @@ radius = 6.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hrofp"]
 radius = 4.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v852a"]
+texture = ExtResource("16_umgjj")
+texture_region_size = Vector2i(20, 20)
+0:0/size_in_atlas = Vector2i(2, 1)
+0:0/0 = 0
+2:0/0 = 0
+3:0/size_in_atlas = Vector2i(2, 1)
+3:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -8.75, 10, -8.75, 10, 10, -10, 10)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -8.75, 3.75, -8.75, 3.75, 10, -10, 10)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, -10, 1.25, 10, 1.25, 10, -10)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, 1.25, 3.75, 1.25, 3.75, -10, -10, -10)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -8.75, 10, -8.75, 10, 10, -10, 10, -10, -6.25)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -8.75, 10, -8.75, 10, 10, -10, 10)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -8.75, 6.25, -8.75, 7.14286, 10, -10, 10, -10, -7.5)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, 1.42857, 10, 1.42857, 10, -10, -10, -10)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, 1.42857, 10, 1.42857, 10, -10, -10, -10)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, 1.42857, 7.14286, 1.42857, 7.14286, -10, -10, -10)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(4.28572, -10, 4.28572, 10, -10, 10, -10, -10)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 7.14286, -10, 7.14286, 10, -10, 10)
+
+[sub_resource type="TileSet" id="TileSet_5hems"]
+tile_size = Vector2i(20, 20)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_v852a")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_maaq8"]
 atlas = ExtResource("1_j3wub")
@@ -104,50 +149,6 @@ size = Vector2(23, 14.75)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_clbw4"]
 radius = 6.0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v852a"]
-texture = ExtResource("16_umgjj")
-texture_region_size = Vector2i(20, 20)
-0:0/size_in_atlas = Vector2i(2, 1)
-0:0/0 = 0
-2:0/0 = 0
-3:0/size_in_atlas = Vector2i(2, 1)
-3:0/0 = 0
-0:1/0 = 0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -8.75, 10, -8.75, 10, 10, -10, 10)
-1:1/0 = 0
-1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -8.75, 3.75, -8.75, 3.75, 10, -10, 10)
-0:2/0 = 0
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, -10, 1.25, 10, 1.25, 10, -10)
-1:2/0 = 0
-1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, 1.25, 3.75, 1.25, 3.75, -10, -10, -10)
-2:1/0 = 0
-2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -8.75, 10, -8.75, 10, 10, -10, 10, -10, -6.25)
-3:1/0 = 0
-3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -8.75, 10, -8.75, 10, 10, -10, 10)
-4:1/0 = 0
-4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -8.75, 6.25, -8.75, 7.14286, 10, -10, 10, -10, -7.5)
-2:2/0 = 0
-2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, 1.42857, 10, 1.42857, 10, -10, -10, -10)
-3:2/0 = 0
-3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, 1.42857, 10, 1.42857, 10, -10, -10, -10)
-4:2/0 = 0
-4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, 1.42857, 7.14286, 1.42857, 7.14286, -10, -10, -10)
-0:3/0 = 0
-0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
-1:3/0 = 0
-1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(4.28572, -10, 4.28572, 10, -10, 10, -10, -10)
-2:3/0 = 0
-2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
-3:3/0 = 0
-3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
-4:3/0 = 0
-4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -10, 7.14286, -10, 7.14286, 10, -10, 10)
-
-[sub_resource type="TileSet" id="TileSet_5hems"]
-tile_size = Vector2i(20, 20)
-physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_v852a")
 
 [node name="MainTop" type="Node2D"]
 script = ExtResource("1_nu6k3")
@@ -233,6 +234,11 @@ shape = SubResource("CircleShape2D_hrofp")
 [node name="Marker2D" type="Marker2D" parent="cueva"]
 position = Vector2(1.5, 20.5)
 
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(2, 1)
+tile_map_data = PackedByteArray("AAANAAUAAQAAAAMAAAANAAYAAQAAAAMAAAANAAcAAQAAAAMAAAANAAgAAQAAAAIAAAAOAAUAAQABAAMAAAAOAAYAAQABAAMAAAAOAAcAAQABAAMAAAAOAAgAAQABAAIAAAANAAQAAQAAAAMAAAAOAAQAAQABAAMAAAANAAMAAQAAAAMAAAAOAAMAAQABAAMAAAANAAIAAQAAAAEAAAAOAAIAAQABAAEAAAAKAAcAAQACAAEAAAALAAcAAQADAAMAAAAMAAcAAQADAAMAAAAMAAgAAQADAAIAAAAKAAgAAQADAAIAAAALAAgAAQADAAIAAAA=")
+tile_set = SubResource("TileSet_5hems")
+
 [node name="Player_top" type="CharacterBody2D" parent="."]
 position = Vector2(100, 25)
 collision_layer = 3
@@ -259,6 +265,10 @@ editor_draw_drag_margin = true
 script = ExtResource("11_q8snl")
 target_node = NodePath("../..")
 
+[node name="KickForce" type="Node" parent="Player_top" node_paths=PackedStringArray("ball")]
+script = ExtResource("12_v852a")
+ball = NodePath("../../Ball")
+
 [node name="Hojas" type="Node2D" parent="."]
 
 [node name="Hoja" parent="Hojas" instance=ExtResource("6_j2lw0")]
@@ -280,9 +290,11 @@ position = Vector2(486, 171)
 position = Vector2(488, 305)
 
 [node name="Ball" type="RigidBody2D" parent="."]
-position = Vector2(171, 106)
+position = Vector2(159, 110)
+collision_layer = 0
 mass = 0.2
 gravity_scale = 0.0
+linear_damp = 5.0
 script = ExtResource("13_clbw4")
 metadata/_edit_group_ = true
 
@@ -311,8 +323,3 @@ offset_top = 4.0
 offset_right = 67.0
 offset_bottom = 27.0
 text = " X 0"
-
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-position = Vector2(2, 1)
-tile_map_data = PackedByteArray("AAANAAUAAQAAAAMAAAANAAYAAQAAAAMAAAANAAcAAQAAAAMAAAANAAgAAQAAAAIAAAAOAAUAAQABAAMAAAAOAAYAAQABAAMAAAAOAAcAAQABAAMAAAAOAAgAAQABAAIAAAAKAAkAAQACAAEAAAALAAkAAQADAAEAAAAMAAkAAQADAAMAAAANAAkAAQAEAAEAAAALAAoAAQADAAIAAAANAAoAAQAEAAIAAAAMAAoAAQADAAIAAAAKAAoAAQACAAIAAAANAAQAAQAAAAMAAAAOAAQAAQABAAMAAAANAAMAAQAAAAMAAAAOAAMAAQABAAMAAAANAAIAAQAAAAEAAAAOAAIAAQABAAEAAAA=")
-tile_set = SubResource("TileSet_5hems")
