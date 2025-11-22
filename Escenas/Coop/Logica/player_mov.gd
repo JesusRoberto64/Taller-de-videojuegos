@@ -64,7 +64,7 @@ func _physics_process(delta: float) -> void:
 		var target_direction = atan2(direction.y, direction.x)
 		ancher.rotation = lerp_angle(ancher.rotation, target_direction, delta* 10.0) 
 	
-	velocity = mov * speed
+	velocity = mov * speed 
 	move_and_slide()
 	
 	position.x = clamp(position.x, 12.0, 308.0)

@@ -13,6 +13,7 @@ config_version=5
 config/name="Taller de Videojuegos"
 run/main_scene="uid://t6ibltlud6qa"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+run/max_fps=30
 run/delta_smoothing=false
 config/icon="res://icon.svg"
 

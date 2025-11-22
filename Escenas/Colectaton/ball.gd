@@ -1,23 +1,20 @@
 extends RigidBody2D
 
 var dir = Vector2.RIGHT
+var spaw_pos = Vector2.ZERO
+var is_kicked = false
 
 func _ready() -> void:
-	body_entered.connect(on_body_entered)
-	contact_monitor = true
-	pass
+	spaw_pos = position
 
-func _physics_process(delta):
-	#apply_force(Vector2.LEFT)
-	#var kinematic = move_and_collide(dir)
-	#if kinematic != null:
-		#dir = kinematic.get_collider().direction
-		#print(dir)
-	#
-	#if get_contact_count() > 0:
-		#print(get_colliding_bodies())
-	pass
+func _physics_process(_delta):
+	if is_kicked:
+		if linear_velocity.length() < 4.0:
+			physics_material_override.bounce = 0.0
+			is_kicked = false
 
-func on_body_entered(body: Node) -> void:
-	#print(body)
+func kicked(force: Vector2) -> void:
+	apply_impulse(force)
+	is_kicked = true
+	physics_material_override.bounce = 1.0
 	pass

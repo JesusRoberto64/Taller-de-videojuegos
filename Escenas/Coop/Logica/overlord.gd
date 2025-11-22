@@ -52,8 +52,8 @@ func _process(delta: float) -> void:
 				timer = 5.0
 				ready_lab.hide()
 				anim.play("vinnet")
-				cur_state = STATE.GAME
 				SFX.play_music()
+				cur_state = STATE.GAME
 		STATE.GAME:
 			timer_game -= delta
 			timer_lab.text = ".%02d" % timer_game

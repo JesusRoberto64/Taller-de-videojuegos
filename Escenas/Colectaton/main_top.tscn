@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://t6ibltlud6qa"]
+[gd_scene load_steps=32 format=4 uid="uid://t6ibltlud6qa"]
 
 [ext_resource type="Texture2D" uid="uid://6sppvdg6lg0e" path="res://Recursos/Capibara/fondo_02.png" id="1_82nk6"]
 [ext_resource type="Texture2D" uid="uid://b2f6knsflsabs" path="res://Recursos/Capibara/capibara Idle.png" id="1_j3wub"]
@@ -14,8 +14,7 @@
 [ext_resource type="Script" uid="uid://en6n5db6spdv" path="res://Escenas/Colectaton/portal.gd" id="8_af4c3"]
 [ext_resource type="Script" uid="uid://ticxvgqoabgw" path="res://Escenas/Colectaton/camera_collectaton.gd" id="11_q8snl"]
 [ext_resource type="Script" uid="uid://b520vvllb8kqx" path="res://Escenas/Colectaton/kick_force.gd" id="12_v852a"]
-[ext_resource type="Script" uid="uid://cc80sr6w7olih" path="res://Escenas/Colectaton/ball.gd" id="13_clbw4"]
-[ext_resource type="Texture2D" uid="uid://dk0ktq8v3ogmx" path="res://Recursos/Capibara/ball.png" id="13_dvdqf"]
+[ext_resource type="PackedScene" uid="uid://cnrvv6q3cuqxh" path="res://Escenas/Colectaton/ball.tscn" id="15_umgjj"]
 [ext_resource type="Texture2D" uid="uid://cw25hepvrl5c6" path="res://Recursos/Coop/tiles_00.png" id="16_umgjj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3uian"]
@@ -147,9 +146,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3wub"]
 size = Vector2(23, 14.75)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_clbw4"]
-radius = 6.0
-
 [node name="MainTop" type="Node2D"]
 script = ExtResource("1_nu6k3")
 
@@ -257,6 +253,10 @@ animation = &"idle"
 position = Vector2(-0.5, 0.625)
 shape = SubResource("RectangleShape2D_j3wub")
 
+[node name="KickForce" type="Node" parent="Player_top" node_paths=PackedStringArray("ball")]
+script = ExtResource("12_v852a")
+ball = NodePath("../../Ball")
+
 [node name="Ancher" type="Node" parent="Player_top"]
 
 [node name="CameraCollectaton" type="Camera2D" parent="Player_top/Ancher" node_paths=PackedStringArray("target_node")]
@@ -264,10 +264,6 @@ anchor_mode = 0
 editor_draw_drag_margin = true
 script = ExtResource("11_q8snl")
 target_node = NodePath("../..")
-
-[node name="KickForce" type="Node" parent="Player_top" node_paths=PackedStringArray("ball")]
-script = ExtResource("12_v852a")
-ball = NodePath("../../Ball")
 
 [node name="Hojas" type="Node2D" parent="."]
 
@@ -289,25 +285,8 @@ position = Vector2(486, 171)
 [node name="Hoja6" parent="Hojas" instance=ExtResource("6_j2lw0")]
 position = Vector2(488, 305)
 
-[node name="Ball" type="RigidBody2D" parent="."]
+[node name="Ball" parent="." instance=ExtResource("15_umgjj")]
 position = Vector2(159, 110)
-collision_layer = 0
-mass = 0.2
-gravity_scale = 0.0
-linear_damp = 5.0
-script = ExtResource("13_clbw4")
-metadata/_edit_group_ = true
-
-[node name="Shadow" type="Sprite2D" parent="Ball"]
-position = Vector2(0, -3)
-scale = Vector2(0.5625, 0.8125)
-texture = ExtResource("4_hrofp")
-
-[node name="Sprite2D" type="Sprite2D" parent="Ball"]
-texture = ExtResource("13_dvdqf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
-shape = SubResource("CircleShape2D_clbw4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnrvv6q3cuqxh"]
+
+[ext_resource type="Script" uid="uid://cc80sr6w7olih" path="res://Escenas/Colectaton/ball.gd" id="1_at4jj"]
+[ext_resource type="Texture2D" uid="uid://xum2uxnhgtse" path="res://Recursos/Capibara/shadow.png" id="2_3yxyf"]
+[ext_resource type="Texture2D" uid="uid://dk0ktq8v3ogmx" path="res://Recursos/Capibara/ball.png" id="3_eaagi"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v852a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_clbw4"]
+radius = 6.0
+
+[node name="Ball" type="RigidBody2D"]
+collision_layer = 0
+mass = 0.2
+physics_material_override = SubResource("PhysicsMaterial_v852a")
+gravity_scale = 0.0
+linear_damp = 5.0
+script = ExtResource("1_at4jj")
+metadata/_edit_group_ = true
+
+[node name="Shadow" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -3)
+scale = Vector2(0.5625, 0.8125)
+texture = ExtResource("2_3yxyf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_eaagi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_clbw4")
