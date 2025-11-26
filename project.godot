@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Taller de Videojuegos"
-run/main_scene="uid://t6ibltlud6qa"
+run/main_scene="uid://dwgdcio01ju3l"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 run/max_fps=30
 run/delta_smoothing=false

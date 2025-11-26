@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgn7578c6d6na"]
+
+[ext_resource type="Texture2D" uid="uid://b7ew0urtyoyls" path="res://Recursos/Pollito/fondo_pollito_00.png" id="1_ywary"]
+[ext_resource type="Texture2D" uid="uid://6sppvdg6lg0e" path="res://Recursos/Capibara/fondo_02.png" id="2_o4whn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4whn"]
+size = Vector2(68.3415, 18.9863)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lcodk"]
+size = Vector2(107, 22)
+
+[node name="Terreno" type="Node2D"]
+
+[node name="tile" type="Sprite2D" parent="."]
+texture = ExtResource("1_ywary")
+centered = false
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="tile"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="tile/StaticBody2D"]
+polygon = PackedVector2Array(4, 119, 29, 120, 48, 124, 80, 136, 128, 152, 181, 158, 228, 155, 271, 159, 308, 158, 320, 158, 320, 180, 0, 180, 0, 120)
+
+[node name="tile2" type="Sprite2D" parent="."]
+position = Vector2(640, 0)
+scale = Vector2(-1, 1)
+texture = ExtResource("1_ywary")
+centered = false
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="tile2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="tile2/StaticBody2D"]
+polygon = PackedVector2Array(71, 120, 93, 134, 128, 152, 181, 158, 237, 152, 274, 154, 300, 153, 320, 158, 320, 180, 6, 182, 7, 165)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tile2/StaticBody2D"]
+position = Vector2(36.6707, 130.507)
+shape = SubResource("RectangleShape2D_o4whn")
+one_way_collision = true
+
+[node name="agua" type="Polygon2D" parent="."]
+position = Vector2(627, 112)
+texture = ExtResource("2_o4whn")
+polygon = PackedVector2Array(0.922718, 45.6987, 0.314053, 78.11, 34.0948, 79.1752, 33.334, 59.3937, 96.1785, 60.0023, 99.5261, 65.9368, 106.982, 65.6324, 104.7, 50.2637, 44.7464, 49.8072, 39.4206, 44.0249, 2.59654, 43.8727)
+uv = PackedVector2Array(0.922718, 45.6987, 0.314053, 78.11, 34.0948, 79.1752, 33.334, 59.3937, 96.1785, 60.0023, 99.5261, 65.9368, 106.982, 65.6324, 104.7, 50.2637, 44.7464, 49.8072, 39.4206, 44.0249, 2.59654, 43.8727)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="agua"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="agua/StaticBody2D"]
+position = Vector2(54.5, 60)
+shape = SubResource("RectangleShape2D_lcodk")
