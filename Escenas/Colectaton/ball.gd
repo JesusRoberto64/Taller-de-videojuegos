@@ -17,4 +17,3 @@ func kicked(force: Vector2) -> void:
 	apply_impulse(force)
 	is_kicked = true
 	physics_material_override.bounce = 1.0
-	pass
