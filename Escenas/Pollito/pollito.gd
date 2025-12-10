@@ -19,6 +19,8 @@ var speed = 50.0
 var direction = 1.0
 var move_anim : float
 
+var collision = null
+
 func _physics_process(_delta: float) -> void:
 	var move = Input.get_axis('ui_left', 'ui_right')
 	move_anim = move
