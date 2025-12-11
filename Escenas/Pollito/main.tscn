@@ -1,15 +1,45 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwgdcio01ju3l"]
+[gd_scene load_steps=12 format=4 uid="uid://dwgdcio01ju3l"]
 
 [ext_resource type="PackedScene" uid="uid://cgn7578c6d6na" path="res://Escenas/Pollito/terreno.tscn" id="1_3k2yw"]
 [ext_resource type="Texture2D" uid="uid://davd57lacbm2s" path="res://Recursos/Pollito/fondo_pollito_01.png" id="1_an3p3"]
 [ext_resource type="PackedScene" uid="uid://b0u8bf3v1qies" path="res://Escenas/Pollito/pollito.tscn" id="2_kk86r"]
 [ext_resource type="Script" uid="uid://b4xaaob4yx8xk" path="res://Escenas/Pollito/balace.gd" id="4_kk86r"]
+[ext_resource type="Script" uid="uid://wqfvom7xy4gk" path="res://Escenas/Pollito/balance_platform.gd" id="5_pge4c"]
+[ext_resource type="Texture2D" uid="uid://b4k4s0ajl4ryd" path="res://Recursos/Delfin/coral_title_00.png" id="5_qxqy7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3k2yw"]
 size = Vector2(50, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kk86r"]
 size = Vector2(8, 37)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pge4c"]
+texture = ExtResource("5_qxqy7")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_ggfdw"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_pge4c")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxqy7"]
+size = Vector2(16, 16)
 
 [node name="main" type="Node2D"]
 
@@ -20,6 +50,15 @@ position = Vector2(202, 73)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Pollito"]
+limit_left = 0
+limit_top = 0
+limit_bottom = 180
+
+[node name="Pollito2" parent="." instance=ExtResource("2_kk86r")]
+position = Vector2(164, 11)
+metadata/_edit_group_ = true
+
+[node name="Camera2D" type="Camera2D" parent="Pollito2"]
 limit_left = 0
 limit_top = 0
 limit_bottom = 180
@@ -38,14 +77,15 @@ metadata/_edit_lock_ = true
 [node name="Balace" type="Node2D" parent="."]
 script = ExtResource("4_kk86r")
 
-[node name="Balance" type="AnimatableBody2D" parent="Balace"]
+[node name="Platform" type="AnimatableBody2D" parent="Balace"]
 position = Vector2(204, 98)
+script = ExtResource("5_pge4c")
 metadata/_edit_group_ = true
 
-[node name="Polygon2D" type="Polygon2D" parent="Balace/Balance"]
+[node name="Polygon2D" type="Polygon2D" parent="Balace/Platform"]
 polygon = PackedVector2Array(-25, -3, 25, -3, 25, 3, -25, 3)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Balace/Balance"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Balace/Platform"]
 shape = SubResource("RectangleShape2D_3k2yw")
 one_way_collision = true
 
@@ -58,3 +98,19 @@ polygon = PackedVector2Array(-4, -19, 4, -19, 4, 19, -4, 19)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Balace/Door"]
 shape = SubResource("RectangleShape2D_kk86r")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAJAAQAAAABAAEAAAAKAAQAAAABAAEAAAAKAAUAAAABAAEAAAAKAAYAAAABAAEAAAAKAAcAAAABAAEAAAAJAAcAAAABAAEAAAAJAAUAAAABAAEAAAAJAAYAAAABAAEAAAAIAAQAAAAAAAEAAAAIAAUAAAAAAAEAAAAIAAYAAAAAAAEAAAAIAAcAAAAAAAEAAAAIAAMAAAAAAAAAAAAJAAMAAAABAAAAAAAKAAMAAAABAAAAAAAHAAQAAAABAAEAAAAGAAQAAAABAAEAAAAGAAUAAAABAAEAAAAGAAYAAAABAAEAAAAHAAYAAAABAAEAAAAHAAUAAAABAAEAAAAHAAcAAAABAAEAAAAGAAcAAAABAAEAAAAFAAcAAAABAAEAAAAFAAYAAAABAAEAAAAFAAUAAAABAAEAAAAFAAQAAAABAAEAAAAEAAQAAAABAAEAAAAEAAUAAAABAAEAAAAEAAYAAAABAAEAAAAEAAcAAAABAAEAAAA=")
+tile_set = SubResource("TileSet_ggfdw")
+
+[node name="Caja" type="AnimatableBody2D" parent="."]
+position = Vector2(160, 40)
+metadata/_edit_group_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Caja"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Caja"]
+shape = SubResource("RectangleShape2D_qxqy7")
+
+[node name="interaction" type="Node" parent="Caja"]

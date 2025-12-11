@@ -12,7 +12,7 @@ var door_pos : Vector2
 var is_interacting = false
 var interacting_count = 0
 
-var bodies : PackedFloat32Array = []
+var bodies : Array = []
 
 func _ready() -> void:
 	platform_pos = platform.position
@@ -22,8 +22,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if is_interacting:
 		var against_weight = 0.0
-		for i in bodies: 
-			against_weight += i
+		for i in bodies.size(): 
+			against_weight += bodies[i].weight
 		
 		if platform.position.y - platform_pos.y < lenght:
 			platform.position.y += delta * against_weight
@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 	
 	is_interacting = false
 
-func interaction(body_weight : float):
-	if !bodies.has(body_weight):
-		bodies.append(body_weight)
+func interaction(body):
+	if !bodies.has(body):
+		bodies.append(body)
 	is_interacting = true
