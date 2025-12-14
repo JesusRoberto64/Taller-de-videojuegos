@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3tukpxddi80t"]
+
+[ext_resource type="Script" uid="uid://b4xaaob4yx8xk" path="res://Escenas/Pollito/balace.gd" id="1_sb8bd"]
+[ext_resource type="Script" uid="uid://wqfvom7xy4gk" path="res://Escenas/Pollito/balance_platform.gd" id="2_msgwx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3k2yw"]
+size = Vector2(50, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kk86r"]
+size = Vector2(8, 37)
+
+[node name="Balace" type="Node2D"]
+script = ExtResource("1_sb8bd")
+
+[node name="Platform" type="AnimatableBody2D" parent="."]
+position = Vector2(0, 37)
+sync_to_physics = false
+script = ExtResource("2_msgwx")
+metadata/_edit_group_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Platform"]
+polygon = PackedVector2Array(-25, -3, 25, -3, 25, 3, -25, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+shape = SubResource("RectangleShape2D_3k2yw")
+one_way_collision = true
+
+[node name="Door" type="AnimatableBody2D" parent="."]
+position = Vector2(38, 1)
+metadata/_edit_group_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Door"]
+polygon = PackedVector2Array(-4, -19, 4, -19, 4, 19, -4, 19)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+shape = SubResource("RectangleShape2D_kk86r")

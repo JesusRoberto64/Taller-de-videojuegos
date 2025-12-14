@@ -19,7 +19,7 @@ var speed = 50.0
 var direction = 1.0
 var move_anim : float
 
-var collision = null
+@onready var objectInteraction = $ObjectsInteraction
 
 func _physics_process(_delta: float) -> void:
 	var move = Input.get_axis('ui_left', 'ui_right')
@@ -33,6 +33,7 @@ func _physics_process(_delta: float) -> void:
 	
 	match cur_state:
 		STATE.GROUND:
+			
 			if Input.is_action_just_pressed('ui_accept'):
 				velocity.y = -jump_force
 				cur_state = STATE.JUMPING
@@ -61,6 +62,7 @@ func _physics_process(_delta: float) -> void:
 	
 	velocity.x = move * speed
 	move_and_slide()
+	
 
 func _process(_delta: float) -> void:
 	if direction > 0.0:
@@ -81,3 +83,6 @@ func _process(_delta: float) -> void:
 				$AnimatedSprite2D.play("idle")
 			else:
 				$AnimatedSprite2D.play("walk")
+
+func interaction(_object):
+	objectInteraction.interaction(_object)

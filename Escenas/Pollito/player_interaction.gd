@@ -1,38 +1,43 @@
 ## weight body interaction
 extends Node
 
-var collider = null
+var Player : CharacterBody2D = null
 var collision_normal : Vector2 = Vector2.ZERO
-var player : CharacterBody2D = null
-@export var object_weight : float = 15.0
-var weight = 5.0
+@export var object_weight : float = 30.0
+var weight : float = 0.0
+var has_upper_body = false
+
+var last_platform = null
+var is_colliding = false
 
 func _ready() -> void:
-	player = get_parent()
-	player.get_node("CollisionShape2D").add_to_group("weight_body")
+	Player = get_parent()
+	Player.add_to_group("weight_body")
 	weight = object_weight
 
 func _physics_process(_delta: float) -> void:
-	
-	for i in player.get_slide_collision_count():
-		var collision = player.get_slide_collision(i)
-		
+	for i in Player.get_slide_collision_count():
+		var collision = Player.get_slide_collision(i)
 		var collider = collision.get_collider()
-		if collider.is_in_group("weight_body"):
-			collider.interaction(self)
-		print(collider.name)
 		
+		collision_normal = collision.get_normal()
+		if collider.is_in_group("weight_body") and collision_normal.y < 0.0:
+			collider.interaction(self)
+		elif collider.is_in_group("balance_platform"):
+			collider.set_weight(self)
+			last_platform = collider
+		is_colliding = true
 	
-	#var collision = player.get_last_slide_collision()
-	#if collision != null:
-		#collider = collision.get_collider()
-		#collision_normal = collision.get_normal()
-		#if collision_normal.y < 0.0 and collider.is_in_group("weight_body"):
-			#collider.get_parent().interaction(self)
-	#else:
-		#weight = object_weight
+	if Player.get_slide_collision_count() == 0 : is_colliding = false
+	
+	if last_platform != null and not is_colliding:
+		last_platform.quit_weight(self)
+		last_platform = null
+	
+	if !has_upper_body: weight = object_weight
+	has_upper_body = false
 
 # Funcion recursiva cuando se tocan a ellos mismos.
 func interaction(_object):
-	if _object.has_method("interaction"):
-		weight += _object.weight
+	has_upper_body = true
+	weight = _object.weight + object_weight
