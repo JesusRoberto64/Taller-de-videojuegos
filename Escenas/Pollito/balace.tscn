@@ -25,6 +25,13 @@ polygon = PackedVector2Array(-25, -3, 25, -3, 25, 3, -25, 3)
 shape = SubResource("RectangleShape2D_3k2yw")
 one_way_collision = true
 
+[node name="RegisterPlatform" type="AnimatableBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RegisterPlatform"]
+shape = SubResource("RectangleShape2D_3k2yw")
+one_way_collision = true
+debug_color = Color(0.954622, 0.31976, 0.519447, 0.42)
+
 [node name="Door" type="AnimatableBody2D" parent="."]
 position = Vector2(38, 1)
 metadata/_edit_group_ = true

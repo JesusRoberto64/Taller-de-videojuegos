@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://dwgdcio01ju3l"]
+[gd_scene load_steps=11 format=4 uid="uid://dwgdcio01ju3l"]
 
 [ext_resource type="PackedScene" uid="uid://cgn7578c6d6na" path="res://Escenas/Pollito/terreno.tscn" id="1_3k2yw"]
 [ext_resource type="Texture2D" uid="uid://davd57lacbm2s" path="res://Recursos/Pollito/fondo_pollito_01.png" id="1_an3p3"]
 [ext_resource type="PackedScene" uid="uid://b0u8bf3v1qies" path="res://Escenas/Pollito/pollito.tscn" id="2_kk86r"]
 [ext_resource type="PackedScene" uid="uid://b3tukpxddi80t" path="res://Escenas/Pollito/balace.tscn" id="4_qxqy7"]
+[ext_resource type="Script" uid="uid://b64b8mfcovi55" path="res://Escenas/Pollito/caja.gd" id="5_ggfdw"]
+[ext_resource type="Script" uid="uid://faicsm5c7wvf" path="res://Escenas/Pollito/player_interaction.gd" id="5_pge4c"]
 [ext_resource type="Texture2D" uid="uid://b4k4s0ajl4ryd" path="res://Recursos/Delfin/coral_title_00.png" id="5_qxqy7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pge4c"]
@@ -60,6 +62,7 @@ tile_set = SubResource("TileSet_ggfdw")
 
 [node name="Caja" type="AnimatableBody2D" parent="."]
 position = Vector2(160, 40)
+script = ExtResource("5_ggfdw")
 metadata/_edit_group_ = true
 
 [node name="Polygon2D" type="Polygon2D" parent="Caja"]
@@ -68,7 +71,8 @@ polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Caja"]
 shape = SubResource("RectangleShape2D_qxqy7")
 
-[node name="interaction" type="Node" parent="Caja"]
+[node name="ObjectsInteraction" type="Node" parent="Caja"]
+script = ExtResource("5_pge4c")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

@@ -86,3 +86,6 @@ func _process(_delta: float) -> void:
 
 func interaction(_object):
 	objectInteraction.interaction(_object)
+
+func get_weight() -> float:
+	return objectInteraction.weight
