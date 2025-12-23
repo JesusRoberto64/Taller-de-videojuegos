@@ -24,12 +24,14 @@ polygon = PackedVector2Array(-25, -3, 25, -3, 25, 3, -25, 3)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
 shape = SubResource("RectangleShape2D_3k2yw")
 one_way_collision = true
+one_way_collision_margin = 4.0
 
 [node name="RegisterPlatform" type="AnimatableBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RegisterPlatform"]
 shape = SubResource("RectangleShape2D_3k2yw")
 one_way_collision = true
+one_way_collision_margin = 4.0
 debug_color = Color(0.954622, 0.31976, 0.519447, 0.42)
 
 [node name="Door" type="AnimatableBody2D" parent="."]

@@ -89,3 +89,6 @@ func interaction(_object):
 
 func get_weight() -> float:
 	return objectInteraction.weight
+
+func set_floor_position(position_y, _gravity : float = 10.0) -> void :
+	position.y = position_y - 15.0

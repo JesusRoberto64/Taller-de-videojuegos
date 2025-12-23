@@ -22,9 +22,8 @@ func _physics_process(_delta: float) -> void:
 		collision_normal = collision.get_normal()
 		if collider.is_in_group("weight_body") and collision_normal.y < 0.0:
 			collider.interaction(self)
-		is_colliding = true
-	
-	if Player.get_slide_collision_count() == 0 : is_colliding = false
+		elif collider.is_in_group("weight_box") and abs(collision_normal.x) > 0.0:
+			collider.push_move(collision_normal.x)
 	
 	if !has_upper_body: weight = object_weight
 	has_upper_body = false
