@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 enum STATE { READY, START, FREEZE, KO, NORMAL }
-var cur_state = STATE.FREEZE
+var cur_state = STATE.READY
 
 var direction = Vector2.LEFT
 var jump_force = 500.0
@@ -9,7 +9,7 @@ var gravity = 30.0
 var speed = 130.0
 
 @onready var anim : AnimatedSprite2D = $AnimatedSprite2D
-var anim_mov = Vector2.LEFT
+var anim_mov = -1.0 # left
 
 @onready var hitBoxes = $Hitboxes
 @onready var punchHitBox = $Hitboxes/puch

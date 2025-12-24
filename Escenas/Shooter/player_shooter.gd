@@ -41,7 +41,7 @@ func _physics_process(delta: float) -> void:
 	
 	velocity = accel
 	move_and_slide()
-	position.y = clamp(position.y, 0.0 ,180.0)
+	#position.y = clamp(position.y, 0.0 ,180.0)
 	cam.offset_movement(mov, delta)
 	#position.x = wrapf(position.x, 0.0 , 320.0)
 	
