@@ -40,6 +40,7 @@ func counter_weight(_bodies, delta):
 		is_interacting = false
 		return
 	
+	
 	if platform.position.y - platform_pos.y < lenght:
 		platform.position.y += delta * gravity
 	if door.position.y > door_pos.y - lenght:

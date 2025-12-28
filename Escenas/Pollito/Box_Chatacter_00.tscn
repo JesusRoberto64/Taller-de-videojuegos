@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://clvyx84dpvqyo"]
+
+[ext_resource type="Script" uid="uid://egxdmfbkm27y" path="res://Escenas/Pollito/Logica/box_character.gd" id="1_8lrsf"]
+[ext_resource type="Script" uid="uid://faicsm5c7wvf" path="res://Escenas/Pollito/Logica/player_interaction.gd" id="5_tvbil"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8lrsf"]
+
+[node name="Box_Character_00" type="CharacterBody2D"]
+floor_max_angle = 1.39626
+script = ExtResource("1_8lrsf")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.241631, 0.228423, 0.384838, 1)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8lrsf")
+
+[node name="ObjectsInteraction" type="Node" parent="."]
+script = ExtResource("5_tvbil")

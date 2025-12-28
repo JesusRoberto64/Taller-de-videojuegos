@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
-enum ANIM_STATE {JUMPING, GROUNDING, FLYING}
+enum ANIM_STATE {JUMPING, GROUNDING, FLYING, FREZZE}
 var cur_anim_state = ANIM_STATE.JUMPING
 
-enum STATE { JUMPING, GROUND, FLY }
-var cur_state = STATE.JUMPING
+enum STATE { JUMPING, GROUND, FLY, AUTO }
+@export var cur_state = STATE.JUMPING
 
 var jump_force = 225.0
 var jump_impulse = 5.0
@@ -20,16 +20,22 @@ var direction = 1.0
 var move_anim : float
 
 @onready var objectInteraction = $ObjectsInteraction
+var is_moving = false
+
+func _ready():
+	if cur_state == STATE.AUTO:
+		add_to_group("weight_box")
 
 func _physics_process(_delta: float) -> void:
 	var move = Input.get_axis('ui_left', 'ui_right')
 	move_anim = move
 	if move != 0.0: direction = move
 	
-	if is_on_floor():
-		cur_state = STATE.GROUND
-	elif cur_state == STATE.GROUND:
-		cur_state = STATE.JUMPING
+	if cur_state != STATE.AUTO:
+		if is_on_floor():
+			cur_state = STATE.GROUND
+		elif cur_state == STATE.GROUND:
+			cur_state = STATE.JUMPING
 	
 	match cur_state:
 		STATE.GROUND:
@@ -59,6 +65,12 @@ func _physics_process(_delta: float) -> void:
 				velocity.y = -fly_force
 			
 			cur_anim_state = ANIM_STATE.JUMPING
+		STATE.AUTO:
+			if not is_on_floor():
+				velocity.y += gravity_fall
+			if not is_moving : move = 0.0
+			is_moving = false
+			
 	
 	velocity.x = move * speed
 	move_and_slide()
@@ -84,11 +96,16 @@ func _process(_delta: float) -> void:
 			else:
 				$AnimatedSprite2D.play("walk")
 
+func push_move(mov : float) -> void:
+	is_moving = true
+	velocity.x = -mov * (1.0 / objectInteraction.weight) * objectInteraction.softness
+
 func interaction(_object):
 	objectInteraction.interaction(_object)
 
 func get_weight() -> float:
 	return objectInteraction.weight
 
-func set_floor_position(position_y, _gravity : float = 10.0) -> void :
-	position.y = position_y - 15.0
+func set_floor_position(position_y, _gravity : float = 10.0, _direction : float = 1.0) -> void :
+	if is_on_floor():
+		position.y = position_y - 15.0

@@ -2,13 +2,11 @@
 extends Node
 
 var Player : CharacterBody2D = null
-var collision_normal : Vector2 = Vector2.ZERO
 @export var object_weight : float = 15.0
 var weight : float = 0.0
-var has_upper_body = false
+var softness = 750.0
 
-var last_platform = null
-var is_colliding = false
+var has_upper_body = false
 
 func _ready() -> void:
 	Player = get_parent()
@@ -19,7 +17,8 @@ func _physics_process(_delta: float) -> void:
 	for i in Player.get_slide_collision_count():
 		var collision = Player.get_slide_collision(i)
 		var collider = collision.get_collider()
-		collision_normal = collision.get_normal()
+		var collision_normal = collision.get_normal()
+		
 		if collider.is_in_group("weight_body") and collision_normal.y < 0.0:
 			collider.interaction(self)
 		elif collider.is_in_group("weight_box") and abs(collision_normal.x) > 0.0:

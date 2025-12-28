@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b3tukpxddi80t"]
 
-[ext_resource type="Script" uid="uid://b4xaaob4yx8xk" path="res://Escenas/Pollito/balace.gd" id="1_sb8bd"]
-[ext_resource type="Script" uid="uid://wqfvom7xy4gk" path="res://Escenas/Pollito/balance_platform.gd" id="2_msgwx"]
+[ext_resource type="Script" uid="uid://b4xaaob4yx8xk" path="res://Escenas/Pollito/Logica/balace.gd" id="1_sb8bd"]
+[ext_resource type="Script" uid="uid://wqfvom7xy4gk" path="res://Escenas/Pollito/Logica/balance_platform.gd" id="2_msgwx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3k2yw"]
 size = Vector2(50, 6)
