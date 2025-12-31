@@ -25,6 +25,7 @@ var is_moving = false
 func _ready():
 	if cur_state == STATE.AUTO:
 		add_to_group("weight_box")
+	add_to_group("player")
 
 func _physics_process(_delta: float) -> void:
 	var move = Input.get_axis('ui_left', 'ui_right')
@@ -106,6 +107,6 @@ func interaction(_object):
 func get_weight() -> float:
 	return objectInteraction.weight
 
-func set_floor_position(position_y, _gravity : float = 10.0, _direction : float = 1.0) -> void :
+func snap_floor_position(position_y, _height) -> void:
 	if is_on_floor():
 		position.y = position_y - 15.0

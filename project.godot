@@ -25,8 +25,8 @@ CollectatonData="*res://Escenas/Colectaton/CollectatonData.gd"
 
 window/size/viewport_width=320
 window/size/viewport_height=180
-window/size/window_width_override=1280
-window/size/window_height_override=720
+window/size/window_width_override=640
+window/size/window_height_override=360
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
 
