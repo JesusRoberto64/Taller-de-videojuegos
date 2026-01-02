@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var accel = Vector2.ZERO
 
-@export_range(0.0, 250.0) var speed = 20.0
+@export_range(0.0, 250.0) var speed = 40.0
 @export var MAX_ACCEL = 7.0
 @export var releace_time = 0.25
 
