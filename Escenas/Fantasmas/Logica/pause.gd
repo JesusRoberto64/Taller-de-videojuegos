@@ -23,7 +23,7 @@ func _process(_delta: float) -> void:
 			if reiniciar.has_focus():
 				get_tree().reload_current_scene()
 			elif menu.has_focus():
-				get_tree().change_scene_to_file("res://Escenas/Coop/Escenas/main_menu.tscn")
+				get_tree().change_scene_to_file("res://Escenas/Fantasmas/Escenas/main_menu.tscn")
 			# hasta el final porque se cancela el focus
 			hide() 
 	elif is_pause and is_finished:
