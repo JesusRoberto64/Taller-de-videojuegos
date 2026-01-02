@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bawq6kgmxe583" path="res://Escenas/Basico/player.tscn" id="3_0kh0y"]
 
 [node name="main" type="Node2D"]
+position = Vector2(-1, 0)
 
 [node name="Arbusto" parent="." instance=ExtResource("2_vt1rs")]
 position = Vector2(89, 37)
