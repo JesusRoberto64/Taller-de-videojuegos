@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bvqhbp5p1begt" path="res://Escenas/Pollito/Logica/pollito.gd" id="1_tr56f"]
 [ext_resource type="Texture2D" uid="uid://ctij4yjiy1bq8" path="res://Recursos/Pollito/pollito.png" id="2_tr56f"]
 [ext_resource type="Texture2D" uid="uid://djl7m3b2uw824" path="res://Recursos/Pollito/pollito_corriendo.png" id="3_tkww2"]
-[ext_resource type="Script" uid="uid://faicsm5c7wvf" path="res://Escenas/Pollito/Logica/player_interaction.gd" id="5_tkww2"]
+[ext_resource type="Script" uid="uid://dtvdvblqqd78k" path="res://Escenas/Pollito/Logica/player_interaction.gd" id="5_tkww2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eogad"]
 atlas = ExtResource("1_1r2qm")

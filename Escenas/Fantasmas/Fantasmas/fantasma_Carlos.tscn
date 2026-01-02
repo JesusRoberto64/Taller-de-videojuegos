@@ -1,0 +1,96 @@
+[gd_scene load_steps=15 format=3 uid="uid://0pd7l3lf8mjq"]
+
+[ext_resource type="Script" uid="uid://dddfwxk77gaor" path="res://Escenas/Fantasmas/Fantasmas/fantasma_03.gd" id="1_45jbw"]
+[ext_resource type="Texture2D" uid="uid://ciiwdotfgyoal" path="res://Recursos/Coop/fantasma carlos.png" id="2_45jbw"]
+[ext_resource type="Shader" uid="uid://bpy83ugtn3tha" path="res://Escenas/Fantasmas/Recursos/fantasma_glow.gdshader" id="3_c5vek"]
+[ext_resource type="Texture2D" uid="uid://trg7oj5scd0c" path="res://Recursos/Coop/particula_light.png" id="4_ca2vi"]
+[ext_resource type="Texture2D" uid="uid://xum2uxnhgtse" path="res://Recursos/Capibara/shadow.png" id="5_ig0w1"]
+[ext_resource type="AnimationLibrary" uid="uid://d4imgg10d8m" path="res://Escenas/Fantasmas/Recursos/Fatasmas_anim.res" id="6_f30rj"]
+[ext_resource type="PackedScene" uid="uid://dnustdadiy5t6" path="res://Escenas/Fantasmas/Escenas/particles_apearing.tscn" id="7_f30rj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_foqeh"]
+radius = 7.0
+height = 22.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f30rj"]
+atlas = ExtResource("2_45jbw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5vek"]
+atlas = ExtResource("2_45jbw")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ca2vi"]
+atlas = ExtResource("2_45jbw")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ig0w1"]
+atlas = ExtResource("2_45jbw")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3n754"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f30rj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5vek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ca2vi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ig0w1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qtrvy"]
+shader = ExtResource("3_c5vek")
+shader_parameter/amount = 0.4
+
+[node name="Fantasma_Carlos" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_45jbw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 2
+position = Vector2(1, 0)
+shape = SubResource("CapsuleShape2D_foqeh")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_3n754")
+autoplay = "default"
+frame_progress = 0.34288
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="glow" type="Sprite2D" parent="sprite"]
+modulate = Color(0.40644, 0.851377, 0.983398, 1)
+material = SubResource("ShaderMaterial_qtrvy")
+position = Vector2(-0.500001, 0.5)
+scale = Vector2(0.71875, 0.96875)
+texture = ExtResource("4_ca2vi")
+region_rect = Rect2(0, 0, 32, 128)
+
+[node name="Shadow" type="Sprite2D" parent="sprite"]
+modulate = Color(0.41598, 0.41598, 0.41598, 1)
+z_index = -1
+position = Vector2(0, 9)
+scale = Vector2(0.876738, 0.681764)
+texture = ExtResource("5_ig0w1")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"Fatasmas_anim": ExtResource("6_f30rj")
+}
+
+[node name="particles" parent="." instance=ExtResource("7_f30rj")]

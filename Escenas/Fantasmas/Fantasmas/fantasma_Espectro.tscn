@@ -1,0 +1,114 @@
+[gd_scene load_steps=17 format=3 uid="uid://bf7c3sluea6l0"]
+
+[ext_resource type="Script" uid="uid://d01gqm1thrgjw" path="res://Escenas/Fantasmas/Fantasmas/fantasma_07.gd" id="1_fcr56"]
+[ext_resource type="Texture2D" uid="uid://dx0nbb656l86y" path="res://Recursos/Coop/Referencias.png" id="2_fcr56"]
+[ext_resource type="Shader" uid="uid://bpy83ugtn3tha" path="res://Escenas/Fantasmas/Recursos/fantasma_glow.gdshader" id="3_b48su"]
+[ext_resource type="Texture2D" uid="uid://trg7oj5scd0c" path="res://Recursos/Coop/particula_light.png" id="4_ft4y2"]
+[ext_resource type="Texture2D" uid="uid://xum2uxnhgtse" path="res://Recursos/Capibara/shadow.png" id="5_k7hn8"]
+[ext_resource type="PackedScene" uid="uid://dnustdadiy5t6" path="res://Escenas/Fantasmas/Escenas/particles_apearing.tscn" id="7_f3052"]
+[ext_resource type="AnimationLibrary" uid="uid://d4imgg10d8m" path="res://Escenas/Fantasmas/Recursos/Fatasmas_anim.res" id="8_b48su"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c3o2d"]
+radius = 12.0416
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3052"]
+atlas = ExtResource("2_fcr56")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b48su"]
+atlas = ExtResource("2_fcr56")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ft4y2"]
+atlas = ExtResource("2_fcr56")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7hn8"]
+atlas = ExtResource("2_fcr56")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27ypv"]
+atlas = ExtResource("2_fcr56")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8iqv"]
+atlas = ExtResource("2_fcr56")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qcwyq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3052")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b48su")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ft4y2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7hn8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27ypv")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8iqv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yd1j5"]
+shader = ExtResource("3_b48su")
+shader_parameter/amount = 0.9
+
+[node name="fantasma_Espectro" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_fcr56")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+z_index = 2
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_c3o2d")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_qcwyq")
+autoplay = "default"
+
+[node name="glow" type="Sprite2D" parent="sprite"]
+modulate = Color(0.127859, 0.167815, 0.278037, 1)
+material = SubResource("ShaderMaterial_yd1j5")
+scale = Vector2(0.890625, 0.890625)
+texture = ExtResource("4_ft4y2")
+region_rect = Rect2(0, 0, 32, 128)
+
+[node name="Shadow" type="Sprite2D" parent="sprite"]
+modulate = Color(0.41598, 0.41598, 0.41598, 1)
+z_index = -1
+position = Vector2(-0.500001, 9)
+scale = Vector2(1.34375, 0.681764)
+texture = ExtResource("5_k7hn8")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"Fatasmas_anim": ExtResource("8_b48su")
+}
+
+[node name="particles" parent="." instance=ExtResource("7_f3052")]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

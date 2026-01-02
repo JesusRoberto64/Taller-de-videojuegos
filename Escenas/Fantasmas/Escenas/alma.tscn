@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://det3wibfb20vc"]
+
+[ext_resource type="Script" uid="uid://cwot8e2sjlky1" path="res://Escenas/Fantasmas/Logica/alma.gd" id="1_h131j"]
+[ext_resource type="Texture2D" uid="uid://trg7oj5scd0c" path="res://Recursos/Coop/particula_light.png" id="1_kr5u0"]
+[ext_resource type="Texture2D" uid="uid://c8c4wmcmkf2c4" path="res://Recursos/Coop/alma_00.png" id="1_oy8yv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oy8yv"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h131j"]
+radius = 25.0
+
+[node name="alma" type="Area2D"]
+script = ExtResource("1_h131j")
+
+[node name="spr" type="Sprite2D" parent="."]
+texture = ExtResource("1_oy8yv")
+
+[node name="glow" type="Sprite2D" parent="spr"]
+modulate = Color(1, 1, 1, 0.486275)
+scale = Vector2(0.380103, 0.380103)
+texture = ExtResource("1_kr5u0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_oy8yv")
+
+[node name="rango" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rango"]
+shape = SubResource("CircleShape2D_h131j")
+disabled = true
+debug_color = Color(0.742639, 0.431515, 0.470075, 0.42)

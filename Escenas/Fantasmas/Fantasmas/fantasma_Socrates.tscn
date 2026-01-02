@@ -1,0 +1,125 @@
+[gd_scene load_steps=19 format=3 uid="uid://ib0g0k4scb7t"]
+
+[ext_resource type="Script" uid="uid://cbd44ydoinf70" path="res://Escenas/Fantasmas/Fantasmas/fantasma_05.gd" id="1_fj8la"]
+[ext_resource type="Texture2D" uid="uid://cpap4dyqwehuh" path="res://Recursos/Coop/socrates_00.png" id="2_fj8la"]
+[ext_resource type="Shader" uid="uid://bpy83ugtn3tha" path="res://Escenas/Fantasmas/Recursos/fantasma_glow.gdshader" id="3_0l8kc"]
+[ext_resource type="Texture2D" uid="uid://xum2uxnhgtse" path="res://Recursos/Capibara/shadow.png" id="3_665ht"]
+[ext_resource type="Texture2D" uid="uid://trg7oj5scd0c" path="res://Recursos/Coop/particula_light.png" id="4_ro8xu"]
+[ext_resource type="PackedScene" uid="uid://dnustdadiy5t6" path="res://Escenas/Fantasmas/Escenas/particles_apearing.tscn" id="7_0l8kc"]
+[ext_resource type="AnimationLibrary" uid="uid://d4imgg10d8m" path="res://Escenas/Fantasmas/Recursos/Fatasmas_anim.res" id="8_ro8xu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_foqeh"]
+radius = 8.0
+height = 28.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ra3fd"]
+atlas = ExtResource("2_fj8la")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_665ht"]
+atlas = ExtResource("2_fj8la")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0l8kc"]
+atlas = ExtResource("2_fj8la")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ro8xu"]
+atlas = ExtResource("2_fj8la")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lxcf"]
+atlas = ExtResource("2_fj8la")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qt8hh"]
+atlas = ExtResource("2_fj8la")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7pqx"]
+atlas = ExtResource("2_fj8la")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0m1e"]
+atlas = ExtResource("2_fj8la")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vvphg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra3fd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_665ht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0l8kc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ro8xu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lxcf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qt8hh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7pqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0m1e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5lxcf"]
+shader = ExtResource("3_0l8kc")
+shader_parameter/amount = 0.4
+
+[node name="Fantasma_Socrates" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_fj8la")
+maxHp = 20.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 2
+position = Vector2(0, -4)
+shape = SubResource("CapsuleShape2D_foqeh")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(0, -2)
+sprite_frames = SubResource("SpriteFrames_vvphg")
+autoplay = "default"
+frame_progress = 0.30063
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="glow" type="Sprite2D" parent="sprite"]
+material = SubResource("ShaderMaterial_5lxcf")
+position = Vector2(0, -1)
+scale = Vector2(1.06284, 1.16912)
+texture = ExtResource("4_ro8xu")
+region_rect = Rect2(0, 0, 32, 128)
+
+[node name="Shadow" type="Sprite2D" parent="sprite"]
+modulate = Color(0.41598, 0.41598, 0.41598, 1)
+z_index = -1
+position = Vector2(0, 11)
+scale = Vector2(1.16913, 0.630256)
+texture = ExtResource("3_665ht")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"Fatasmas_anim": ExtResource("8_ro8xu")
+}
+
+[node name="particles" parent="." instance=ExtResource("7_0l8kc")]

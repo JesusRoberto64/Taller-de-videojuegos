@@ -1,0 +1,270 @@
+[gd_scene load_steps=22 format=3 uid="uid://cji655uey3bvu"]
+
+[ext_resource type="Script" uid="uid://bvwift0ukog4a" path="res://Escenas/Fantasmas/Logica/main_menu.gd" id="1_8l850"]
+[ext_resource type="Script" uid="uid://btp313cap7kt4" path="res://Escenas/Fantasmas/Logica/shader_warmup.gd" id="2_4utyp"]
+[ext_resource type="Texture2D" uid="uid://b2jrlbfwv54l4" path="res://Recursos/Coop/tiltle_scren_bg_00.png" id="2_edh6u"]
+[ext_resource type="FontFile" uid="uid://s1k30xb0m3o8" path="res://Recursos/FontGloboErmilo_w15X.png" id="2_kqyxs"]
+[ext_resource type="Texture2D" uid="uid://l0av4jfi7w6e" path="res://Recursos/Coop/tiltle_scree_00.png" id="3_0wyjt"]
+[ext_resource type="AudioStream" uid="uid://bwk3roc5wypqd" path="res://Recursos/Sonido/Musica/jazzy_00.mp3" id="6_d1sqb"]
+[ext_resource type="AudioStream" uid="uid://c6cn08cr6j87x" path="res://Recursos/Sonido/SFX/select.mp3" id="7_jhefx"]
+[ext_resource type="AudioStream" uid="uid://t610tnw61gu5" path="res://Recursos/Sonido/SFX/accept.mp3" id="8_j5pj1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ulh3"]
+bg_color = Color(0.270588, 0.270588, 0.270588, 0.45098)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wyjt"]
+bg_color = Color(0.270222, 0.270222, 0.270222, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8l850"]
+bg_color = Color(0.270222, 0.270222, 0.270222, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kqyxs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_edh6u"]
+bg_color = Color(0.270222, 0.270222, 0.270222, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4utyp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edh6u"]
+atlas = ExtResource("3_0wyjt")
+region = Rect2(0, 0, 320, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4utyp"]
+atlas = ExtResource("3_0wyjt")
+region = Rect2(320, 0, 320, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d1sqb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edh6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4utyp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_kqyxs"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_8l850"]
+resource_name = "fade_in"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.366667)
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"change_scene"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_0wyjt"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.366667)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0wyjt"]
+_data = {
+&"RESET": SubResource("Animation_kqyxs"),
+&"fade_in": SubResource("Animation_8l850"),
+&"fade_out": SubResource("Animation_0wyjt")
+}
+
+[node name="main_menu" type="CanvasLayer"]
+script = ExtResource("1_8l850")
+
+[node name="ShaderWarmup" type="Node" parent="."]
+script = ExtResource("2_4utyp")
+
+[node name="Timer" type="Timer" parent="ShaderWarmup"]
+one_shot = true
+autostart = true
+
+[node name="bg" type="Sprite2D" parent="."]
+texture = ExtResource("2_edh6u")
+centered = false
+flip_h = true
+
+[node name="Coop" type="Button" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = 6.0
+offset_right = -192.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_top = NodePath("../salir")
+focus_neighbor_bottom = NodePath("../Sobrevivencia")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_kqyxs")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7ulh3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0wyjt")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_8l850")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kqyxs")
+text = " Cooperativo"
+alignment = 0
+
+[node name="Sobrevivencia" type="Button" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = 30.0
+offset_right = -192.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_top = NodePath("../Coop")
+focus_neighbor_bottom = NodePath("../salir")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_kqyxs")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7ulh3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0wyjt")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_edh6u")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4utyp")
+text = " Sobrevivencia"
+alignment = 0
+
+[node name="salir" type="Button" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = 54.0
+offset_right = -192.0
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_top = NodePath("../Sobrevivencia")
+focus_neighbor_bottom = NodePath("../Coop")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_kqyxs")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7ulh3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0wyjt")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_edh6u")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_4utyp")
+text = " Salir
+"
+alignment = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_d1sqb")
+autoplay = "default"
+frame = 1
+frame_progress = 0.117876
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0wyjt")
+}
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_d1sqb")
+volume_db = -8.0
+autoplay = true
+
+[node name="select_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_jhefx")
+
+[node name="accept_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_j5pj1")
+
+[connection signal="timeout" from="ShaderWarmup/Timer" to="ShaderWarmup" method="_on_timer_timeout"]
+[connection signal="focus_entered" from="Coop" to="select_sfx" method="play"]
+[connection signal="pressed" from="Coop" to="." method="_on_coop_pressed"]
+[connection signal="focus_entered" from="Sobrevivencia" to="select_sfx" method="play"]
+[connection signal="pressed" from="Sobrevivencia" to="." method="_on_sobrevivencia_pressed"]
+[connection signal="focus_entered" from="salir" to="select_sfx" method="play"]
+[connection signal="pressed" from="salir" to="." method="_on_salir_pressed"]

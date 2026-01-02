@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4gudo8qx5rvl"]
+
+[ext_resource type="Script" uid="uid://bkh157fudw86w" path="res://Escenas/Fantasmas/Logica/sfx_main.gd" id="1_vgt8f"]
+[ext_resource type="AudioStream" uid="uid://3h3eyy7vcoo8" path="res://Recursos/Sonido/Musica/Pixel Wind Far Loop.wav" id="1_ywg82"]
+[ext_resource type="AudioStream" uid="uid://cs3r7lloypo7u" path="res://Recursos/Sonido/SFX/Frog 003.wav" id="2_g1ytt"]
+[ext_resource type="AudioStream" uid="uid://cacobgx4ucs5t" path="res://Recursos/Sonido/Musica/Keys Dr Stinky Intensity 1.wav" id="3_oxxn6"]
+[ext_resource type="AudioStream" uid="uid://dy70ibcx58gbc" path="res://Recursos/Sonido/Musica/Keys Dr Stinky Intensity 2.wav" id="4_vgt8f"]
+
+[node name="SFX_main" type="Node"]
+script = ExtResource("1_vgt8f")
+
+[node name="wind_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_ywg82")
+volume_db = -10.0
+autoplay = true
+
+[node name="frog_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_g1ytt")
+volume_db = -9.6
+
+[node name="Timer" type="Timer" parent="frog_sfx"]
+wait_time = 4.0
+autostart = true
+
+[node name="music_normal" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_oxxn6")
+bus = &"music"
+
+[node name="music_intense" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_vgt8f")
+bus = &"music"
+
+[connection signal="timeout" from="frog_sfx/Timer" to="frog_sfx" method="play"]
