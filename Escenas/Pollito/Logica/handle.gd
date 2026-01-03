@@ -1,22 +1,39 @@
+## Handle
 extends AnimatableBody2D
 
 var move = false
-var is_rotating = false
 var step = 0.0
 var radian = 0.0
+var direction = 0.0
+var lenght = PI * 2.0
+
+signal move_platform(_radian)
 
 func _ready() -> void:
 	add_to_group("handle")
 
 func _physics_process(delta: float) -> void:
+	var current_radian = radian
+	
 	rotation = radian
+	
 	if move:
 		radian = lerp(radian, step, delta * 5.0)
 		if abs(radian - step) < 0.05:
 			radian = step
 			move = false
+		
+		if radian == current_radian:
+			direction = 0.0
+		elif  radian > current_radian:
+			direction = 1.0 # clock wise
+		else:
+			direction = -1.0 # conter wise
+		step = clamp(step, -lenght, 0.0)
+		move_platform.emit(radian)
+	
 
-func move_handle(direction: Vector2) -> void:
+func move_handle(_direction: Vector2) -> void:
 	if move: return
 	move = true
 	var dir = 0.0
@@ -24,12 +41,11 @@ func move_handle(direction: Vector2) -> void:
 	
 	match step_dir:
 		Vector2.DOWN:
-			dir = sign(direction.x)
+			dir = sign(_direction.x)
 		Vector2.RIGHT:
-			dir = sign(direction.y) * -1.0
+			dir = sign(_direction.y) * -1.0
 		Vector2.UP:
-			dir = sign(direction.x) * -1.0
+			dir = sign(_direction.x) * -1.0
 		Vector2.LEFT:
-			dir = sign(direction.y) 
-	
+			dir = sign(_direction.y) 
 	step += (PI / 2.0) * dir
