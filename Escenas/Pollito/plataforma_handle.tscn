@@ -32,5 +32,6 @@ polygon = PackedVector2Array(-17.7117, -5.71033, 24.2883, -5.71033, 24.2883, 0.2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HandlePlatform"]
 position = Vector2(3.28834, -2.71033)
 shape = SubResource("RectangleShape2D_eogad")
+one_way_collision = true
 
 [connection signal="move_platform" from="Handle" to="HandlePlatform" method="move"]

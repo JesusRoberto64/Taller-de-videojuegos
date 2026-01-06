@@ -5,7 +5,7 @@ var move = false
 var step = 0.0
 var radian = 0.0
 var direction = 0.0
-var lenght = PI * 2.0
+@export_range(PI * 2.0, PI * 5.0,PI) var lenght = PI * 2.0
 
 signal move_platform(_radian)
 
