@@ -41,7 +41,7 @@ func _physics_process(_delta: float) -> void:
 	match cur_state:
 		STATE.GROUND:
 			
-			if Input.is_action_just_pressed('ui_accept'):
+			if Input.is_action_just_pressed('jump'):
 				velocity.y = -jump_force
 				cur_state = STATE.JUMPING
 				can_impulse_jump = true
@@ -50,19 +50,19 @@ func _physics_process(_delta: float) -> void:
 		STATE.JUMPING:
 			velocity.y += gravity_fall if velocity.y > 0.0 else gravity_jump
 			
-			if can_impulse_jump and Input.is_action_pressed('ui_accept') and velocity.y < 0.0:
+			if can_impulse_jump and Input.is_action_pressed('jump') and velocity.y < 0.0:
 				velocity.y -= jump_impulse
-			elif Input.is_action_just_released('ui_accept'):
+			elif Input.is_action_just_released('jump'):
 				can_impulse_jump = false
 			
-			if Input.is_action_just_pressed('ui_accept'):
+			if Input.is_action_just_pressed('jump'):
 				velocity.y = -fly_force
 				cur_state = STATE.FLY
 			
 			cur_anim_state = ANIM_STATE.JUMPING
 		STATE.FLY:
 			velocity.y += gravity_fly
-			if Input.is_action_just_pressed('ui_accept'):
+			if Input.is_action_just_pressed('jump'):
 				velocity.y = -fly_force
 			
 			cur_anim_state = ANIM_STATE.JUMPING

@@ -26,7 +26,7 @@ func _physics_process(_delta: float) -> void:
 	
 	match cur_state:
 		STATE.GROUND:
-			if Input.is_action_just_pressed('ui_accept'):
+			if Input.is_action_just_pressed('jump'):
 				velocity.y = -jump_force
 				cur_state = STATE.JUMPING
 				can_impulse_jump = true

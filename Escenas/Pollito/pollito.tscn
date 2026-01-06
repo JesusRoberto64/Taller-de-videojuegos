@@ -118,6 +118,7 @@ radius = 7.0
 height = 18.0
 
 [node name="Pollito" type="CharacterBody2D"]
+collision_mask = 3
 floor_max_angle = 1.39626
 script = ExtResource("1_tr56f")
 
