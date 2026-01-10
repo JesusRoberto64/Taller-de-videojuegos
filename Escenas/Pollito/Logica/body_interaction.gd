@@ -39,9 +39,6 @@ func add_push_force() -> void:
 		
 		if collider.is_in_group("weight_box") and abs(collision_normal.x) == 1.0:
 			collider.push_move(collision_normal.x)
-		#elif collider.is_in_group("handle"):
-			#collider.move_handle(collision_normal, delta)
-			#pass
 	pass
 
 # Funcion recursiva cuando se tocan a ellos mismos.

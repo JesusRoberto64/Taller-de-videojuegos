@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca4llt5r0npt1"]
+
+[ext_resource type="Script" uid="uid://dtl30ryianpdg" path="res://Escenas/Pollito/Logica/faucet.gd" id="1_0y47w"]
+[ext_resource type="Script" uid="uid://r3go32rm3wc7" path="res://Escenas/Pollito/Logica/faucet_structure.gd" id="1_qsonv"]
+
+[node name="Faucet_Structure" type="Node2D"]
+script = ExtResource("1_qsonv")
+
+[node name="Faucet" type="AnimatableBody2D" parent="."]
+position = Vector2(-0.0302429, -0.0312233)
+sync_to_physics = false
+script = ExtResource("1_0y47w")
+
+[node name="Polygon2D" type="Polygon2D" parent="Faucet"]
+position = Vector2(-372.6, -32)
+polygon = PackedVector2Array(344, 64, 360, 56, 368, 48, 368.008, 31.9904, 375.998, 31.9816, 376, 48, 376, 56, 360, 64, 344, 72, 335.987, 72, 336, 64)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Faucet"]
+position = Vector2(-372.6, -32)
+polygon = PackedVector2Array(344, 64, 360, 56, 368, 48, 368, 32, 376, 32, 376, 48, 376, 56, 360, 64, 344, 72, 335.993, 72, 336, 64)
+
+[node name="Spout" type="StaticBody2D" parent="."]
+position = Vector2(-320.03, -38.0312)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="Spout"]
+polygon = PackedVector2Array(315.422, 37.7605, 323.442, 37.7605, 323.442, 64.5633, 329.432, 64.3602, 329.197, 37.7515, 331.129, 37.7409, 331.361, 42.6337, 355.402, 42.0789, 355.218, 31.3644, 329.229, 31.4659, 314.406, 31.4659)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Spout"]
+polygon = PackedVector2Array(315.422, 37.7605, 323.442, 37.7605, 323.442, 64.5633, 329.432, 64.3602, 329.197, 37.7515, 331.129, 37.7409, 331.361, 42.6337, 355.402, 42.0789, 355.218, 31.3644, 329.229, 31.4659, 314.406, 31.4659)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(24.5877, 4.66814)

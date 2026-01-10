@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://vrb4b7qwy4kn"]
+
+[ext_resource type="Script" uid="uid://t6uci46cgbrk" path="res://Escenas/Pollito/Logica/water_character_00.gd" id="1_itr18"]
+[ext_resource type="Script" uid="uid://bgsmakja0qmwt" path="res://Escenas/Pollito/Logica/water_body_interaction.gd" id="2_vwxds"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vwxds"]
+
+[node name="water_character_00" type="CharacterBody2D"]
+script = ExtResource("1_itr18")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vwxds")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.125579, 0.2628, 0.287778, 0.365)
+polygon = PackedVector2Array(-10.0776, -0.394876, -0.808285, -10.2226, 8.90771, -5.08536, 7.79093, 4.07225, -3.71192, 8.98608)
+
+[node name="water_bodyInteraction" type="Node" parent="."]
+script = ExtResource("2_vwxds")

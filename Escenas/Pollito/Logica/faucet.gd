@@ -12,7 +12,7 @@ func _ready() -> void:
 	add_to_group("faucet")
 
 func _physics_process(delta: float) -> void:
-	var collision = move_and_collide(Vector2.UP * 5.0, true)
+	var collision = move_and_collide(Vector2.UP * 3.25, true)
 	if collision != null:
 		var collider = collision.get_collider()
 		if collider.is_in_group("weight_body")and collision.get_normal().y > 0.0:
@@ -38,4 +38,3 @@ func clicker() -> void:
 	if not is_click:
 		is_click = true
 		click.emit()
-		print("clik", randi())

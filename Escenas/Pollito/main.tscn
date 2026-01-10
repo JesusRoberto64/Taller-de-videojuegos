@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://hj6ls5bxmggq" path="res://Recursos/Pollito/Tiles_template_yoshi.png" id="5_eogad"]
 [ext_resource type="Texture2D" uid="uid://b4k4s0ajl4ryd" path="res://Recursos/Delfin/coral_title_00.png" id="5_qxqy7"]
 [ext_resource type="PackedScene" uid="uid://bfyd5moxlos8u" path="res://Escenas/Pollito/plataforma_handle.tscn" id="8_eogad"]
-[ext_resource type="Script" uid="uid://dtl30ryianpdg" path="res://Escenas/Pollito/Logica/faucet.gd" id="9_nhxhn"]
+[ext_resource type="PackedScene" uid="uid://ca4llt5r0npt1" path="res://Escenas/Pollito/faucet_structure.tscn" id="9_nhxhn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pge4c"]
 texture = ExtResource("5_qxqy7")
@@ -84,7 +84,7 @@ sources/0 = SubResource("TileSetAtlasSource_eogad")
 position = Vector2(211, 44)
 
 [node name="Pollito" parent="." instance=ExtResource("2_kk86r")]
-position = Vector2(258.934, 125.326)
+position = Vector2(282.663, 16)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Pollito"]
@@ -96,7 +96,7 @@ limit_bottom = 180
 position = Vector2(207, 16)
 
 [node name="Box_Caharacter_01" parent="." instance=ExtResource("3_dnf8b")]
-position = Vector2(207, 38)
+position = Vector2(207, 48)
 
 [node name="Box_Caharacter_02" parent="." instance=ExtResource("3_dnf8b")]
 position = Vector2(593, 32)
@@ -123,33 +123,5 @@ metadata/_edit_lock_ = true
 [node name="PlataformaHandle" parent="." instance=ExtResource("8_eogad")]
 position = Vector2(431, 61)
 
-[node name="Faucet_Structure" type="Node2D" parent="."]
+[node name="Faucet_Structure" parent="." instance=ExtResource("9_nhxhn")]
 position = Vector2(312.533, 48)
-metadata/_edit_group_ = true
-
-[node name="Faucet" type="AnimatableBody2D" parent="Faucet_Structure"]
-position = Vector2(-0.0302429, -0.0312233)
-sync_to_physics = false
-script = ExtResource("9_nhxhn")
-
-[node name="Polygon2D" type="Polygon2D" parent="Faucet_Structure/Faucet"]
-position = Vector2(-372.6, -32)
-polygon = PackedVector2Array(344, 64, 360, 56, 368, 48, 368.008, 31.9904, 375.998, 31.9816, 376, 48, 376, 56, 360, 64, 344, 72, 335.987, 72, 336, 64)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Faucet_Structure/Faucet"]
-position = Vector2(-372.6, -32)
-polygon = PackedVector2Array(344, 64, 360, 56, 368, 48, 368, 32, 376, 32, 376, 48, 376, 56, 360, 64, 344, 72, 335.993, 72, 336, 64)
-
-[node name="Spout" type="StaticBody2D" parent="Faucet_Structure"]
-position = Vector2(-320.03, -38.0312)
-collision_layer = 2
-collision_mask = 0
-
-[node name="Polygon2D" type="Polygon2D" parent="Faucet_Structure/Spout"]
-polygon = PackedVector2Array(315.422, 37.7605, 323.442, 37.7605, 323.442, 64.5633, 329.432, 64.3602, 329.197, 37.7515, 331.129, 37.7409, 331.361, 42.6337, 355.402, 42.0789, 355.218, 31.3644, 329.229, 31.4659, 314.406, 31.4659)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Faucet_Structure/Spout"]
-polygon = PackedVector2Array(315.422, 37.7605, 323.442, 37.7605, 323.442, 64.5633, 329.432, 64.3602, 329.197, 37.7515, 331.129, 37.7409, 331.361, 42.6337, 355.402, 42.0789, 355.218, 31.3644, 329.229, 31.4659, 314.406, 31.4659)
-
-[node name="Marker2D" type="Marker2D" parent="Faucet_Structure"]
-position = Vector2(15.3718, 4.66814)
