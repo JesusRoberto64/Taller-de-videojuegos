@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://t6ibltlud6qa"]
+[gd_scene format=4 uid="uid://t6ibltlud6qa"]
 
 [ext_resource type="Texture2D" uid="uid://6sppvdg6lg0e" path="res://Recursos/Capibara/fondo_02.png" id="1_82nk6"]
 [ext_resource type="Texture2D" uid="uid://b2f6knsflsabs" path="res://Recursos/Capibara/capibara Idle.png" id="1_j3wub"]
@@ -146,42 +146,42 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j3wub"]
 size = Vector2(23, 14.75)
 
-[node name="MainTop" type="Node2D"]
+[node name="MainTop" type="Node2D" unique_id=1961300860]
 script = ExtResource("1_nu6k3")
 
-[node name="Mapa" type="Node2D" parent="."]
+[node name="Mapa" type="Node2D" parent="." unique_id=2091411088]
 
-[node name="Fondo" type="Sprite2D" parent="Mapa"]
+[node name="Fondo" type="Sprite2D" parent="Mapa" unique_id=2008328098]
 texture = ExtResource("1_82nk6")
 centered = false
 metadata/_edit_lock_ = true
 
-[node name="Fondo2" type="Sprite2D" parent="Mapa"]
+[node name="Fondo2" type="Sprite2D" parent="Mapa" unique_id=466013643]
 modulate = Color(0.458448, 0.498554, 0.759709, 1)
 position = Vector2(320, 0)
 texture = ExtResource("1_82nk6")
 centered = false
 metadata/_edit_lock_ = true
 
-[node name="Fondo3" type="Sprite2D" parent="Mapa"]
+[node name="Fondo3" type="Sprite2D" parent="Mapa" unique_id=1709323664]
 modulate = Color(1, 0.680798, 0.745946, 1)
 position = Vector2(0, 180)
 texture = ExtResource("1_82nk6")
 centered = false
 metadata/_edit_lock_ = true
 
-[node name="Fondo4" type="Sprite2D" parent="Mapa"]
+[node name="Fondo4" type="Sprite2D" parent="Mapa" unique_id=105990348]
 position = Vector2(320, 180)
 texture = ExtResource("1_82nk6")
 centered = false
 metadata/_edit_lock_ = true
 
-[node name="cueva" type="Sprite2D" parent="Mapa"]
+[node name="cueva" type="Sprite2D" parent="Mapa" unique_id=1714478587]
 position = Vector2(565, 255)
 scale = Vector2(2, 2)
 texture = ExtResource("7_hu57y")
 
-[node name="Teleport A" type="Area2D" parent="." node_paths=PackedStringArray("pair")]
+[node name="Teleport A" type="Area2D" parent="." unique_id=1164477920 node_paths=PackedStringArray("pair")]
 position = Vector2(89, 147)
 collision_layer = 0
 collision_mask = 2
@@ -189,15 +189,15 @@ script = ExtResource("4_3uian")
 pair = NodePath("../Teleport A2")
 metadata/_edit_group_ = true
 
-[node name="Portal" type="Sprite2D" parent="Teleport A"]
+[node name="Portal" type="Sprite2D" parent="Teleport A" unique_id=1989495859]
 texture = ExtResource("4_ujvfd")
 hframes = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport A"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport A" unique_id=1044297165]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_3uian")
 
-[node name="Teleport A2" type="Area2D" parent="." node_paths=PackedStringArray("pair")]
+[node name="Teleport A2" type="Area2D" parent="." unique_id=1038642816 node_paths=PackedStringArray("pair")]
 position = Vector2(72, 297)
 collision_layer = 0
 collision_mask = 2
@@ -205,15 +205,15 @@ script = ExtResource("4_3uian")
 pair = NodePath("../Teleport A")
 metadata/_edit_group_ = true
 
-[node name="Portal" type="Sprite2D" parent="Teleport A2"]
+[node name="Portal" type="Sprite2D" parent="Teleport A2" unique_id=20255418]
 texture = ExtResource("4_ujvfd")
 hframes = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport A2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Teleport A2" unique_id=1324679582]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_3uian")
 
-[node name="cueva" type="Area2D" parent="."]
+[node name="cueva" type="Area2D" parent="." unique_id=524979278]
 position = Vector2(565, 255)
 scale = Vector2(2, 2)
 collision_layer = 0
@@ -223,80 +223,80 @@ to_level = "Level2"
 my_door = 0
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="cueva"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cueva" unique_id=2144215775]
 position = Vector2(1, 9)
 shape = SubResource("CircleShape2D_hrofp")
 
-[node name="Marker2D" type="Marker2D" parent="cueva"]
+[node name="Marker2D" type="Marker2D" parent="cueva" unique_id=1797719767]
 position = Vector2(1.5, 20.5)
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=65926746]
 position = Vector2(2, 1)
 tile_map_data = PackedByteArray("AAANAAUAAQAAAAMAAAANAAYAAQAAAAMAAAANAAcAAQAAAAMAAAANAAgAAQAAAAIAAAAOAAUAAQABAAMAAAAOAAYAAQABAAMAAAAOAAcAAQABAAMAAAAOAAgAAQABAAIAAAANAAQAAQAAAAMAAAAOAAQAAQABAAMAAAANAAMAAQAAAAMAAAAOAAMAAQABAAMAAAANAAIAAQAAAAEAAAAOAAIAAQABAAEAAAAKAAcAAQACAAEAAAALAAcAAQADAAMAAAAMAAcAAQADAAMAAAAMAAgAAQADAAIAAAAKAAgAAQADAAIAAAALAAgAAQADAAIAAAA=")
 tile_set = SubResource("TileSet_5hems")
 
-[node name="Player_top" type="CharacterBody2D" parent="."]
+[node name="Player_top" type="CharacterBody2D" parent="." unique_id=788263086]
 position = Vector2(100, 25)
 collision_layer = 3
 script = ExtResource("2_bqi11")
 metadata/_edit_group_ = true
 
-[node name="Shadow" type="Sprite2D" parent="Player_top"]
+[node name="Shadow" type="Sprite2D" parent="Player_top" unique_id=1809512972]
 position = Vector2(0, 1)
 texture = ExtResource("4_hrofp")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player_top"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player_top" unique_id=2142031628]
 sprite_frames = SubResource("SpriteFrames_dvdqf")
 animation = &"idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player_top"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player_top" unique_id=1758398439]
 position = Vector2(-0.5, 0.625)
 shape = SubResource("RectangleShape2D_j3wub")
 
-[node name="KickForce" type="Node" parent="Player_top" node_paths=PackedStringArray("ball")]
+[node name="KickForce" type="Node" parent="Player_top" unique_id=330155169 node_paths=PackedStringArray("ball")]
 script = ExtResource("12_v852a")
 ball = NodePath("../../Ball")
 
-[node name="Ancher" type="Node" parent="Player_top"]
+[node name="Ancher" type="Node" parent="Player_top" unique_id=1271907112]
 
-[node name="CameraCollectaton" type="Camera2D" parent="Player_top/Ancher" node_paths=PackedStringArray("target_node")]
+[node name="CameraCollectaton" type="Camera2D" parent="Player_top/Ancher" unique_id=903910715 node_paths=PackedStringArray("target_node")]
 anchor_mode = 0
 editor_draw_drag_margin = true
 script = ExtResource("11_q8snl")
 target_node = NodePath("../..")
 
-[node name="Hojas" type="Node2D" parent="."]
+[node name="Hojas" type="Node2D" parent="." unique_id=944496415]
 
-[node name="Hoja" parent="Hojas" instance=ExtResource("6_j2lw0")]
+[node name="Hoja" parent="Hojas" unique_id=1123226444 instance=ExtResource("6_j2lw0")]
 position = Vector2(261, 25)
 
-[node name="Hoja2" parent="Hojas" instance=ExtResource("6_j2lw0")]
+[node name="Hoja2" parent="Hojas" unique_id=334626368 instance=ExtResource("6_j2lw0")]
 position = Vector2(306, 25)
 
-[node name="Hoja3" parent="Hojas" instance=ExtResource("6_j2lw0")]
+[node name="Hoja3" parent="Hojas" unique_id=1193384150 instance=ExtResource("6_j2lw0")]
 position = Vector2(354, 141)
 
-[node name="Hoja4" parent="Hojas" instance=ExtResource("6_j2lw0")]
+[node name="Hoja4" parent="Hojas" unique_id=2082219421 instance=ExtResource("6_j2lw0")]
 position = Vector2(442, 146)
 
-[node name="Hoja5" parent="Hojas" instance=ExtResource("6_j2lw0")]
+[node name="Hoja5" parent="Hojas" unique_id=398537847 instance=ExtResource("6_j2lw0")]
 position = Vector2(486, 171)
 
-[node name="Hoja6" parent="Hojas" instance=ExtResource("6_j2lw0")]
+[node name="Hoja6" parent="Hojas" unique_id=1776296543 instance=ExtResource("6_j2lw0")]
 position = Vector2(488, 305)
 
-[node name="Ball" parent="." instance=ExtResource("15_umgjj")]
+[node name="Ball" parent="." unique_id=1479838440 instance=ExtResource("15_umgjj")]
 position = Vector2(159, 110)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=294961046]
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=662012788]
 position = Vector2(15, 15)
 texture = ExtResource("7_j2lw0")
 region_enabled = true
 region_rect = Rect2(3.00027, 0, 25.4458, 27.3616)
 
-[node name="Hojas_lab" type="Label" parent="CanvasLayer"]
+[node name="Hojas_lab" type="Label" parent="CanvasLayer" unique_id=2022412733]
 offset_left = 27.0
 offset_top = 4.0
 offset_right = 67.0

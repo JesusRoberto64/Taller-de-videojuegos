@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cdp527jleamii"]
+
+[ext_resource type="Script" uid="uid://bo1wupk3hi5k0" path="res://Escenas/TopView_Action/overlod_topview.gd" id="1_sdgn0"]
+[ext_resource type="Texture2D" uid="uid://6sppvdg6lg0e" path="res://Recursos/Capibara/fondo_02.png" id="2_r13ma"]
+[ext_resource type="PackedScene" uid="uid://coyq0vib6lluo" path="res://Escenas/TopView_Action/top_view_character.tscn" id="3_fw0b5"]
+[ext_resource type="Texture2D" uid="uid://dvf0teao0qc8c" path="res://Recursos/Capibara/cueva.png" id="4_van3k"]
+[ext_resource type="Script" uid="uid://bfm5ijsx8fu54" path="res://Escenas/TopView_Action/portal.gd" id="5_11j4x"]
+[ext_resource type="Script" uid="uid://gafk7mj2u4fo" path="res://Escenas/TopView_Action/door.gd" id="7_hkwx3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_av8xp"]
+
+[node name="Main" type="Node2D" unique_id=910481074]
+script = ExtResource("1_sdgn0")
+
+[node name="fondo" type="Parallax2D" parent="." unique_id=961429624]
+repeat_size = Vector2(320, 180)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="fondo" unique_id=493567185]
+texture = ExtResource("2_r13ma")
+centered = false
+
+[node name="TopView_character" parent="." unique_id=290006723 instance=ExtResource("3_fw0b5")]
+position = Vector2(381, 147)
+
+[node name="Cueva" type="Sprite2D" parent="." unique_id=80593079]
+position = Vector2(415, 165)
+texture = ExtResource("4_van3k")
+
+[node name="Portal" type="Area2D" parent="." unique_id=233225714]
+position = Vector2(415, 174)
+script = ExtResource("5_11j4x")
+to_level = "res://Escenas/TopView_Action/cueva_01.tscn"
+my_door = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal" unique_id=425467434]
+shape = SubResource("CircleShape2D_av8xp")
+
+[node name="Door" type="Marker2D" parent="." unique_id=504349004]
+position = Vector2(165, 81)
+script = ExtResource("7_hkwx3")
+
+[node name="Door2" type="Marker2D" parent="." unique_id=1180644789]
+position = Vector2(416, 199)
+script = ExtResource("7_hkwx3")
+my_door = 0

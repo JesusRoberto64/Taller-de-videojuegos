@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ueg5adk6rsaj"]
+
+[ext_resource type="Script" uid="uid://becsh44bmgo8b" path="res://Escenas/TopView_Action/main_title.gd" id="1_fiyj5"]
+[ext_resource type="PackedScene" uid="uid://cdp527jleamii" path="res://Escenas/TopView_Action/main_topview.tscn" id="2_oqi3q"]
+
+[node name="MainTitle" type="Node2D" unique_id=170097457]
+script = ExtResource("1_fiyj5")
+to_level = ExtResource("2_oqi3q")
+
+[node name="Label" type="Label" parent="." unique_id=166090880]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Presiona enter"

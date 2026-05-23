@@ -1,6 +1,7 @@
 extends Area2D
 
 @export_enum("Level1", "Level2" ) var to_level : String
+
 var levels : Dictionary= {
 	"Level1" : "res://Escenas/Colectaton/main_top.tscn",
 	"Level2" : "res://Escenas/Colectaton/main_side.tscn",

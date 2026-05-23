@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://f2342qhvso74"]
+
+[ext_resource type="Texture2D" uid="uid://che6v3s5xascb" path="res://Recursos/Capibara/fondo_03.png" id="1_emdo8"]
+
+[node name="Cueva_02" type="Node2D" unique_id=1052434089]
+
+[node name="fondo" type="Parallax2D" parent="." unique_id=1026174725]
+repeat_size = Vector2(320, 180)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="fondo" unique_id=1770523441]
+texture = ExtResource("1_emdo8")
+centered = false

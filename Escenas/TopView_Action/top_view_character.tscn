@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://coyq0vib6lluo"]
+
+[ext_resource type="Texture2D" uid="uid://di6q1gtsyuwye" path="res://Recursos/Capibara/capibara.png" id="1_mv447"]
+[ext_resource type="Script" uid="uid://ybar6qoox060" path="res://Escenas/TopView_Action/top_view_character.gd" id="1_scx2s"]
+[ext_resource type="Texture2D" uid="uid://c8c4wmcmkf2c4" path="res://Recursos/Coop/alma_00.png" id="3_fsgs6"]
+[ext_resource type="Script" uid="uid://bkro0qq0wpail" path="res://Escenas/TopView_Action/item.gd" id="4_11qug"]
+[ext_resource type="Texture2D" uid="uid://blrt5uabmoklg" path="res://Recursos/Coop/light.png" id="5_6rfht"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krdg1"]
+atlas = ExtResource("1_mv447")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_av8xp"]
+atlas = ExtResource("1_mv447")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4fk8"]
+atlas = ExtResource("1_mv447")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhvee"]
+atlas = ExtResource("1_mv447")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_72rum"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krdg1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_av8xp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4fk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhvee")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fsgs6"]
+size = Vector2(19, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_loq5e"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_fsgs6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jdyfy"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6rfht")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="TopView_character" type="CharacterBody2D" unique_id=290006723]
+script = ExtResource("1_scx2s")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1985388900]
+sprite_frames = SubResource("SpriteFrames_72rum")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1613474327]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_fsgs6")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=220997342]
+
+[node name="ancher_point" type="Node2D" parent="." unique_id=838806695]
+
+[node name="item" type="AnimatedSprite2D" parent="ancher_point" unique_id=320963067]
+position = Vector2(20, 0)
+sprite_frames = SubResource("SpriteFrames_loq5e")
+script = ExtResource("4_11qug")
+
+[node name="item2" type="AnimatedSprite2D" parent="ancher_point" unique_id=190940671]
+visible = false
+position = Vector2(20, 0)
+rotation = -1.5707964
+sprite_frames = SubResource("SpriteFrames_jdyfy")
+script = ExtResource("4_11qug")
+
+[node name="item3" type="AnimatedSprite2D" parent="ancher_point" unique_id=208362682]
+visible = false
+modulate = Color(0.16062862, 0.16062862, 0.16062862, 1)
+position = Vector2(20, 0)
+rotation = -1.5707964
+sprite_frames = SubResource("SpriteFrames_jdyfy")
+script = ExtResource("4_11qug")
+
+[node name="item4" type="AnimatedSprite2D" parent="ancher_point" unique_id=1037128815]
+visible = false
+modulate = Color(0.29803923, 1, 1, 1)
+position = Vector2(20, 0)
+rotation = -1.5707964
+sprite_frames = SubResource("SpriteFrames_jdyfy")
+script = ExtResource("4_11qug")
+
+[node name="item5" type="AnimatedSprite2D" parent="ancher_point" unique_id=1732427565]
+visible = false
+modulate = Color(1, 0.35686275, 1, 1)
+position = Vector2(20, 0)
+rotation = -1.5707964
+sprite_frames = SubResource("SpriteFrames_jdyfy")
+script = ExtResource("4_11qug")
