@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://ca4llt5r0npt1"]
+[gd_scene format=3 uid="uid://ca4llt5r0npt1"]
 
 [ext_resource type="Script" uid="uid://dtl30ryianpdg" path="res://Escenas/Pollito/Logica/faucet.gd" id="1_0y47w"]
 [ext_resource type="Script" uid="uid://r3go32rm3wc7" path="res://Escenas/Pollito/Logica/faucet_structure.gd" id="1_qsonv"]

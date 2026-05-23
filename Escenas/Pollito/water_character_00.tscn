@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://vrb4b7qwy4kn"]
+[gd_scene format=3 uid="uid://vrb4b7qwy4kn"]
 
 [ext_resource type="Script" uid="uid://t6uci46cgbrk" path="res://Escenas/Pollito/Logica/water_character_00.gd" id="1_itr18"]
 [ext_resource type="Script" uid="uid://bgsmakja0qmwt" path="res://Escenas/Pollito/Logica/water_body_interaction.gd" id="2_vwxds"]
