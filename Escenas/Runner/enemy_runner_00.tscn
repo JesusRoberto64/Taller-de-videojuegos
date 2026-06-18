@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dvcyo7v5tux65"]
+
+[ext_resource type="Script" uid="uid://cl1xpd0rm512g" path="res://Escenas/Runner/enemy_runner_00.gd" id="1_hujio"]
+[ext_resource type="Texture2D" uid="uid://dpohj3yax8otl" path="res://Recursos/Coop/fanta.png" id="1_yswg2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hujio"]
+atlas = ExtResource("1_yswg2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3hke"]
+atlas = ExtResource("1_yswg2")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8056q"]
+atlas = ExtResource("1_yswg2")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipcx7"]
+atlas = ExtResource("1_yswg2")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fg24w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hujio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3hke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8056q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipcx7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uqs02"]
+radius = 4.0
+height = 18.0
+
+[node name="Enemy_air" type="Area2D" unique_id=1822733371]
+script = ExtResource("1_hujio")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1757052586]
+sprite_frames = SubResource("SpriteFrames_fg24w")
+autoplay = "default"
+frame_progress = 0.7465073
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=311000130]
+position = Vector2(-1, -2)
+shape = SubResource("CapsuleShape2D_uqs02")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
