@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://b0n4ymgvp2oko"]
+
+[ext_resource type="Script" uid="uid://p4k8iqug7ea3" path="res://Escenas/FP_3D/player_fp.gd" id="1_7hivp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8v8ue"]
+radius = 0.45703125
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7hivp"]
+shading_mode = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_7hivp"]
+material = SubResource("StandardMaterial3D_7hivp")
+
+[node name="main" type="Node3D" unique_id=1389400139]
+
+[node name="Player_fp" type="CharacterBody3D" parent="." unique_id=1154799590]
+script = ExtResource("1_7hivp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player_fp" unique_id=1911101012]
+shape = SubResource("CapsuleShape3D_8v8ue")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Player_fp" unique_id=882259661]
+
+[node name="Rotation_Helper" type="Node3D" parent="Player_fp" unique_id=1032846678]
+
+[node name="Camera3D" type="Camera3D" parent="Player_fp/Rotation_Helper" unique_id=1018451104]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Player_fp/Rotation_Helper" unique_id=177802800]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=584843755]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -6)
+mesh = SubResource("BoxMesh_7hivp")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=647992759]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7543714, 0, -4.217977)
+mesh = SubResource("BoxMesh_7hivp")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=889097839]
+transform = Transform3D(1, 0, 0, 0, 0.6915887, 0.7222916, 0, -0.7222916, 0.6915887, 0, 3.5811586, -3.5173075)
