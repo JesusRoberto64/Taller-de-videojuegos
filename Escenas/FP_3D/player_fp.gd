@@ -2,19 +2,17 @@ extends CharacterBody3D
 
 const gravity = 0.180
 const JUMP_SPEED = 5.80
-var vel : Vector3 = Vector3.ZERO
 const MAX_SPEED = 2.0
 const ACCEL = 1.0
 
 var dir : Vector3 = Vector3.ZERO
 
 const DEACCEL = 0.08
-const MAX_SLOPE_ANGLE = 40.0
 
 @onready var camera = $Rotation_Helper/Camera3D
 @onready var rotation_helper = $Rotation_Helper
 
-var MOUSE_SENSITIVITY = 0.05
+var MOUSE_SENSITIVITY = 1.0
 
 var floor_limit = 0.0
 
@@ -72,7 +70,3 @@ func _input(event):
 		var camera_rot = rotation_helper.rotation_degrees
 		camera_rot.x = clamp(camera_rot.x, -70, 70)
 		rotation_helper.rotation_degrees = camera_rot
-		pass
-	
-	
-	pass

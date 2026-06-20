@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b0n4ymgvp2oko"]
 
-[ext_resource type="Script" uid="uid://p4k8iqug7ea3" path="res://Escenas/FP_3D/player_fp.gd" id="1_7hivp"]
+[ext_resource type="Script" uid="uid://b5wfxy87endpw" path="res://Escenas/FP_3D/player_fp_02.gd" id="1_p4ngn"]
+[ext_resource type="Texture2D" uid="uid://f7ptnxa3snhs" path="res://Recursos/FP/text_sampler.png" id="2_p4ngn"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8v8ue"]
 radius = 0.45703125
@@ -11,15 +12,23 @@ shading_mode = 0
 [sub_resource type="BoxMesh" id="BoxMesh_7hivp"]
 material = SubResource("StandardMaterial3D_7hivp")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qiixg"]
+shading_mode = 0
+albedo_texture = ExtResource("2_p4ngn")
+uv1_scale = Vector3(10, 10, 10)
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_sp7jp"]
+material = SubResource("StandardMaterial3D_qiixg")
+size = Vector2(100, 100)
+
 [node name="main" type="Node3D" unique_id=1389400139]
 
 [node name="Player_fp" type="CharacterBody3D" parent="." unique_id=1154799590]
-script = ExtResource("1_7hivp")
+script = ExtResource("1_p4ngn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player_fp" unique_id=1911101012]
 shape = SubResource("CapsuleShape3D_8v8ue")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Player_fp" unique_id=882259661]
 
 [node name="Rotation_Helper" type="Node3D" parent="Player_fp" unique_id=1032846678]
 
@@ -35,6 +44,10 @@ mesh = SubResource("BoxMesh_7hivp")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=647992759]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7543714, 0, -4.217977)
 mesh = SubResource("BoxMesh_7hivp")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1001339052]
+transform = Transform3D(0.38153893, 0, 0, 0, -1.6677596e-08, 0.38153893, 0, -0.38153893, -1.6677596e-08, 0, -1.1620293, 0)
+mesh = SubResource("QuadMesh_sp7jp")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=889097839]
 transform = Transform3D(1, 0, 0, 0, 0.6915887, 0.7222916, 0, -0.7222916, 0.6915887, 0, 3.5811586, -3.5173075)
