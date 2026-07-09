@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://b520vvllb8kqx" path="res://Escenas/Colectaton/kick_force.gd" id="12_v852a"]
 [ext_resource type="PackedScene" uid="uid://cnrvv6q3cuqxh" path="res://Escenas/Colectaton/ball.tscn" id="15_umgjj"]
 [ext_resource type="Texture2D" uid="uid://cw25hepvrl5c6" path="res://Recursos/Coop/tiles_00.png" id="16_umgjj"]
+[ext_resource type="PackedScene" uid="uid://uvg2r2r2gju2" path="res://Escenas/Colectaton/cofre.tscn" id="17_v852a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3uian"]
 radius = 6.0
@@ -229,6 +230,9 @@ shape = SubResource("CircleShape2D_hrofp")
 
 [node name="Marker2D" type="Marker2D" parent="cueva" unique_id=1797719767]
 position = Vector2(1.5, 20.5)
+
+[node name="Cofre" parent="." unique_id=463881745 instance=ExtResource("17_v852a")]
+position = Vector2(217, 88)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=65926746]
 position = Vector2(2, 1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bo6xdj88c3hir"]
+[gd_scene format=3 uid="uid://bo6xdj88c3hir"]
 
 [ext_resource type="Texture2D" uid="uid://b4pfnbrc5vr8c" path="res://Recursos/Capibara/hoja.png" id="1_jiq0b"]
 [ext_resource type="Script" uid="uid://dwl28d2jnd2vt" path="res://Escenas/Colectaton/hoja.gd" id="1_x3uyr"]
@@ -28,14 +28,14 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jiq0b"]
 size = Vector2(12, 18)
 
-[node name="Hoja" type="Area2D"]
+[node name="Hoja" type="Area2D" unique_id=82706192]
 script = ExtResource("1_x3uyr")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=832827949]
 sprite_frames = SubResource("SpriteFrames_bc7h1")
 autoplay = "default"
 frame_progress = 0.959981
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=328090403]
 position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_jiq0b")

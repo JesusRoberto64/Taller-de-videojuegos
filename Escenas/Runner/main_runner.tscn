@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://xfjryxiqmarj" path="res://Recursos/Sanson/sanson_crunch.png" id="3_oq7fj"]
 [ext_resource type="Script" uid="uid://b7ja6kxiuhl6g" path="res://Escenas/Runner/player_runner_01.gd" id="6_1d63t"]
 [ext_resource type="Script" uid="uid://ch15xhy31wsl4" path="res://Escenas/Runner/invoker_runner.gd" id="7_1d63t"]
+[ext_resource type="PackedScene" uid="uid://dvcyo7v5tux65" path="res://Escenas/Runner/enemy_runner_00.tscn" id="8_c57bx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k3tdl"]
 atlas = ExtResource("3_oq7fj")
@@ -170,6 +171,7 @@ shape = SubResource("RectangleShape2D_c57bx")
 
 [node name="Invoker_runner" type="Node2D" parent="." unique_id=1526587037]
 script = ExtResource("7_1d63t")
+enemy = ExtResource("8_c57bx")
 
 [node name="Marker2D" type="Marker2D" parent="Invoker_runner" unique_id=1945098713]
 position = Vector2(326, 116)

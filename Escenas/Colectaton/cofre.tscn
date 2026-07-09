@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://uvg2r2r2gju2"]
+
+[ext_resource type="Script" uid="uid://cuw2ttmmdelds" path="res://Escenas/Colectaton/cofre.gd" id="1_2dyll"]
+[ext_resource type="Texture2D" uid="uid://c8jiy21obv8kh" path="res://Recursos/Capibara/cofre.png" id="2_1tpv4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4cno"]
+size = Vector2(20, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2dyll"]
+size = Vector2(30, 16)
+
+[node name="Cofre" type="Area2D" unique_id=463881745]
+script = ExtResource("1_2dyll")
+select_items = Dictionary[String, PackedInt32Array]({
+"hoja": PackedInt32Array(3, 7),
+"watermelon": PackedInt32Array(1, 3)
+})
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=896141444]
+texture = ExtResource("2_1tpv4")
+vframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1840638128]
+position = Vector2(0, 11)
+shape = SubResource("RectangleShape2D_e4cno")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1567623332]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1491816373]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_2dyll")
+debug_color = Color(0.7645588, 0.39564157, 0.56666046, 0.41960785)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://048pndpbk44q"]
+
+[ext_resource type="Texture2D" uid="uid://buvpf738l1exr" path="res://Recursos/Capibara/New Piskel.png" id="1_oy68k"]
+[ext_resource type="Script" uid="uid://dwl28d2jnd2vt" path="res://Escenas/Colectaton/hoja.gd" id="1_pv2wf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pv2wf"]
+radius = 8.0
+
+[node name="Sandia" type="Area2D" unique_id=1178073233]
+script = ExtResource("1_pv2wf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1700482605]
+texture = ExtResource("1_oy68k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1213943894]
+shape = SubResource("CircleShape2D_pv2wf")
