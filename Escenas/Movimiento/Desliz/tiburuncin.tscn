@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dceplca4vhqhj"]
+
+[ext_resource type="Texture2D" uid="uid://bndn4dix620nw" path="res://Recursos/Delfin/tiburuncin.png" id="1_8qlyw"]
+[ext_resource type="Script" uid="uid://b77jxy2o8oq4k" path="res://Escenas/Movimiento/Desliz/tiburuncin.gd" id="1_bn6da"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bn6da"]
+atlas = ExtResource("1_8qlyw")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vep24"]
+atlas = ExtResource("1_8qlyw")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bob7l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bn6da")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vep24")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8qlyw"]
+radius = 5.0
+height = 20.0
+
+[node name="Tiburuncin" type="CharacterBody2D" unique_id=120362720]
+script = ExtResource("1_bn6da")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=415766820]
+sprite_frames = SubResource("SpriteFrames_bob7l")
+autoplay = "default"
+frame_progress = 0.16673136
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1769244120]
+position = Vector2(0, 2)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_8qlyw")

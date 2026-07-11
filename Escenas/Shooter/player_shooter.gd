@@ -1,3 +1,4 @@
+class_name Dolphin
 extends CharacterBody2D
 
 var accel = Vector2.ZERO
@@ -27,7 +28,6 @@ func _physics_process(delta: float) -> void:
 		if mov.x != 0.0:
 			sprite_anim.flip_h = true if mov.x < 0.0 else false
 			direction = -1.0 if mov.x < 0.0 else 1.0
-		
 		accel += mov * speed
 		if accel.length() > MAX_ACCEL:
 			accel = accel.normalized() * MAX_ACCEL
@@ -45,6 +45,10 @@ func _physics_process(delta: float) -> void:
 	cam.offset_movement(mov, delta)
 	#position.x = wrapf(position.x, 0.0 , 320.0)
 	
+
+func hurt():
+	get_tree().reload_current_scene()
+
 
 func dash(delta) -> void:
 	if not is_dashing: return 
