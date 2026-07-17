@@ -33,7 +33,7 @@ func _physics_process(delta):
 		if collider is Dolphin:
 			collider.hurt()
 
-func _process(delta):
+func _process(_delta):
 	anim_spr.flip_h = true if direction > 0.0 else false
 
 func hurt():

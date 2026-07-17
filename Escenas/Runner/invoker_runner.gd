@@ -3,7 +3,7 @@ extends Node2D
 var timer = 1.0
 var timer_limit = 0.5
 
-@export var enemy : PackedScene #preload("res://Escenas/Runner/enemy_runner_00.tscn")
+@export var enemy : PackedScene
 var marks = []
 
 func _ready():

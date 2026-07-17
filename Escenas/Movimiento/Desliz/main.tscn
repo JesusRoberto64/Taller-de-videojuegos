@@ -1,51 +1,10 @@
 [gd_scene format=4 uid="uid://db1nlg1wnmxkm"]
 
-[ext_resource type="Texture2D" uid="uid://mu5vdx33nndv" path="res://Recursos/Delfin/delfin48.png" id="1_ki1y3"]
-[ext_resource type="Script" uid="uid://co2uj6cx3tdnd" path="res://Escenas/Shooter/player_shooter.gd" id="1_poue4"]
-[ext_resource type="Script" uid="uid://1yrl6csmh7m6" path="res://Escenas/Shooter/camera_offset.gd" id="3_f3kou"]
+[ext_resource type="PackedScene" uid="uid://vxet2x4ubrl5" path="res://Escenas/Movimiento/Desliz/player.tscn" id="1_2xste"]
 [ext_resource type="Texture2D" uid="uid://dabvrgqk8an7" path="res://Recursos/Delfin/coral_title_01_X2.png" id="4_2xste"]
 [ext_resource type="Texture2D" uid="uid://vwqtfbe27nhu" path="res://Recursos/Delfin/coral_title_02_X2.png" id="4_poue4"]
 [ext_resource type="Texture2D" uid="uid://cvwmeyf5ek5r7" path="res://Recursos/Delfin/fondoDelfin_00.png" id="4_qya0g"]
 [ext_resource type="PackedScene" uid="uid://dceplca4vhqhj" path="res://Escenas/Movimiento/Desliz/tiburuncin.tscn" id="7_f3kou"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bcwev"]
-atlas = ExtResource("1_ki1y3")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bwuh5"]
-atlas = ExtResource("1_ki1y3")
-region = Rect2(48, 0, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_utimc"]
-atlas = ExtResource("1_ki1y3")
-region = Rect2(0, 48, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nd6v3"]
-atlas = ExtResource("1_ki1y3")
-region = Rect2(48, 48, 48, 48)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0hpd4"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bcwev")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bwuh5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_utimc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nd6v3")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qya0g"]
-height = 38.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_poue4"]
 texture = ExtResource("4_2xste")
@@ -94,35 +53,8 @@ sources/1 = SubResource("TileSetAtlasSource_f3kou")
 [node name="main" type="Node2D" unique_id=416343181]
 metadata/_edit_horizontal_guides_ = [860.0]
 
-[node name="player" type="CharacterBody2D" parent="." unique_id=1268266996]
+[node name="player" parent="." unique_id=1119030778 instance=ExtResource("1_2xste")]
 position = Vector2(128, 162)
-script = ExtResource("1_poue4")
-speed = 10.0
-MAX_ACCEL = 225.0
-releace_time = 1.5
-metadata/_edit_group_ = true
-
-[node name="sprite_anim" type="AnimatedSprite2D" parent="player" unique_id=1016304478]
-sprite_frames = SubResource("SpriteFrames_0hpd4")
-autoplay = "default"
-frame = 3
-frame_progress = 0.754743
-offset = Vector2(2, 4)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=1933017631]
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_qya0g")
-
-[node name="Camera2D" type="Camera2D" parent="player" unique_id=1364428600]
-process_callback = 0
-limit_top = 0
-limit_bottom = 860
-drag_left_margin = 0.4
-drag_top_margin = 0.4
-drag_right_margin = 0.4
-drag_bottom_margin = 0.4
-editor_draw_drag_margin = true
-script = ExtResource("3_f3kou")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1623863082]
 position = Vector2(-2, 2)
@@ -145,3 +77,4 @@ metadata/_edit_lock_ = true
 
 [node name="Tiburuncin" parent="." unique_id=120362720 instance=ExtResource("7_f3kou")]
 position = Vector2(347, 196)
+scale = Vector2(2, 2)
