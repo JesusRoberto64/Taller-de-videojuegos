@@ -4,6 +4,9 @@ var dir = Vector2.RIGHT
 var spaw_pos = Vector2.ZERO
 var is_kicked = false
 
+func _init():
+	add_to_group("ball")
+
 func _ready() -> void:
 	spaw_pos = position
 

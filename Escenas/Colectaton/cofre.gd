@@ -16,7 +16,7 @@ func drop_items():
 			inst.position += Vector2(randnum, -35.0)
 			add_child(inst)
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	if not is_opened:
 		$Sprite2D.frame += 1
 		is_opened = true

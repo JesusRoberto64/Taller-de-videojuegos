@@ -1,19 +1,14 @@
 [gd_scene format=4 uid="uid://t6ibltlud6qa"]
 
 [ext_resource type="Texture2D" uid="uid://6sppvdg6lg0e" path="res://Recursos/Capibara/fondo_02.png" id="1_82nk6"]
-[ext_resource type="Texture2D" uid="uid://b2f6knsflsabs" path="res://Recursos/Capibara/capibara Idle.png" id="1_j3wub"]
 [ext_resource type="Script" uid="uid://ccihrr85c3h7v" path="res://Escenas/Colectaton/main_top.gd" id="1_nu6k3"]
-[ext_resource type="Texture2D" uid="uid://di6q1gtsyuwye" path="res://Recursos/Capibara/capibara.png" id="2_82nk6"]
-[ext_resource type="Script" uid="uid://b4vsum1512lr1" path="res://Escenas/Colectaton/player_top.gd" id="2_bqi11"]
 [ext_resource type="Script" uid="uid://d3s36ifao7xqr" path="res://Escenas/Colectaton/teleport.gd" id="4_3uian"]
-[ext_resource type="Texture2D" uid="uid://xum2uxnhgtse" path="res://Recursos/Capibara/shadow.png" id="4_hrofp"]
 [ext_resource type="Texture2D" uid="uid://cs4cd0furcgyh" path="res://Recursos/Capibara/portal.png" id="4_ujvfd"]
 [ext_resource type="PackedScene" uid="uid://bo6xdj88c3hir" path="res://Escenas/Colectaton/hoja.tscn" id="6_j2lw0"]
 [ext_resource type="Texture2D" uid="uid://dvf0teao0qc8c" path="res://Recursos/Capibara/cueva.png" id="7_hu57y"]
 [ext_resource type="Texture2D" uid="uid://b4pfnbrc5vr8c" path="res://Recursos/Capibara/hoja.png" id="7_j2lw0"]
 [ext_resource type="Script" uid="uid://en6n5db6spdv" path="res://Escenas/Colectaton/portal.gd" id="8_af4c3"]
-[ext_resource type="Script" uid="uid://ticxvgqoabgw" path="res://Escenas/Colectaton/camera_collectaton.gd" id="11_q8snl"]
-[ext_resource type="Script" uid="uid://b520vvllb8kqx" path="res://Escenas/Colectaton/kick_force.gd" id="12_v852a"]
+[ext_resource type="PackedScene" uid="uid://x04tfrkmp52l" path="res://Escenas/Colectaton/player_top.tscn" id="9_3uian"]
 [ext_resource type="PackedScene" uid="uid://cnrvv6q3cuqxh" path="res://Escenas/Colectaton/ball.tscn" id="15_umgjj"]
 [ext_resource type="Texture2D" uid="uid://cw25hepvrl5c6" path="res://Recursos/Coop/tiles_00.png" id="16_umgjj"]
 [ext_resource type="PackedScene" uid="uid://uvg2r2r2gju2" path="res://Escenas/Colectaton/cofre.tscn" id="17_v852a"]
@@ -67,85 +62,6 @@ texture_region_size = Vector2i(20, 20)
 tile_size = Vector2i(20, 20)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_v852a")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_maaq8"]
-atlas = ExtResource("1_j3wub")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nu6k3"]
-atlas = ExtResource("1_j3wub")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j2lw0"]
-atlas = ExtResource("1_j3wub")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hu57y"]
-atlas = ExtResource("1_j3wub")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hrofp"]
-atlas = ExtResource("1_j3wub")
-region = Rect2(32, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_af4c3"]
-atlas = ExtResource("2_82nk6")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ujvfd"]
-atlas = ExtResource("2_82nk6")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3uian"]
-atlas = ExtResource("2_82nk6")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q8snl"]
-atlas = ExtResource("2_82nk6")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_dvdqf"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_maaq8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nu6k3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j2lw0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hu57y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hrofp")
-}],
-"loop": false,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_af4c3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ujvfd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3uian")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q8snl")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3wub"]
-size = Vector2(23, 14.75)
 
 [node name="MainTop" type="Node2D" unique_id=1961300860]
 script = ExtResource("1_nu6k3")
@@ -239,35 +155,8 @@ position = Vector2(2, 1)
 tile_map_data = PackedByteArray("AAANAAUAAQAAAAMAAAANAAYAAQAAAAMAAAANAAcAAQAAAAMAAAANAAgAAQAAAAIAAAAOAAUAAQABAAMAAAAOAAYAAQABAAMAAAAOAAcAAQABAAMAAAAOAAgAAQABAAIAAAANAAQAAQAAAAMAAAAOAAQAAQABAAMAAAANAAMAAQAAAAMAAAAOAAMAAQABAAMAAAANAAIAAQAAAAEAAAAOAAIAAQABAAEAAAAKAAcAAQACAAEAAAALAAcAAQADAAMAAAAMAAcAAQADAAMAAAAMAAgAAQADAAIAAAAKAAgAAQADAAIAAAALAAgAAQADAAIAAAA=")
 tile_set = SubResource("TileSet_5hems")
 
-[node name="Player_top" type="CharacterBody2D" parent="." unique_id=788263086]
+[node name="Player_top" parent="." unique_id=267844584 instance=ExtResource("9_3uian")]
 position = Vector2(100, 25)
-collision_layer = 3
-script = ExtResource("2_bqi11")
-metadata/_edit_group_ = true
-
-[node name="Shadow" type="Sprite2D" parent="Player_top" unique_id=1809512972]
-position = Vector2(0, 1)
-texture = ExtResource("4_hrofp")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player_top" unique_id=2142031628]
-sprite_frames = SubResource("SpriteFrames_dvdqf")
-animation = &"idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player_top" unique_id=1758398439]
-position = Vector2(-0.5, 0.625)
-shape = SubResource("RectangleShape2D_j3wub")
-
-[node name="KickForce" type="Node" parent="Player_top" unique_id=330155169 node_paths=PackedStringArray("ball")]
-script = ExtResource("12_v852a")
-ball = NodePath("../../Ball")
-
-[node name="Ancher" type="Node" parent="Player_top" unique_id=1271907112]
-
-[node name="CameraCollectaton" type="Camera2D" parent="Player_top/Ancher" unique_id=903910715 node_paths=PackedStringArray("target_node")]
-anchor_mode = 0
-editor_draw_drag_margin = true
-script = ExtResource("11_q8snl")
-target_node = NodePath("../..")
 
 [node name="Hojas" type="Node2D" parent="." unique_id=944496415]
 

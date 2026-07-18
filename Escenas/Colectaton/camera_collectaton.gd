@@ -1,34 +1,30 @@
-extends Camera2D
+extends Camera2D # Movimiento Zelda
 
-@export var target_node : Node2D = self
-
-var x : float = 320.0
-var y : float = 180.0
+var target_node : Node2D = null
+var x_size : float
+var y_size : float 
 var min_x : float = 0.0
-var max_x : float = x
+var max_x : float 
 var min_y : float = 0.0
-var max_y : float = y
+var max_y : float 
+var cam_speed = 5.0
 
-func _process(_delta: float) -> void:
-	cam_postion()
+func _ready():
+	x_size = get_viewport_rect().size.x
+	y_size = get_viewport_rect().size.y
+	max_x = x_size
+	max_y = y_size
+	target_node = owner
 
-func cam_postion() -> void:
+func _process(delta: float) -> void:
 	var target : Vector2 = target_node.position
-	if target.x > max_x:
-		max_x += x
-		min_x += x
-	elif target.x < min_x:
-		max_x -= x
-		min_x -= x
-	position.x = lerpf(position.x, min_x, 0.1)
 	
-	if target.y > max_y:
-		max_y += y
-		min_y += y
-	elif target.y < min_y:
-		max_y -= y
-		min_y -= y
-	position.y = lerpf(position.y, min_y, 0.1)
-
-func set_target(_node):
-	target_node = _node
+	var shift_x = int(target.x > max_x) - int(target.x < min_x)
+	max_x += shift_x * x_size
+	min_x += shift_x * x_size
+	position.x = lerpf(position.x, min_x, delta * cam_speed)
+	
+	var shift_y = int(target.y > max_y) - int(target.y < min_y)
+	max_y += shift_y * y_size
+	min_y += shift_y * y_size
+	position.y = lerpf(position.y, min_y, delta * cam_speed)

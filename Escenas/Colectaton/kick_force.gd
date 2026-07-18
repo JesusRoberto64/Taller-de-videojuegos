@@ -10,11 +10,15 @@ var vanish_ball = null
 var inst_ball = preload('res://Escenas/Colectaton/ball.tscn')
 
 func _ready() -> void:
+	for i in get_tree().get_nodes_in_group("ball"):
+		ball = i
 	player = get_parent()
-	spaw_pos = ball.position
+	if ball != null: spaw_pos = ball.position
 
 func _physics_process(_delta: float) -> void:
+	if ball == null :return
 	var contact = false
+	
 	if player.position.distance_to(ball.position) < 20.0:
 		contact = true
 	if contact:

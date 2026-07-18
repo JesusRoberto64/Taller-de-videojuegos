@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Taller de Videojuegos"
-run/main_scene="uid://db1nlg1wnmxkm"
+run/main_scene="uid://t6ibltlud6qa"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 run/max_fps=30
 config/icon="res://icon.svg"
