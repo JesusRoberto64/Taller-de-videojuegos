@@ -5,7 +5,7 @@ var cur_state = STATE.NORMAL
 
 var direction = 1.0
 var jump_force = 500.0
-var gravity = 30.0
+var gravity = 22.0
 var speed = 130.0
 
 var is_runnig = false

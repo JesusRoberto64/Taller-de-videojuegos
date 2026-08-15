@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://b2m5oetc66dmw"]
+
+[ext_resource type="Texture2D" uid="uid://djl4f8q4w834x" path="res://Recursos/Parque/Fondo.png" id="1_i5xhx"]
+[ext_resource type="Texture2D" uid="uid://cifmw0a6c1fnv" path="res://Recursos/Parque/Actores-props.png" id="2_0q3yj"]
+
+[node name="main" type="Node2D" unique_id=1480983509]
+
+[node name="Fondo" type="Sprite2D" parent="." unique_id=1545262920]
+scale = Vector2(0.8333333, 0.8333333)
+texture = ExtResource("1_i5xhx")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Actor" type="Sprite2D" parent="." unique_id=260016045]
+position = Vector2(337, 120)
+scale = Vector2(2, 2)
+texture = ExtResource("2_0q3yj")
+hframes = 3
+vframes = 4
+
+[node name="Actor2" type="Sprite2D" parent="." unique_id=2038428613]
+position = Vector2(76, 126)
+scale = Vector2(2, 2)
+texture = ExtResource("2_0q3yj")
+hframes = 3
+vframes = 4
+frame = 8
+
+[node name="Actor3" type="Sprite2D" parent="." unique_id=373423580]
+position = Vector2(46, 120)
+scale = Vector2(2, 2)
+texture = ExtResource("2_0q3yj")
+hframes = 3
+vframes = 4
+
+[node name="Actor4" type="Sprite2D" parent="." unique_id=127411179]
+position = Vector2(130, 119)
+scale = Vector2(2, 2)
+texture = ExtResource("2_0q3yj")
+hframes = 3
+vframes = 4
+frame = 3
+
+[node name="Actor5" type="Sprite2D" parent="." unique_id=1625759567]
+position = Vector2(169, 130)
+scale = Vector2(2, 2)
+texture = ExtResource("2_0q3yj")
+hframes = 3
+vframes = 4
+frame = 7
+
+[node name="Actor6" type="Sprite2D" parent="." unique_id=59133155]
+position = Vector2(194, 136)
+scale = Vector2(2, 2)
+texture = ExtResource("2_0q3yj")
+hframes = 3
+vframes = 4
+frame = 9
+
+[node name="Actor7" type="Sprite2D" parent="." unique_id=1164863879]
+position = Vector2(99, 124)
+scale = Vector2(2, 2)
+texture = ExtResource("2_0q3yj")
+hframes = 3
+vframes = 4
+frame = 10
+
+[node name="Actor8" type="Sprite2D" parent="." unique_id=302004805]
+position = Vector2(168, 58)
+scale = Vector2(2, 2)
+texture = ExtResource("2_0q3yj")
+hframes = 3
+vframes = 4
+frame = 11
+
+[node name="Actor9" type="Sprite2D" parent="." unique_id=2070480466]
+position = Vector2(95, 143)
+scale = Vector2(2, 2)
+texture = ExtResource("2_0q3yj")
+hframes = 3
+vframes = 4
+frame = 6
+
+[node name="Actor10" type="Sprite2D" parent="." unique_id=128559407]
+position = Vector2(153, 147)
+scale = Vector2(2, 2)
+texture = ExtResource("2_0q3yj")
+hframes = 3
+vframes = 4
+frame = 6
+
+[node name="Actor11" type="Sprite2D" parent="." unique_id=169228540]
+position = Vector2(18, 120)
+scale = Vector2(2, 2)
+texture = ExtResource("2_0q3yj")
+hframes = 3
+vframes = 4
+frame = 5
+
+[node name="Actor12" type="Sprite2D" parent="." unique_id=1319491856]
+position = Vector2(64, 143)
+scale = Vector2(2, 2)
+texture = ExtResource("2_0q3yj")
+hframes = 3
+vframes = 4
+frame = 4
+
+[node name="Actor13" type="Sprite2D" parent="." unique_id=810841115]
+position = Vector2(219, 122)
+scale = Vector2(2, 2)
+texture = ExtResource("2_0q3yj")
+hframes = 3
+vframes = 4
+
+[node name="Actor14" type="Sprite2D" parent="." unique_id=47315095]
+position = Vector2(295, 122)
+scale = Vector2(2, 2)
+texture = ExtResource("2_0q3yj")
+hframes = 3
+vframes = 4
+frame = 3
+
+[node name="Actor15" type="Sprite2D" parent="." unique_id=1894542915]
+position = Vector2(239, 122)
+scale = Vector2(2, 2)
+texture = ExtResource("2_0q3yj")
+hframes = 3
+vframes = 4
+frame = 1
+
+[node name="Actor16" type="Sprite2D" parent="." unique_id=380813167]
+position = Vector2(292, 148)
+scale = Vector2(2, 2)
+texture = ExtResource("2_0q3yj")
+hframes = 3
+vframes = 4
+frame = 2
+
+[node name="Actor17" type="Sprite2D" parent="." unique_id=622215305]
+position = Vector2(263, 152)
+scale = Vector2(2, 2)
+texture = ExtResource("2_0q3yj")
+hframes = 3
+vframes = 4
+frame = 2
+
+[node name="Actor18" type="Sprite2D" parent="." unique_id=748117804]
+position = Vector2(24, 145)
+scale = Vector2(2, 2)
+texture = ExtResource("2_0q3yj")
+hframes = 3
+vframes = 4
+frame = 2

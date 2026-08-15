@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cm0plcih7l36o"]
+
+[ext_resource type="Script" uid="uid://ggwggsdc8t06" path="res://Microjuegos/Fase I/camina/sandia.gd" id="1_j83e8"]
+[ext_resource type="Texture2D" uid="uid://buvpf738l1exr" path="res://Recursos/Capibara/New Piskel.png" id="2_v110r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jnpct"]
+radius = 4.0
+
+[node name="sandia" type="Area2D" unique_id=1095949710]
+script = ExtResource("1_j83e8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1025254920]
+texture = ExtResource("2_v110r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1378548172]
+shape = SubResource("CircleShape2D_jnpct")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

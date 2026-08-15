@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://t2bb58vyh06o"]
+
+[ext_resource type="PackedScene" uid="uid://dgd6arqcig4qw" path="res://Microjuegos/Fase I/camina/player.tscn" id="1_4l46m"]
+[ext_resource type="Texture2D" uid="uid://dvktpvltgny3d" path="res://Recursos/Sanson/arena.png" id="1_fegx6"]
+[ext_resource type="Script" uid="uid://cbl61csrdltvg" path="res://Microjuegos/Fase I/camina/invoker.gd" id="3_45t4m"]
+[ext_resource type="Texture2D" uid="uid://buvpf738l1exr" path="res://Recursos/Capibara/New Piskel.png" id="3_uj2kh"]
+[ext_resource type="PackedScene" uid="uid://cm0plcih7l36o" path="res://Microjuegos/Fase I/camina/sandia.tscn" id="4_4lpbk"]
+[ext_resource type="Script" uid="uid://oxlal0jnscpn" path="res://Microjuegos/Fase I/camina/counter.gd" id="5_4lpbk"]
+
+[node name="main" type="Node2D" unique_id=463376756]
+
+[node name="Fondo" type="Sprite2D" parent="." unique_id=1583333591]
+scale = Vector2(1, 1.4000001)
+texture = ExtResource("1_fegx6")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="player" parent="." unique_id=1471680823 instance=ExtResource("1_4l46m")]
+position = Vector2(152, 154)
+
+[node name="invoker" type="Node2D" parent="." unique_id=1094003757 node_paths=PackedStringArray("counter")]
+script = ExtResource("3_45t4m")
+sandia = ExtResource("4_4lpbk")
+counter = NodePath("../CanvasLayer/counter")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1140022663]
+
+[node name="counter" type="Label" parent="CanvasLayer" unique_id=1002509590]
+offset_left = 28.0
+offset_top = 3.0
+offset_right = 68.0
+offset_bottom = 26.0
+text = "x 0"
+script = ExtResource("5_4lpbk")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/counter" unique_id=418820995]
+position = Vector2(-12, 10)
+texture = ExtResource("3_uj2kh")

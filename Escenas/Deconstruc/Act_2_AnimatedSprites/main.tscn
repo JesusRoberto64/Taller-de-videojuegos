@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://c4u0wbll3jvi2"]
+
+[ext_resource type="Texture2D" uid="uid://bfqxk1avnlhq0" path="res://Recursos/Temp/baile_00.png" id="1_a4d8q"]
+[ext_resource type="Texture2D" uid="uid://dd2b2o2q5sbq2" path="res://Recursos/Temp/fondo.png" id="1_vul7e"]
+[ext_resource type="Script" uid="uid://o5q3wwr6enod" path="res://Escenas/Deconstruc/Act_2_AnimatedSprites/player_dance.gd" id="2_vul7e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pvcn"]
+atlas = ExtResource("1_vul7e")
+region = Rect2(0, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aw0ep"]
+atlas = ExtResource("1_vul7e")
+region = Rect2(0, 180, 320, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ikbgx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pvcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aw0ep")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgdmm"]
+atlas = ExtResource("1_a4d8q")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kme51"]
+atlas = ExtResource("1_a4d8q")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_askat"]
+atlas = ExtResource("1_a4d8q")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lubgy"]
+atlas = ExtResource("1_a4d8q")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpwjm"]
+atlas = ExtResource("1_a4d8q")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0kkc"]
+atlas = ExtResource("1_a4d8q")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_be1mn"]
+atlas = ExtResource("1_a4d8q")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjxfr"]
+atlas = ExtResource("1_a4d8q")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0jhkh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgdmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kme51")
+}],
+"loop": true,
+"name": &"dance_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_askat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lubgy")
+}],
+"loop": true,
+"name": &"dance_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpwjm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0kkc")
+}],
+"loop": true,
+"name": &"dance_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_be1mn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjxfr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="main" type="Node2D" unique_id=187378900]
+
+[node name="Fondo" type="AnimatedSprite2D" parent="." unique_id=1497883686]
+sprite_frames = SubResource("SpriteFrames_ikbgx")
+autoplay = "default"
+frame_progress = 0.7617294
+centered = false
+
+[node name="player_dance" type="AnimatedSprite2D" parent="." unique_id=508768198]
+position = Vector2(159, 124)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_0jhkh")
+animation = &"dance_down"
+frame_progress = 0.12822829
+script = ExtResource("2_vul7e")
