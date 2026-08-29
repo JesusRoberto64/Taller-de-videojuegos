@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://jhy1qpsr0h5a"]
+
+[ext_resource type="Texture2D" uid="uid://25dtc3y5shwv" path="res://Recursos/Rana/fondo.png" id="1_pfwvv"]
+
+[node name="main" type="Node2D" unique_id=1098622237]
+
+[node name="Fondo" type="Sprite2D" parent="." unique_id=2046121765]
+texture = ExtResource("1_pfwvv")

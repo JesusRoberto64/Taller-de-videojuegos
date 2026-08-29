@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bfqxk1avnlhq0" path="res://Recursos/Temp/baile_00.png" id="1_a4d8q"]
 [ext_resource type="Texture2D" uid="uid://dd2b2o2q5sbq2" path="res://Recursos/Temp/fondo.png" id="1_vul7e"]
-[ext_resource type="Script" uid="uid://o5q3wwr6enod" path="res://Escenas/Deconstruc/Act_2_AnimatedSprites/player_dance.gd" id="2_vul7e"]
+[ext_resource type="Script" uid="uid://o5q3wwr6enod" path="res://Escenas/Deconstruc/Act_3_Baile/player_dance.gd" id="2_vul7e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4pvcn"]
 atlas = ExtResource("1_vul7e")

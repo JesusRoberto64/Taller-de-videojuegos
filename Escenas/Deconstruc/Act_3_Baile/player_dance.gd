@@ -1,6 +1,6 @@
 extends AnimatedSprite2D # Player_dance
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_pressed("ui_down"):
 		play("dance_down")
 	elif Input.is_action_pressed("ui_up"):

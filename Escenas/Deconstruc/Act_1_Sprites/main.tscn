@@ -33,6 +33,13 @@ texture = ExtResource("2_0q3yj")
 hframes = 3
 vframes = 4
 
+[node name="Actor19" type="Sprite2D" parent="." unique_id=1629880689]
+position = Vector2(108, 120)
+scale = Vector2(2, 2)
+texture = ExtResource("2_0q3yj")
+hframes = 3
+vframes = 4
+
 [node name="Actor4" type="Sprite2D" parent="." unique_id=127411179]
 position = Vector2(130, 119)
 scale = Vector2(2, 2)
