@@ -5,6 +5,8 @@ var speed  : float = 100.0
 var direction : Vector2 = Vector2.RIGHT
 var vec_anim : Vector2 = Vector2.ZERO
 
+@onready var anim = $AnimatedSprite2D
+
 func _ready() -> void:
 	call_deferred("set_init_postion")
 
@@ -16,11 +18,17 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 func _process(_delta: float) -> void:
-	$AnimatedSprite2D.flip_h = false if direction.x > 0.0 else true
+	anim.flip_h = false if direction.x > 0.0 else true
+	
+	
+	var anim_type = "back"
+	if direction.y >= 0.0:
+		anim_type = "front"
+	  
 	if vec_anim == Vector2.ZERO:
-		$AnimatedSprite2D.play("idle")
+		anim.play(anim_type + "_idle")
 	else:
-		$AnimatedSprite2D.play("walk")
+		anim.play(anim_type + "_walk")
 
 func set_init_postion() -> void:
 	if CollectatonData.Door != null:
