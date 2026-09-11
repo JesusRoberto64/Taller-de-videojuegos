@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://l8uujav5jdas"]
+
+[ext_resource type="Texture2D" uid="uid://dj6akbj7yi3l5" path="res://Recursos/Parque/Spr/Actores-props_0001.png" id="1_3vi38"]
+[ext_resource type="Texture2D" uid="uid://qbixr4f8nhcx" path="res://Recursos/Parque/Spr/Actores-props_0002.png" id="2_tdy5x"]
+[ext_resource type="Texture2D" uid="uid://dp1n7c8j5k5s8" path="res://Recursos/Parque/Spr/Actores-props_0008.png" id="3_su2gc"]
+[ext_resource type="Texture2D" uid="uid://sr84bt7pdpvk" path="res://Recursos/Parque/Spr/Actores-props_0010.png" id="4_6l4sb"]
+[ext_resource type="Texture2D" uid="uid://eai6g3haywf0" path="res://Recursos/Parque/Spr/Actores-props_0011.png" id="5_ysy7n"]
+[ext_resource type="Texture2D" uid="uid://dgen5dlnysnwg" path="res://Recursos/Parque/Spr/Actores-props_0005.png" id="6_727jj"]
+[ext_resource type="Texture2D" uid="uid://daxjojb0a13j8" path="res://Recursos/Parque/Spr/Actores-props_0003.png" id="7_ibdo3"]
+[ext_resource type="Texture2D" uid="uid://dl6fjkneo4oa1" path="res://Recursos/Parque/Spr/Actores-props_0007.png" id="8_6pian"]
+[ext_resource type="Texture2D" uid="uid://bvi2l3vrqks5i" path="res://Recursos/Parque/Spr/Actores-props_0006.png" id="9_a8adx"]
+[ext_resource type="Texture2D" uid="uid://dckrbr4s04avv" path="res://Recursos/Parque/Spr/Actores-props_0004.png" id="10_yabte"]
+[ext_resource type="Texture2D" uid="uid://dr5he706wc6nd" path="res://Recursos/Parque/Spr/Actores-props_0012.png" id="11_xkaol"]
+[ext_resource type="Texture2D" uid="uid://5wtn4hhddh88" path="res://Recursos/Parque/Spr/Actores-props_0009.png" id="12_xopw4"]
+
+[node name="main" type="Node2D" unique_id=2032294076]
+
+[node name="arbol" type="Sprite2D" parent="." unique_id=140720790]
+position = Vector2(54, 157)
+texture = ExtResource("1_3vi38")
+
+[node name="arbol2" type="Sprite2D" parent="." unique_id=1396405638]
+position = Vector2(89, 157)
+texture = ExtResource("1_3vi38")
+
+[node name="Faro" type="Sprite2D" parent="." unique_id=1570559655]
+position = Vector2(149, 160)
+texture = ExtResource("2_tdy5x")
+
+[node name="Faro2" type="Sprite2D" parent="." unique_id=1466503900]
+position = Vector2(45, 155)
+texture = ExtResource("2_tdy5x")
+
+[node name="perro" type="Sprite2D" parent="." unique_id=938703149]
+position = Vector2(103, 159)
+texture = ExtResource("3_su2gc")
+
+[node name="hombre" type="Sprite2D" parent="." unique_id=248594977]
+position = Vector2(115, 159)
+texture = ExtResource("4_6l4sb")
+
+[node name="mujer" type="Sprite2D" parent="." unique_id=1761630585]
+position = Vector2(33, 161)
+texture = ExtResource("5_ysy7n")
+
+[node name="ardillla" type="Sprite2D" parent="." unique_id=1243663200]
+position = Vector2(68, 162)
+texture = ExtResource("6_727jj")
+
+[node name="arbusto" type="Sprite2D" parent="." unique_id=981981258]
+z_index = -1
+position = Vector2(159, 160)
+texture = ExtResource("7_ibdo3")
+
+[node name="arbusto3" type="Sprite2D" parent="." unique_id=761193522]
+position = Vector2(13, 156)
+texture = ExtResource("7_ibdo3")
+
+[node name="pasto" type="Sprite2D" parent="." unique_id=1456631554]
+position = Vector2(77, 163)
+texture = ExtResource("8_6pian")
+
+[node name="pasto2" type="Sprite2D" parent="." unique_id=185993976]
+position = Vector2(91, 163)
+texture = ExtResource("8_6pian")
+
+[node name="pasto3" type="Sprite2D" parent="." unique_id=1629132676]
+position = Vector2(131, 163)
+texture = ExtResource("8_6pian")
+
+[node name="flores" type="Sprite2D" parent="." unique_id=1986755153]
+position = Vector2(124, 162)
+texture = ExtResource("9_a8adx")
+
+[node name="flores2" type="Sprite2D" parent="." unique_id=1778802475]
+position = Vector2(41, 162)
+texture = ExtResource("9_a8adx")
+
+[node name="banca" type="Sprite2D" parent="." unique_id=2052207241]
+position = Vector2(136, 157)
+texture = ExtResource("10_yabte")
+
+[node name="pajaro" type="Sprite2D" parent="." unique_id=1306392706]
+position = Vector2(117, 141)
+texture = ExtResource("11_xkaol")
+
+[node name="gato" type="Sprite2D" parent="." unique_id=1521493980]
+position = Vector2(19, 161)
+texture = ExtResource("12_xopw4")
