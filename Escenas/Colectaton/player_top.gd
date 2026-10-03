@@ -20,7 +20,6 @@ func _physics_process(_delta: float) -> void:
 func _process(_delta: float) -> void:
 	anim.flip_h = false if direction.x > 0.0 else true
 	
-	
 	var anim_type = "back"
 	if direction.y >= 0.0:
 		anim_type = "front"

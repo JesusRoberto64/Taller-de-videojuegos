@@ -1,0 +1,212 @@
+[gd_scene format=3 uid="uid://c8eri43w3a1op"]
+
+[ext_resource type="Texture2D" uid="uid://bwp2akt03k8ly" path="res://Recursos/Temp/PANEL_03-1.png" id="1_aunxa"]
+[ext_resource type="Script" uid="uid://cetaanpfo1yky" path="res://Escenas/Menus_Collection/roster_00.gd" id="1_yhheq"]
+[ext_resource type="Texture2D" uid="uid://bfqxk1avnlhq0" path="res://Recursos/Temp/baile_00.png" id="2_uhgem"]
+[ext_resource type="Texture2D" uid="uid://do03uj751x4bm" path="res://Recursos/Temp/PANEL_03-2.png" id="3_yhheq"]
+[ext_resource type="Script" uid="uid://wsq58qgervdj" path="res://Escenas/Menus_Collection/grid_sprite.gd" id="4_2i0pj"]
+[ext_resource type="Texture2D" uid="uid://ctij4yjiy1bq8" path="res://Recursos/Pollito/pollito.png" id="5_sx6mu"]
+[ext_resource type="Texture2D" uid="uid://b2f6knsflsabs" path="res://Recursos/Capibara/capibara Idle.png" id="6_2i0pj"]
+[ext_resource type="Texture2D" uid="uid://cwnt4470bcn05" path="res://Recursos/Coop/fantasma_h.png" id="7_4ossi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2i0pj"]
+content_margin_left = 4.0
+
+[sub_resource type="Theme" id="Theme_w1whd"]
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_2i0pj")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nu5w1"]
+bg_color = Color(0.6897259, 0.5746688, 0.4933641, 1)
+border_color = Color(0.61908174, 0.6190819, 0.61908156, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yhheq"]
+font_size = 9
+
+[node name="Roster_00" type="Node2D" unique_id=995414504]
+script = ExtResource("1_yhheq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2028848262]
+custom_minimum_size = Vector2(320, 180)
+offset_left = 2.0
+offset_right = 322.0
+offset_bottom = 180.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer" unique_id=2021833272]
+custom_minimum_size = Vector2(217, 180)
+layout_mode = 2
+theme = SubResource("Theme_w1whd")
+theme_override_styles/panel = SubResource("StyleBoxFlat_nu5w1")
+follow_focus = true
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/ScrollContainer" unique_id=1227847442]
+layout_mode = 2
+columns = 6
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/ScrollContainer/GridContainer" unique_id=592375524]
+layout_mode = 2
+texture = ExtResource("1_aunxa")
+
+[node name="grid_sprite" type="Sprite2D" parent="HBoxContainer/ScrollContainer/GridContainer/TextureRect" unique_id=1884312022]
+position = Vector2(0, 15)
+texture = ExtResource("2_uhgem")
+centered = false
+hframes = 4
+vframes = 2
+script = ExtResource("4_2i0pj")
+info = "Mono rosa"
+
+[node name="Selector" type="TextureRect" parent="HBoxContainer/ScrollContainer/GridContainer/TextureRect" unique_id=1521935965]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 64.0
+texture = ExtResource("3_yhheq")
+stretch_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="HBoxContainer/ScrollContainer/GridContainer" unique_id=1222601155]
+layout_mode = 2
+texture = ExtResource("1_aunxa")
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/ScrollContainer/GridContainer/TextureRect5" unique_id=1740310431]
+position = Vector2(0, 16)
+texture = ExtResource("5_sx6mu")
+centered = false
+hframes = 3
+script = ExtResource("4_2i0pj")
+info = "Pollito chicken"
+
+[node name="TextureRect6" type="TextureRect" parent="HBoxContainer/ScrollContainer/GridContainer" unique_id=818362476]
+layout_mode = 2
+texture = ExtResource("1_aunxa")
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/ScrollContainer/GridContainer/TextureRect6" unique_id=728344104]
+position = Vector2(0, 16)
+texture = ExtResource("6_2i0pj")
+centered = false
+hframes = 2
+vframes = 3
+script = ExtResource("4_2i0pj")
+info = "Capibara dormilón"
+
+[node name="TextureRect7" type="TextureRect" parent="HBoxContainer/ScrollContainer/GridContainer" unique_id=318557130]
+layout_mode = 2
+texture = ExtResource("1_aunxa")
+
+[node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/ScrollContainer/GridContainer/TextureRect7" unique_id=1926085072]
+position = Vector2(0, 16)
+texture = ExtResource("7_4ossi")
+centered = false
+hframes = 2
+vframes = 2
+script = ExtResource("4_2i0pj")
+info = "Fantasmita"
+
+[node name="TextureRect8" type="TextureRect" parent="HBoxContainer/ScrollContainer/GridContainer" unique_id=1545470055]
+layout_mode = 2
+texture = ExtResource("1_aunxa")
+
+[node name="TextureRect9" type="TextureRect" parent="HBoxContainer/ScrollContainer/GridContainer" unique_id=108236102]
+layout_mode = 2
+texture = ExtResource("1_aunxa")
+
+[node name="TextureRect10" type="TextureRect" parent="HBoxContainer/ScrollContainer/GridContainer" unique_id=663712188]
+layout_mode = 2
+texture = ExtResource("1_aunxa")
+
+[node name="TextureRect11" type="TextureRect" parent="HBoxContainer/ScrollContainer/GridContainer" unique_id=331429633]
+layout_mode = 2
+texture = ExtResource("1_aunxa")
+
+[node name="TextureRect12" type="TextureRect" parent="HBoxContainer/ScrollContainer/GridContainer" unique_id=1945448161]
+layout_mode = 2
+texture = ExtResource("1_aunxa")
+
+[node name="TextureRect13" type="TextureRect" parent="HBoxContainer/ScrollContainer/GridContainer" unique_id=969847019]
+layout_mode = 2
+texture = ExtResource("1_aunxa")
+
+[node name="TextureRect14" type="TextureRect" parent="HBoxContainer/ScrollContainer/GridContainer" unique_id=892161722]
+layout_mode = 2
+texture = ExtResource("1_aunxa")
+
+[node name="TextureRect15" type="TextureRect" parent="HBoxContainer/ScrollContainer/GridContainer" unique_id=1560271798]
+layout_mode = 2
+texture = ExtResource("1_aunxa")
+
+[node name="TextureRect16" type="TextureRect" parent="HBoxContainer/ScrollContainer/GridContainer" unique_id=1890756333]
+layout_mode = 2
+texture = ExtResource("1_aunxa")
+
+[node name="TextureRect17" type="TextureRect" parent="HBoxContainer/ScrollContainer/GridContainer" unique_id=2089370612]
+layout_mode = 2
+texture = ExtResource("1_aunxa")
+
+[node name="TextureRect18" type="TextureRect" parent="HBoxContainer/ScrollContainer/GridContainer" unique_id=1481011896]
+layout_mode = 2
+texture = ExtResource("1_aunxa")
+
+[node name="TextureRect19" type="TextureRect" parent="HBoxContainer/ScrollContainer/GridContainer" unique_id=818480314]
+layout_mode = 2
+texture = ExtResource("1_aunxa")
+
+[node name="TextureRect20" type="TextureRect" parent="HBoxContainer/ScrollContainer/GridContainer" unique_id=186093731]
+layout_mode = 2
+texture = ExtResource("1_aunxa")
+
+[node name="TextureRect21" type="TextureRect" parent="HBoxContainer/ScrollContainer/GridContainer" unique_id=665325022]
+layout_mode = 2
+texture = ExtResource("1_aunxa")
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/ScrollContainer/GridContainer" unique_id=1670509325]
+layout_mode = 2
+texture = ExtResource("1_aunxa")
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer/ScrollContainer/GridContainer" unique_id=1611692795]
+layout_mode = 2
+texture = ExtResource("1_aunxa")
+
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer/ScrollContainer/GridContainer" unique_id=898857146]
+layout_mode = 2
+texture = ExtResource("1_aunxa")
+
+[node name="TextureRect22" type="TextureRect" parent="HBoxContainer/ScrollContainer/GridContainer" unique_id=420112731]
+layout_mode = 2
+texture = ExtResource("1_aunxa")
+
+[node name="TextureRect23" type="TextureRect" parent="HBoxContainer/ScrollContainer/GridContainer" unique_id=631837387]
+layout_mode = 2
+texture = ExtResource("1_aunxa")
+
+[node name="TextureRect24" type="TextureRect" parent="HBoxContainer/ScrollContainer/GridContainer" unique_id=767007779]
+layout_mode = 2
+texture = ExtResource("1_aunxa")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1021196719]
+layout_mode = 2
+
+[node name="TextureRect_Show" type="TextureRect" parent="HBoxContainer/VBoxContainer" unique_id=39271384]
+custom_minimum_size = Vector2(95, 122)
+layout_mode = 2
+texture = ExtResource("1_aunxa")
+
+[node name="Show_spr" type="Sprite2D" parent="HBoxContainer/VBoxContainer/TextureRect_Show" unique_id=1057245625]
+position = Vector2(14, 35)
+scale = Vector2(2, 2)
+texture = ExtResource("2_uhgem")
+centered = false
+hframes = 4
+vframes = 2
+
+[node name="Panel" type="Panel" parent="HBoxContainer/VBoxContainer" unique_id=43499300]
+custom_minimum_size = Vector2(0, 53)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Panel" unique_id=583093335]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Personaje rosa"
+label_settings = SubResource("LabelSettings_yhheq")
+autowrap_mode = 2

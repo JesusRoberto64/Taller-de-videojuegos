@@ -113,10 +113,10 @@ autoplay = "default"
 frame_progress = 0.7617294
 centered = false
 
-[node name="player_dance" type="AnimatedSprite2D" parent="." unique_id=508768198]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=508768198]
 position = Vector2(159, 124)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_0jhkh")
-animation = &"dance_down"
-frame_progress = 0.12822829
+animation = &"idle"
+flip_h = true
 script = ExtResource("2_vul7e")
