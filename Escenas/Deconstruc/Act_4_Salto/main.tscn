@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://dg2b2diwmrivf"]
 
 [ext_resource type="Texture2D" uid="uid://bekyocaxa18gj" path="res://Recursos/Temp/slime.png" id="1_07g02"]
+[ext_resource type="Texture2D" uid="uid://1owmty0y08r" path="res://Recursos/Temp/fondo_salto.png" id="1_qrs3h"]
 [ext_resource type="Script" uid="uid://fk8f7vnl1i1q" path="res://Escenas/Deconstruc/Act_4_Salto/jumper.gd" id="2_1vqk6"]
+[ext_resource type="Texture2D" uid="uid://cjjjn05hdmnib" path="res://Recursos/Temp/sombra_salto.png" id="2_fb3rc"]
+[ext_resource type="Script" uid="uid://ddstdeph8xyea" path="res://Escenas/Deconstruc/Act_4_Salto/sombra_salto.gd" id="3_bft8t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kdw3s"]
 atlas = ExtResource("1_07g02")
@@ -99,11 +102,23 @@ animations = [{
 
 [node name="Main" type="Node2D" unique_id=950282699]
 
+[node name="FondoSalto" type="Sprite2D" parent="." unique_id=1945639600]
+texture = ExtResource("1_qrs3h")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="SombraSalto" type="Sprite2D" parent="." unique_id=1712147276 node_paths=PackedStringArray("jumper")]
+position = Vector2(164, 166)
+texture = ExtResource("2_fb3rc")
+script = ExtResource("3_bft8t")
+jumper = NodePath("../jumper")
+
 [node name="jumper" type="AnimatedSprite2D" parent="." unique_id=1938869298]
-position = Vector2(142, 158)
+position = Vector2(163, 150)
 sprite_frames = SubResource("SpriteFrames_xqbf5")
-animation = &"grounded"
+animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.42531556
 script = ExtResource("2_1vqk6")
 
 [connection signal="animation_finished" from="jumper" to="jumper" method="_on_animation_finished"]

@@ -6,7 +6,6 @@ var cur_STATE = STATE.IDLE
 var velocity = Vector2.ZERO
 var gravity = 1000.0
 var jump_force = 200.0
-var jump_buffer = false
 
 var impulse_force = 0.0
 var impulse_mult = 100.0
@@ -28,17 +27,15 @@ func _process(delta: float) -> void:
 			if Input.is_action_pressed("ui_accept"):
 				cur_STATE = STATE.JUMPANTI
 				play("anticipation_jump")
-			#jump_buffer = Input.is_action_just_pressed("ui_accept")
 		STATE.JUMPANTI:
 			impulse_force += delta * impulse_mult
 			speed_scale = min(speed_scale + delta, 3.0)
-			if  Input.is_action_just_released("ui_accept") or jump_buffer:
+			if  Input.is_action_just_released("ui_accept"):
 				velocity.y = -jump_force - impulse_force
 				play("jump")
 				cur_STATE = STATE.JUMP
 				impulse_force = 0.0
 				speed_scale = 1.0
-				jump_buffer = false
 		STATE.JUMP:
 			if velocity.y > 0.0:
 				play("fall")
@@ -49,6 +46,7 @@ func _process(delta: float) -> void:
 				play("grounded")
 				if pre_velocity < 420.0:
 					frame = 2
+					
 		STATE.GROUNDED:
 			pass
 	
