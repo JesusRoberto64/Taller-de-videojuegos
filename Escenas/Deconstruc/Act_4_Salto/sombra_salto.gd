@@ -2,8 +2,6 @@ extends Sprite2D
 
 @export var jumper : AnimatedSprite2D = null
 var init_pos_y = 0.0
-var threshole = 86.0
-var set_shadow_scaled = false
 
 func _ready() -> void:
 	if jumper != null:
